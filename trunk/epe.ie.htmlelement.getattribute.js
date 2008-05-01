@@ -2,12 +2,16 @@ if (document.createEventObject && window.EPE) {
   // Define new EPE replacement function
   EPE.getAttribute =
     function(a) {
-      if (a.toLowerCase() != 'style')
-        return this._getAttribute(a);
-      else {
+      a = a.toLowerCase();
+      if (a == 'style') {
         var s = this.style.cssText.toLowerCase();
         return s.charAt(s.length - 1) != ';' ? s + ';' : s;
       }
+      else if (a == 'class')
+        a = 'className';
+      else if (a == 'for')
+        a = 'htmlFor';
+      return this._getAttribute(a);
     };
 
   // Define PlugIn for all elements
