@@ -7,14 +7,10 @@ if (document.createEventObject && window.EPE) {
         var s = this.style.cssText.toLowerCase();
         return s.charAt(s.length - 1) != ';' ? s + ';' : s;
       }
-      else if (a == 'class')
-        a = 'className';
-      else if (a == 'for')
-        a = 'htmlFor';
-      return this._getAttribute(a);
+      return this.getAttributeNode(a).nodeValue;
     };
 
   // Define PlugIn for all elements
   EPE.PlugIn.GetAttribute = new EPE.PlugIn();
-  EPE.PlugIn.GetAttribute.addEPEListener('create',function(){this._getAttribute = this.getAttribute; this.getAttribute = EPE.getAttribute;});
+  EPE.PlugIn.GetAttribute.addEPEListener('create',function(){this.getAttribute = EPE.getAttribute;});
 }

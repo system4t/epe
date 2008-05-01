@@ -16,6 +16,14 @@
         var elm = document.getElementById('div');
         alert(elm.getAttribute('id'));
         alert(elm.getAttribute('style'));
+        //alert(document.body.getAttribute('onclick'));
+        alert(elm.getAttribute('class'));
+        // Test event handler
+        var o = document.body.getAttributeNode('onclick');
+        var s = '';
+        for(var p in o)
+          s += p + ': ' + o[p] + '<br/>';
+        //document.body.innerHTML = s;
         
         // Test on dynamically created element
         var elm = document.createElement('table');
@@ -29,8 +37,8 @@
     </script>
     </script>
   </head>
-  <body onload="load();">
-    <div id="div" style="border: 1px solid #f00; width: 100px; height: 100px;">Hello</div>
+  <body onload="load();" onclick="load();">
+    <div id="div" style="border: 1px solid #f00; width: 100px; height: 100px;" class="main">Hello</div>
     <script type="text/javascript">
       if (window.EPE) {
         EPE.__R1 = document.documentElement.childNodes[1].onload;

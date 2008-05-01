@@ -9,14 +9,17 @@
     <script type="text/javascript">
     
       // Override IE native setAttribute
-     
+      
+      function test(id) {
+        alert(id);
+        //alert('test function');
+      }
       
       function load() {
         // Test on existing element
         var elm = document.getElementById('div');
-        alert(elm.id);
-        alert(elm.setAttribute('style','border: 10px solid blue; padding: 20px'));
-        alert(elm.id);
+        elm.setAttribute('style','border: 10px solid blue; padding: 20px');
+        elm.setAttribute('onclick','test(this.id)');
         //alert(elm.getAttribute('style'));
         
         // Test on dynamically created element
