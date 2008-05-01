@@ -5,24 +5,22 @@
     <meta name="generator" content="PSPad editor, www.pspad.com">
     <title>EPE.IE.HTMLElement.hasAttribute.UnitTest</title>
     <script type="text/javascript" src="epe.ie.htmlelement.js"></script>
-    <script type="text/javascript" src="epe.ie.htmlelement.hasattribute.js"></script>
+    <script type="text/javascript" src="epe.ie.htmlelement.hasattributes.js"></script>
     <script type="text/javascript">
     
-      // Override IE native hasAttribute
-     
       function load() {
         // Test on existing element
         var elm = document.getElementById('div');
         // Should be true
-        alert(elm.hasAttribute('id'));
+        alert(elm.hasAttributes());
         // Should be false
-        alert(elm.hasAttribute('class'));
+        alert(document.body.firstChild.hasAttributes());
       }
    
     </script>
     </script>
   </head>
-  <body onload="load();">
+  <body onload="load();"><div>first child</div>
     <div id="div" style="border: 1px solid red; padding: 2px;">Hello</div>
     <script type="text/javascript">
       if (window.EPE) {
