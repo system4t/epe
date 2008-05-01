@@ -25,5 +25,6 @@ if (document.createEventObject && windw.EPE && EPE.ENABLE_W3C_COLLECTION) {
   HTMLCollection.prototype.constructor = HTMLCollection;
   document.documentElement.childNodes[0].appendChild(HTMLCollection.prototype);
   HTMLCollection.prototype.attachEvent('onpropertychange',EPE.updateHTMLCollection);
+  a change for merge tesing
   */
 }
