@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml" onlayoutcomplete="layout();">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+    <meta name="generator" content="PSPad editor, www.pspad.com">
+    <title>EPE.IE.HTMLElement.hasAttribute.UnitTest</title>
+    <script type="text/javascript" src="epe.ie.htmlelement.js"></script>
+    <script type="text/javascript" src="epe.ie.htmlelement.getattribute.js"></script>
+    <script type="text/javascript" src="epe.ie.htmlelement.hasattribute.js"></script>
+    <script type="text/javascript">
+    
+      // Override IE native setAttribute
+     
+      
+      function load() {
+        // Test on existing element
+        var elm = document.getElementById('div');
+        // Should be true
+        /*
+        var o = elm.getAttributeNode('class');
+        alert(typeof o.nodeValue);
+        var s = '';
+        for (var p in o)
+          s += p + ': ' + o[p] + '<br/>';
+        document.body.innerHTML = s;
+        */
+        //elm.className = 'hej';
+        alert(elm.getAttributeNode('style').nodeValue);
+        //alert(elm.hasAttribute('class'));
+        // Should be false
+        //alert(elm.getAttribute('class'));
+        
+      }
+   
+    </script>
+    </script>
+  </head>
+  <body onload="load();">
+    <div id="div" style="border: 1px solid red; padding: 2px;">Hello</div>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>
