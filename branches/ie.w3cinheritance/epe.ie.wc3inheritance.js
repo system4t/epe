@@ -1,4 +1,3 @@
-// A test change
 // If W3C inheritance is enabled
 if (document.createEventObject && window.EPE && EPE.ENABLE_W3C_INHERITANCE) {
   // Create inheritance from native JS Object
