@@ -1,6 +1,7 @@
+// HTMLElement.getAttribute correction for IE
 if (document.createEventObject && window.EPE) {
   // Define new EPE replacement function
-  EPE.getAttribute =
+  HTMLElement.prototype.getAttribute =
     function(a) {
       a = a.toLowerCase();
       if (a == 'style') {
@@ -9,8 +10,4 @@ if (document.createEventObject && window.EPE) {
       }
       return this.getAttributeNode(a).nodeValue;
     };
-
-  // Define PlugIn for all elements
-  EPE.PlugIn.GetAttribute = new EPE.PlugIn();
-  EPE.PlugIn.GetAttribute.addEPEListener('create',function(){this.getAttribute = EPE.getAttribute;});
 }
