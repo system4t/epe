@@ -3,37 +3,35 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
     <meta name="generator" content="PSPad editor, www.pspad.com">
-    <title>EPE.IE.HTMLElement.setAttribute.UnitTest</title>
+    <title>EPE.IE.HTMLElement.removeAttribute.UnitTest</title>
     <script type="text/javascript" src="epe.ie.htmlelement.js"></script>
     <script type="text/javascript" src="epe.ie.htmlelement.hasattribute.js"></script>
-    <script type="text/javascript" src="epe.ie.htmlelement.setattribute.js"></script>
+    <script type="text/javascript" src="epe.ie.htmlelement.removeattribute.js"></script>
+    <script type="text/javascript" src="epe.ie.htmlelement.removeattributenode.js"></script>
     <script type="text/javascript">
     
-      // Override IE native setAttribute
-      
-      function test(id) {
-        alert(id);
-        //alert('test function');
+      function test() {
+        alert('test function');
       }
       
+      // Override IE native removeAttribute
+     
       function load() {
         // Test on existing element
         var elm = document.getElementById('div');
-        // Should be false;
+        // Should be true
         alert(elm.hasAttribute('onclick'));
-        elm.setAttribute('style','border: 10px solid blue; padding: 20px');
-        elm.setAttribute('onclick','test(this.id)');
-        // Should be true;
+        alert(elm.attributes['onclick'].nodeName);
+        elm.removeAttributeNode(elm.attributes['onclick']);
+        // Should be false
         alert(elm.hasAttribute('onclick'));
-        
-        
       }
    
     </script>
     </script>
   </head>
   <body onload="load();">
-    <div id="div" style="border: 1px solid #f00; width: 100px; height: 100px;">Hello</div>
+    <div id="div" style="border: 1px solid red; padding: 2px;" onclick="test();">Hello</div>
     <script type="text/javascript">
       if (window.EPE) {
         EPE.__R1 = document.documentElement.childNodes[1].onload;

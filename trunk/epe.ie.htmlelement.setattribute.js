@@ -14,17 +14,17 @@ if (document.createEventObject && window.EPE) {
         }
         return;
       }
-      else if (a == 'class')
-        a = 'className';
-      else if (a == 'for')
-        a = 'htmlFor';
       // If event handler set attribute as property. This will invoke
       // UEM event handling if UEM is loaded
-      else if (a.match(/^on/)) {
+      else if (/^on/.test(a)) {
         // Create new anonymous function with v as body
         this[a] = new Function(v);
         return;
       }
+      else if (a == 'class')
+        a = 'className';
+      else if (a == 'for')
+        a = 'htmlFor';
       // Default behavior is to use native method
       this._setAttribute(a,v);
     };

@@ -1,11 +1,11 @@
-// HTMLElement.getAttribute correction for IE
+// HTMLElement.removeAttribute correction for IE
 if (document.createEventObject && window.EPE) {
   // Define new EPE replacement function
   EPE.removeAttribute =
     function(a) {
       a = a.toLowerCase();
       if (/^on/.test(a))
-        this[a] = undefined;
+        this[a] = null;
       else
         return this._removeAttribute(a);
     };
