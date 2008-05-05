@@ -833,7 +833,7 @@ if (document.createEventObject) {
       // This loop causes all elements of type tag to fire onpropertychange
       // Changes to the prototype is an intricate part of EPE
       // and should not be communicated to other scripts
-      var l = elms.length
+      var l = elms.length;
       for(var i=0; i<l; i++) {
         EPE.disableWatch(elms[i]);
         elms[i][p] = v;
