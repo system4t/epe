@@ -331,7 +331,7 @@ if (document.createEventObject) {
     EPE.cache.addRecursive =
       function(node) {
         if (!node.tagName)
-          return
+          return;
         if (node.childNodes) {
           for(var i=0; i<node.childNodes.length; i++)
             EPE.cache.addRecursive(node.childNodes[i]);
