@@ -1,0 +1,234 @@
+<!-- 
+    Document   : anchorTest
+    Created on : Mar 14, 2008, 11:17:39 PM
+    Author     : allan.jacobs
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" charset="UTF-8" src="epe/trunk/epe.ie.htmlelement.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="epe/trunk/epe.ie.htmlelement.getattribute.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="epe/trunk/epe.ie.htmlelement.setattribute.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="epe/trunk/epe.ie.htmlelement.removeattribute.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="epe/trunk/epe.ie.htmlelement.hasattribute.js"></script>
+    <script text="text/javascript" charset="UTF-8">
+       var aA = document.createElement('a');
+      function onclickHandler(){
+        var aA = document.getElementById("anchorid");
+        var idCk = aA.getAttribute("id") == "anchorid";
+        var classCk = aA.getAttribute("class") == "htmlclass anchorclass";
+        var styleCk = aA.getAttribute("style") == "font-size: 12pt; color: fuchsia;";
+        var titleCk = aA.getAttribute("title") == "anchortitle";
+        var langCk = aA.getAttribute("lang") == "en";
+        var dirCk = aA.getAttribute("dir") == "ltr";
+        var accesskeyCk = aA.getAttribute("accesskey") == "A";
+        var charsetCk = aA.getAttribute("charset") == "UTF-8";
+        var coordsCk = aA.getAttribute("coords") == "4,4,4,4";
+        var hrefCk = aA.getAttribute("href") == "anchor.html";
+        var hreflangCk = aA.getAttribute("hreflang") == "en";
+        var nameCk = aA.getAttribute("name") == "anchorname";
+        var relCk = aA.getAttribute("rel") == "Help";
+        var revCk = aA.getAttribute("rev") == "Subsection";
+        var shapeCk = aA.getAttribute("shape") == "default";
+        var tabindexCk = aA.getAttribute("tabindex") == 0;
+        var typeCk = aA.getAttribute("type") == "text/html";
+        alert(
+        "0\n" +
+        "idCk=" + idCk + "\n" +
+          "classCk=" + classCk + ": " + aA.getAttribute("class") + "\n" + // IE6: null
+        "styleCk=" + styleCk + ": " + aA.getAttribute("style") + "\n" + // IE6: [object]
+        "titleCk=" + titleCk  + "\n" +
+          "langCk=" + langCk + "\n" +
+          "dirCk=" + dirCk + "\n" +
+          "accesskeyCk=" + accesskeyCk + "\n" +
+          "charsetCk=" + charsetCk + "\n" +
+          "coordsCk=" + coordsCk + "\n" +
+          "hrefCk=" + hrefCk + ": " + aA.getAttribute("href") + "\n" + // IE6: [url]
+        "hreflangCk=" + hreflangCk + "\n" +
+          "nameCk=" + nameCk + "\n" +
+          "relCk=" + relCk + "\n" +
+          "revCk=" + revCk + "\n" +
+          "shapeCk=" + shapeCk + "\n" +
+          "tabindexCk=" + tabindexCk + "\n" +
+          "typeCk=" + typeCk
+      );
+        var onclickCk = aA.getAttribute("onclick") == "onclickHandler();";
+        var ondblclickCk = aA.getAttribute("ondblclick") == "ondblclickHandler();";
+        var onmousedownCk = aA.getAttribute("onmousedown") == "onmousedownHandler();";
+        var onmouseupCk = aA.getAttribute("onmouseup") == "onmouseupHandler();";
+        var onmousemoveCk = aA.getAttribute("onmousemove") == "onmousemoveHandler();";
+        var onmouseoutCk = aA.getAttribute("onmouseout") == "onmouseoutHandler();";
+        var onkeypressCk = aA.getAttribute("onkeypress") == "onkeypressHandler();";
+        var onkeyupCk = aA.getAttribute("onkeyup") == "onkeyupHandler();";
+        var onkeydownCk = aA.getAttribute("onkeydown") == "onkeydownHandler();";
+        var onfocusCk = aA.getAttribute("onfocus") == "onfocusHandler();";
+        var onblurCk = aA.getAttribute("onblur") == "onblurHandler();";
+        // getAttribute()
+        // Firefox returns the string assigned the HTML attribute.
+        // IE6 returns a string, but it is the generated source code for
+        // a function that wraps the script assigned to the attribute. 
+        // function anonymouse()
+        // {
+        // onclickHandler();
+        // }
+        alert(
+        "1\n" +
+        "onclickCk=" + onclickCk + ": " + aA.getAttribute("onclick") + "\n" +
+          "ondblclickCk=" + ondblclickCk + "\n" +
+          "onmousedownCk=" + onmousedownCk + "\n" +
+          "onmouseupCk=" + onmouseupCk + "\n" +
+          "onmousemoveCk=" + onmousemoveCk + "\n" +
+          "onmouseoutCk=" + onmouseoutCk + "\n" +
+          "onkeypressCk=" + onkeypressCk + "\n" +
+          "onkeyupCk=" + onkeyupCk + "\n" +
+          "onkeydownCk=" + onkeydownCk + "\n" +
+          "onfocusCk=" + onfocusCk + "\n" +
+          "onblurCk=" + onblurCk);
+        var nodeNameCk = aA.nodeName == "A";
+        var nodeValueCk = aA.nodeValue === null;
+        var nodeTypeCk = aA.nodeType == 1;
+        var ownerDocumentCk = aA.ownerDocument == document;
+        alert(
+        "2\n" +
+        "nodeNameCk=" + nodeNameCk + "\n" +
+          "nodeValueCk=" + nodeValueCk + "\n" +
+          "nodeTypeCk=" + nodeTypeCk + "\n" +
+          "ownerDocumentCk=" + ownerDocumentCk + "\n");
+    
+        var attrA = aA.getAttributeNode("href");
+        var attrB = aA.attributes["href"];
+        alert("3\n" +"getAttributeNodeCk=" + (attrA == attrB));
+    
+        var aB = document.createElement("a");
+        aB.setAttribute("id", "anotherAnchorid");
+        aB.setAttribute("class", aA.getAttribute("class"));
+        aB.setAttribute("style", aA.getAttribute("style"));
+        aB.setAttribute("title", aA.getAttribute("title"));
+        aB.setAttribute("lang", aA.getAttribute("lang"));
+        aB.setAttribute("dir", aA.getAttribute("dir"));
+        aB.setAttribute("accesskey", aA.getAttribute("accesskey"));
+        aB.setAttribute("charset", aA.getAttribute("charset"));
+        aB.setAttribute("coords", aA.getAttribute("coords"));
+        aB.setAttribute("href", aA.getAttribute("href"));
+        
+        aB.setAttribute("hreflang", aA.getAttribute("hreflang"));
+        aB.setAttribute("name", aA.getAttribute("name"));
+        aB.setAttribute("rel", aA.getAttribute("rel"));
+        aB.setAttribute("rev", aA.getAttribute("rev"));
+        aB.setAttribute("shape", aA.getAttribute("shape"));
+        aB.setAttribute("tabindex", aA.getAttribute("tabindex"));
+        aB.setAttribute("type", aA.getAttribute("type"));
+    
+        classCk = aB.getAttribute("class") == aA.getAttribute("class");
+        styleCk = aB.getAttribute("style") == aA.getAttribute("style");
+        titleCk = aB.getAttribute("title") == "anchortitle";
+        langCk = aB.getAttribute("lang") == "en";
+        dirCk = aB.getAttribute("dir") == "ltr";
+        accesskeyCk = aB.getAttribute("accesskey") == "A";
+        charsetCk = aB.getAttribute("charset") == "UTF-8";
+        coordsCk = aB.getAttribute("coords") == "4,4,4,4";
+        hrefCk = aB.getAttribute("href") == aA.getAttribute("href");
+        hreflangCk = aB.getAttribute("hreflang") == "en";
+        nameCk = aB.getAttribute("name") == "anchorname";
+        relCk = aB.getAttribute("rel") == "Help";
+        revCk = aB.getAttribute("rev") == "Subsection";
+        shapeCk = aB.getAttribute("shape") == "default";
+        tabindexCk = aB.getAttribute("tabindex") == 0;
+        typeCk = aB.getAttribute("type") == "text/html";
+    
+        alert(
+        "4\n" +
+        "idCk=" + idCk + "\n" +
+          "classCk=" + classCk + "\n" + // IE6
+        "styleCk=" + styleCk + ": " + aB.getAttribute("style")  + "\n" +
+          "titleCk=" + titleCk  + "\n" +
+          "langCk=" + langCk + "\n" +
+          "dirCk=" + dirCk + "\n" +
+          "accesskeyCk=" + accesskeyCk + ": " + aB.getAttribute("accesskey") + "\n" +
+          "charsetCk=" + charsetCk + "\n" +
+          "coordsCk=" + coordsCk + "\n" +
+          "hrefCk=" + hrefCk +  "\n" +
+          "hreflangCk=" + hreflangCk + "\n" +
+          "nameCk=" + nameCk + "\n" +
+          "relCk=" + relCk + "\n" +
+          "revCk=" + revCk + "\n" +
+          "shapeCk=" + shapeCk + "\n" +
+          "tabindexCk=" + tabindexCk + "\n" +
+          "typeCk=" + typeCk
+      );
+    
+        try {
+          // IE6 and 7 removeAtribute sets the value to a zero-length string
+          // No known fix
+          alert(aB.getAttribute("coords"));
+          aB.removeAttribute("coords");
+          alert(aB.getAttribute("coords"));
+          alert(aB.getAttribute("coords") +"=="+ null);
+          alert(aB.hasAttribute("coords"));
+          alert(aB.getAttribute("coords") == null);
+          var coordsRemoveCk = aB.getAttribute("coords") == null;
+          alert("coordsRemoveCk=" + coordsRemoveCk);
+        } catch(e) {
+          alert(e.name + " " + e.message);
+        }
+    
+        return true;
+      }
+      function ondblclickHandler(){ return true; }
+      function onmousedownHandler(){ return true; }
+      function onmouseupHandler(){ return true; }
+      function onmousemoveHandler(){ return true; }
+      function onmouseoutHandler() { return true; }
+      function onkeypressHandler() { return true; }
+      function onkeydownHandler() { return true; }
+      function onkeyupHandler() { return true; }
+      function onfocusHandler() { return true; }
+      function onblurHandler() { return true; }
+    </script>
+  </head>
+  <body>
+    <div>
+      <a href="index.html">Back</a>
+    </div>
+    <form method="POST" action="anchor.html">
+      <a
+        id="anchorid"
+        class="htmlclass anchorclass"
+        style="font-size: 12pt; color: fuchsia"
+        title="anchortitle"
+        lang="en"
+        dir="ltr"
+        onclick="onclickHandler();"
+        ondblclick="ondblclickHandler();"
+        onmousedown="onmousedownHandler();"
+        onmouseup="onmouseupHandler();"
+        onmousemove="onmousemoveHandler();"
+        onmouseout="onmouseoutHandler();"
+        onkeypress="onkeypressHandler();"
+        onkeydown="onkeydownHandler();"
+        onkeyup="onkeyupHandler();"
+        accesskey="A"
+        charset="UTF-8"
+        coords="4,4,4,4"
+        href="anchor.html"
+        hreflang="en"
+        name="anchorname"
+        rel="Help"
+        rev="Subsection"
+        shape="default"
+        tabindex="0"
+        type="text/html"
+        onfocus="onfocusHandler();"
+        onblur="onblurHandler();">Anchor maximus</a>
+    </form>
+    <script type="text/javascript" charset="UTF-8">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>
