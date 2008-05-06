@@ -5,13 +5,27 @@ if (document.createEventObject && window.EPE) {
     function(a,v) {
       a = a.toLowerCase();
       if (a == 'style') {
+        // Fixes a lot of issues regarding comparison of style attributes
+        this.style.cssText = v;
+        /* Old code before I realized cssText was not read-only but read/write 
         // Split string on ';'
         var s = v.split(';');
         var p = null;
+        var tmp = "setting style\n";
+        tmp += "before split: " + v + "\n";
         for(var i=0; i<s.length; i++) {
-          p = s[i].split(':');
-          this.style[p[0]] = p[1];
+          tmp += "before split: " + s[i] + "\n";
+          // If style has trailing ; then s[s.length-1] = ''
+          if (s[i]) {
+            p = s[i].split(':');
+            // The style value must be trimmed as IE remembers redundant whitespace.
+            // Without trimming wierd style properties like ' border' (leading whitespace)
+            // may occur.
+            this.style[p[0].replace(/^\s+|(\s+(?!\S))/g,"")] = p[1].replace(/^\s+|(\s+(?!\S))/g,"");
+          }
         }
+        alert(tmp);
+        */
         return;
       }
       // If event handler set attribute as property. This will invoke
@@ -21,6 +35,9 @@ if (document.createEventObject && window.EPE) {
         this[a] = new Function(v);
         return;
       }
+      // accesskey *must* be accessKey
+      else if (/^accesskey/i.test(a))
+        a = 'accessKey';
       else if (a == 'class')
         a = 'className';
       else if (a == 'for')
