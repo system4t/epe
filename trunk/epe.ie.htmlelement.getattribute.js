@@ -10,7 +10,7 @@
 // W3C URI type definition: http://www.w3.org/TR/html4/types.html#type-uri
 if (document.createEventObject && window.EPE) {
   // Define new EPE replacement function
-  EPE.getAttribute =
+  HTMLElement.prototype.getAttribute =
     function(a) {
       a = a.toLowerCase();
       // Style attribute is an object in IE6+7
@@ -21,6 +21,4 @@ if (document.createEventObject && window.EPE) {
       }
       return this.getAttributeNode(a).nodeValue;
     };
-  EPE.PlugIn.GetAttribute = new EPE.PlugIn();
-  EPE.PlugIn.GetAttribute.addEPEListener('create',function(){this._getAttribute = this.getAttribute; this.getAttribute = EPE.getAttribute;});
 }

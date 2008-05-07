@@ -5,7 +5,7 @@
 // 4. Element chache
 // 5. Functions for collabaration with external scripts (hooks)
 // 6. Redeclaration of native JS functions/methods
-// 7. Prototype hadnling
+// 7. Prototype handling
 // 8. Element constructor declarations
 
 // Works for IE version 6.0 and above
@@ -27,7 +27,7 @@ if (document.createEventObject) {
   // you are altering the prototype of an element constructor between
   // the creation and insertion of the element.
   // 1 = on, 0 = off. Default value is 0
-  // See http://www.jslab.dk/epe.installation.php for more info
+  // See http://www.jslab.dk/epe.features.php#enable.cache for more info
   EPE.CACHE_ELEMENTS = 0;
   
   // Experimental support for HTMLCollections
@@ -731,7 +731,6 @@ if (document.createEventObject) {
    */
   EPE.updatePrototype =
     function(){
-      
       // Property name in pseudo prototype object which was altered
       var p = event.propertyName;
       // Shortcut
