@@ -104,11 +104,6 @@ if (document.createEventObject) {
           oCon = EPE.tags[elm.tagName.toLowerCase()] ? EPE.tags[elm.tagName.toLowerCase()] : HTMLElement;
         // Set constructor property for easy comparison
         elm.constructor = oCon;
-        // Save ref. to original functions which are used elsewhere
-        // Save ref. to original method
-        elm._cloneNode = elm.cloneNode;
-        // Replace with EPE version
-        elm.cloneNode = EPE.cloneNode;
         // if element can have child nodes
         if (elm.canHaveChildren) {
           // Changes to innerHTML which are made before the node is attached to the document
@@ -569,22 +564,6 @@ if (document.createEventObject) {
         EPE.cache.removeRecursive(elm);
       return this._replaceChild(newChild, oldChild);
     };
-  
-  /**
-   * Replacement for the native cloneNode method. Clones a node
-   * and optionally all childnodes and adds them to the EPE cache.
-   * 
-   * @param deep Set to true to clone child nodes as well.
-   */
-  EPE.cloneNode =
-    function(deep) {
-      var elm = this._cloneNode(deep);
-      // Chache new node (and possible child nodes) if enabled by user
-      if (EPE.CACHE_ELEMENTS)
-        EPE.cache.addRecursive(elm);
-      return elm;
-    };
-  
   
   /**
    * Replacement for the native insertRow method for tables and tablesections.
