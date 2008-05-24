@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+"http://www.w3.org/TR/html4/frameset.dtd">
+<!-- 
+    Document   : HTMLBaseElement02
+    Created on : May 19, 2008, 6:38:53 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <BASE HREF="about:blank" TARGET="Frame1">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - Base2</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLBaseElement02() {
+        var nodeList;
+        var frameList;
+        var testNode;
+        var vtarget;
+        nodeList = document.getElementsByTagName("base");
+        frameList = document.getElementsByTagName("frame");
+        if (frameList.item(2).contentDocument) {
+          doc = frameList.item(2).contentDocument;
+        }
+        else {
+          doc = document.frames["Frame3"].document; // Internet Explorer < 8
+        }
+        doc.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        vtarget = testNode.target;
+        doc.getElementById("targetLink").value = vtarget;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <FRAMESET COLS="20, 80" onload="HTMLBaseElement02();">
+    <FRAMESET ROWS="100, 200">
+      <FRAME MARGINHEIGHT="10" MARGINWIDTH="5" NORESIZE="NORESIZE" NAME="Frame1"
+             FRAMEBORDER="1" SCROLLING="ÿes" SRC="http://localhost:28080/DOMTests/level1/html/HTMLBaseElement02Frame1.html">
+      </FRAME>
+      <FRAME SRC="http://localhost:28080/DOMTests/level1/html/HTMLBaseElement02Frame2.html" NAME="Frame2"></FRAME>
+    </FRAMESET>
+    <FRAME SRC="http://localhost:28080/DOMTests/level1/html/HTMLBaseElement02Frame3.html" NAME="Frame3">
+    </FRAME>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </FRAMESET>
+</HTML>

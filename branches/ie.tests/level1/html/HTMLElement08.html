@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLElement08
+    Created on : May 12, 2008, 4:45:55 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD ID="Test-HEAD" TITLE="HEAD Element" LANG="en" DIR="ltr" CLASS="HEAD-class">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - Element</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLElement08() {
+        var nodeList;
+        var testNode;
+        var vid;
+
+        nodeList = document.getElementsByTagName("b");
+        document.getElementById("Asize").value = nodeList.length; // ,1,nodeList);
+        testNode = nodeList.item(0);
+        vid = testNode.id;
+        document.getElementById("idLink").value = vid; // "Test-HEAD",vid);
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLElement08()">
+    <CENTER ID="Test-CENTER" TITLE="CENTER Element" LANG="en" DIR="ltr" CLASS="CENTER-class">
+      <OBJECT align="middle"></OBJECT>
+    </CENTER>
+    <CENTER>
+      <P align="center">Test Lists</P>
+    </CENTER>
+    <BR>
+    <OL compact="compact" start="1" type="1">
+      <LI type="square" value=2>EMP0001
+        <UL compact type="disc">
+          <LI>Margaret Martin
+            <DL>
+              <DD ID="Test-DD" TITLE="DD Element" LANG="en" DIR="ltr" CLASS="DD-class">Accountant</DD>
+              <DD>56,000</DD>
+              <DD>Female</DD>
+              <DD>1230 North Ave. Dallas, Texas 98551</DD>
+            </DL>
+          </LI>
+        </UL>
+      </LI>
+    </OL>
+    <BR />
+    <B ID="Test-B"  TITLE="B Element" LANG="en" DIR="ltr" CLASS="B-class">Bold</B>
+    <BR />
+    <DL>
+      <DT ID="Test-DT" TITLE="DT Element" LANG="en" DIR="ltr" CLASS="DT-class">DT element</DT>
+    </DL>
+    <BR />
+    <BDO ID="Test-BDO" TITLE="BDO Element" LANG="en" DIR="ltr" CLASS="BDO-class">Bidirectional algorithm overide
+    </BDO>
+    <BR />
+    <I ID="Test-I" TITLE="I Element" LANG="en" DIR="ltr" CLASS="I-class">Italicized</I>
+    <BR />
+    <SPAN ID="Test-SPAN" TITLE="SPAN Element" LANG="en" DIR="ltr" CLASS="SPAN-class"></SPAN>
+    <BR />
+    <TT ID="Test-TT" TITLE="TT Element" LANG="en" DIR="ltr" CLASS="TT-class">Teletype</TT>
+    <BR />
+    <SUB ID="Test-SUB" TITLE="SUB Element" LANG="en" DIR="ltr" CLASS="SUB-class">Subscript</SUB>
+    <BR />
+    <SUP ID="Test-SUP" TITLE="SUP Element" LANG="en" DIR="ltr" CLASS="SUP-class">SuperScript</SUP>
+    <BR />
+    <S ID="Test-S" TITLE="S Element" LANG="en" DIR="ltr" CLASS="S-class">Strike Through (S)</S>
+    <BR />
+    <STRIKE ID="Test-STRIKE" TITLE="STRIKE Element" LANG="en" DIR="ltr" CLASS="STRIKE-class">Strike Through (STRIKE)</STRIKE>
+    <BR />
+    <SMALL id="Test-SMALL" TITLE="SMALL Element" LANG="en" DIR="ltr" CLASS="SMALL-class">Small</SMALL>
+    <BR />
+    <BIG ID="Test-BIG" TITLE="BIG Element" LANG="en" DIR="ltr" CLASS="BIG-class">Big</BIG>
+    <BR />
+    <EM ID="Test-EM" TITLE="EM Element" LANG="en" DIR="ltr" CLASS="EM-class">Emphasis</EM>
+    <BR />
+    <STRONG ID="Test-STRONG" TITLE="STRONG Element" LANG="en" DIR="ltr" CLASS="STRONG-class">Strong</STRONG>
+    <BR />
+    <DFN ID="Test-DFN" TITLE="DFN Element" LANG="en" DIR="ltr" CLASS="DFN-class">
+      <CODE ID="Test-CODE" TITLE="CODE Element" LANG="en" DIR="ltr" CLASS="CODE-class">10  Computer Code Fragment 20  Temp = 10</CODE>
+      <SAMP ID="Test-SAMP" TITLE="SAMP Element" LANG="en" DIR="ltr" CLASS="SAMP-class">Temp = 20</SAMP>
+      <KBD ID="Test-KBD" TITLE="KBD Element" LANG="en" DIR="ltr" CLASS="KBD-class">*2</KBD>
+      <VAR ID="Test-VAR" TITLE="VAR Element" LANG="en" DIR="ltr" CLASS="VAR-class">Temp</VAR>
+      <CITE ID="Test-CITE" TITLE="CITE Element" LANG="en" DIR="ltr" CLASS="CITE-class">Citation</CITE>
+    </DFN>
+    <BR />
+    <ABBR ID="Test-ABBR" TITLE="ABBR Element" LANG="en" DIR="ltr" CLASS="ABBR-class">Temp</ABBR>
+    <BR />
+    <ACRONYM ID="Test-ACRONYM" TITLE="ACRONYM Element" LANG="en" DIR="ltr" CLASS="ACRONYM-class">NIST</ACRONYM>
+    <BR />
+    <ADDRESS ID="Test-ADDRESS" TITLE="ADDRESS Element" LANG="en" DIR="ltr" CLASS="ADDRESS-class">Gaithersburg, MD 20899</ADDRESS>
+    <BR />
+    <NOFRAMES ID="Test-NOFRAMES" TITLE="NOFRAMES Element" LANG="en" DIR="ltr" CLASS="NOFRAMES-class">Not</NOFRAMES>
+    <BR />
+    <NOSCRIPT ID="Test-NOSCRIPT" TITLE="NOSCRIPT Element" LANG="en" DIR="ltr" CLASS="NOSCRIPT-class">Not</NOSCRIPT>
+    <BR />
+    <U ID="Test-U" TITLE="U Element" LANG="en" DIR="ltr" CLASS="U-class">Underlined</U>
+    <h2>description</h2>
+    <p>
+      The id specifies the elements identifier.
+      
+      Retrieve the id attribute of the B element and examine its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-63534901">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-63534901</a>
+    </div>
+    <form action="HTMLElement08.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="idLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

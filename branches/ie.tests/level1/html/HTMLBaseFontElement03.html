@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLBaseFontElement03
+    Created on : May 19, 2008, 8:09:55 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - BaseFont</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLBaseFontElement03() {
+        var nodeList;
+        var testNode;
+        var vsize;
+
+        nodeList = document.getElementsByTagName("basefont");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        vsize = testNode.size;
+        document.getElementById("sizeLink").value = vsize;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLBaseFontElement03();">
+    <P>
+      <BASEFONT COLOR="#000000" FACE="arial,helvitica" SIZE="4">
+    </P>
+    <h2>description</h2>
+    <p>
+    The size attribute specifies the base font's size. Retrieve the size attribute and examine its value.
+
+    This test is incompatible with L2 HTML implementations due to a change in the type of the attribute.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-38930424">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-38930424</a>
+    </div>
+    <form action="HTMLBaseFontElement03.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="sizeLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : hc_elementgetelementsbytagnamespecialvalue
+    Created on : May 10, 2008, 9:09:52 AM
+    Author     : allan.jacobs
+-->
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <script type="text/javascript">
+      //<[CDATA[
+      function onloadListener() {
+        var success;
+        var elementList;
+        var lastEmployee;
+        var lastempList;
+        var child;
+        var childName;
+        var result = new Array();
+
+        success = false;
+        var expectedResult = new Array();
+        expectedResult[0] = "em";
+        expectedResult[1] = "strong";
+        expectedResult[2] = "code";
+        expectedResult[3] = "sup";
+        expectedResult[4] = "var";
+        expectedResult[5] = "acronym";
+
+        elementList = document.getElementsByTagName("p");
+        lastEmployee = elementList.item(4);
+        lastempList = lastEmployee.getElementsByTagName("*");
+        for(var indexN65639 = 0;indexN65639 < lastempList.length; indexN65639++) {
+          child = lastempList.item(indexN65639);
+          childName = child.nodeName;
+          result[result.length] = childName;
+        }
+        // expectedResult.sort();
+        // result.sort();
+        if (expectedResult.length == result.length) {
+          success = true;
+          for (var ix = 0; ix < lastempList.length; ix++) {
+            if (expectedResult[ix].toLowerCase() != result[ix].toLowerCase()) {
+              success = false;
+              break;
+            }
+          }
+        }
+        document.getElementById("tagNames").value = success;
+        return true;
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="onloadListener();">
+    <p>
+      <em>EMP0001</em>
+      <strong>Margaret Martin</strong>
+      <code>Accountant</code>
+      <sup>56,000</sup>
+      <var>Female</var>
+      <acronym title="Yes">1230 North Ave. Dallas, Texas 98551</acronym>
+    </p>
+    <p>
+      <em>EMP0002</em>
+      <strong>Martha RaynoldsThis is a CDATASection with EntityReference number 2 &amp;ent2;
+      This is an adjacent CDATASection with a reference to a tab &amp;tab;</strong>
+      <code>Secretary</code>
+      <sup>35,000</sup>
+      <var>Female</var>
+      <acronym title="Yes" class="Yes">&beta; Dallas, &gamma;
+      98554</acronym>
+    </p>
+    <p>
+      <em>EMP0003</em>
+      <strong>Roger
+      Jones</strong>
+      <code>Department Manager</code>
+      <sup>100,000</sup>
+      <var>&delta;</var>
+      <acronym title="Yes" class="No">PO Box 27 Irving, texas 98553</acronym>
+    </p>
+    <p>
+      <em>EMP0004</em>
+      <strong>Jeny Oconnor</strong>
+      <code>Personnel Director</code>
+      <sup>95,000</sup>
+      <var>Female</var>
+      <acronym title="Yes" class="Y&alpha;">27 South Road. Dallas, Texas 98556</acronym>
+    </p>
+    <p>
+      <em>EMP0005</em>
+      <strong>Robert Myers</strong>
+      <code>Computer Specialist</code>
+      <sup>90,000</sup>
+      <var>male</var>
+      <acronym title="Yes">1821 Nordic. Road, Irving Texas 98558</acronym>
+    </p>
+    <h2>description</h2>
+    <p>
+      The "getElementsByTagName(name)" method may use the
+      special value "*" to match all tags in the element
+      tree.
+      
+      Create a NodeList of all the descendant elements
+      of the last employee by using the special value "*".
+      The method should return all the descendant children(6)
+      in the order the children were encountered.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-1938918D">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-1938918D</a>
+    </div>
+    <form action="hc_elementgetelementsbytagnamespecialvalue.html" method="post">
+      <div>
+        <input id="tagNames" type="hidden">
+      </div>
+    </form>
+<p>
+Copyright &copy; 2001-2004 World Wide Web Consortium,
+(Massachusetts Institute of Technology, European Research Consortium
+for Informatics and Mathematics, Keio University). All
+Rights Reserved. This work is distributed under the
+<a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>

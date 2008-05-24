@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLInputElement21
+    Created on : May 21, 2008, 8:47:17 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - INPUT</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLInputElement21() {
+        var nodeList;
+        var testNode;
+        var checked;
+
+        nodeList = document.getElementsByTagName("input");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(1);
+        checked = testNode.checked;
+        document.getElementById("notCheckedBeforeClick").value = checked;
+        testNode.click();
+        checked = testNode.checked;
+        document.getElementById("checkedAfterClick").value = checked;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLInputElement21();">
+    <TABLE CELLPADDING="15"  BORDER="BORDER" SUMMARY="Table 1">
+      <TR ALIGN="center">
+        <TD VAlign="top">Under a FORM control
+          <FORM ID="form1" ACTION="./files/getData.pl" METHOD="post">
+            <TABLE BORDER="15" SUMMARY="Table 2">
+              <TR>
+                <TD>
+                  <LABEL ACCESSKEY="b" FOR="input1">Enter Your Password:</LABEL>
+                </TD>
+                <TD>
+                  <INPUT DIR="LTR" ID="input1" TABINDEX="8" VALUE="Password"
+                         TYPE="password" NAME="Password" SIZE="25" MAXLENGTH="5"
+                         ALT="Password entry" READONLY="READONLY"/>
+                </TD>
+              </TR>
+              <TR>
+                <TD>
+                  <INPUT TYPE="RADIO" NAME="Radio1" ACCESSKEY="c" VALUE="ReHire"/>ReHire
+                </TD>
+              </TR>
+              <TR>
+                <TD>
+                  <INPUT TYPE="RADIO" NAME="Radio2" VALUE="NewHire" TABINDEX="9"
+                         CHECKED="CHECKED"/>NewHire
+                </TD>
+              </TR>
+              <TR>
+                <TD>Hours available to work</TD>
+                <TD>
+                  <INPUT TYPE="CHECKBOX" NAME="Check1" ALIGN="bottom"
+                         TABINDEX="10" VALUE="EarlyMornings"
+                         CHECKED="CHECKED"/>EarlyMornings
+                  <BR/>
+                  <INPUT ID="input5" TYPE="CHECKBOX" NAME="Check2"
+                         TABINDEX="11" VALUE="AfterNoon"
+                         ONCLICK="newId(this)"/>Afternoon
+                  <BR/>
+                  <INPUT TYPE="CHECKBOX" NAME="Check3" TABINDEX="12"
+                         VALUE="Evenings"/>Evenings
+                  <BR/>
+                  <INPUT TYPE="CHECKBOX" NAME="Check4" TABINDEX="13"
+                         VALUE="Closing" DISABLED="DISABLED"/>Closing
+                  <BR/>
+                </TD>
+              </TR>
+              <TR>
+                <TD COLSPAN="2">
+                  <INPUT TYPE="IMAGE" TABINDEX="14" NAME="SubmitImage"
+                         USEMAP="#submit-map" SRC="./pix/submit.gif"/>
+                </TD>
+              </TR>
+              <TR>
+                <TD COLSPAN="2">
+                  <INPUT TITLE="old_title" TYPE="FILE" NAME="FileControl"
+                         TABINDEX="15" ACCEPT="GIF,JPEG" ONSELECT="newTitle(this)"/>
+                </TD>
+              </TR>
+            </TABLE>
+          </FORM>
+        </TD>
+      </TR>
+    </TABLE>
+    <h2>description</h2>
+    <p>
+      HTMLInputElement.click should change the state of checked on a radio button.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-2651361">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-2651361</a>
+    </div>
+    <form action="HTMLImageElement01.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="notCheckedBeforeClick" type="hidden">
+        <input id="checkedAfterClick" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : hc_documentcreatecomment
+    Created on : May 9, 2008, 1:05:06 PM
+    Author     : allan.jacobs
+-->
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <script type="text/javascript">
+      //<[CDATA[
+      function onloadListener() {
+        var newCommentNode;
+        var newCommentValue;
+        var newCommentName;
+        var newCommentType;
+
+        newCommentNode = document.createComment("This is a new Comment node");
+        newCommentValue = newCommentNode.nodeValue;
+
+        document.getElementById("xvalue").value = newCommentValue;
+        newCommentName = newCommentNode.nodeName;
+
+        document.getElementById("xstrong").value = newCommentName;
+        newCommentType = newCommentNode.nodeType;
+
+        document.getElementById("xtype").value = newCommentType;
+        return true;
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="onloadListener();">
+    <h2>description</h2>
+    <p>
+      The "createComment(data)" method creates a new Comment
+      node given the specified string.
+      Retrieve the entire DOM document and invoke its
+      "createComment(data)" method.  It should create a new
+      Comment node whose "data" is the specified string.
+      The content, name and type are retrieved and output.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-1334481328">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-1334481328</a>
+    </div>
+    <form action="hc_documentcreatecomment.html" method="post">
+      <div>
+        <input id="xvalue" type="hidden">
+        <input id="xstrong" type="hidden">
+        <input id="xtype" type="hidden">
+      </div>
+    </form>
+<p>
+Copyright &copy; 2001-2004 World Wide Web Consortium,
+(Massachusetts Institute of Technology, European Research Consortium
+for Informatics and Mathematics, Keio University). All
+Rights Reserved. This work is distributed under the
+<a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLHeadingElement06
+    Created on : May 21, 2008, 4:48:05 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - HEADING</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLHeadingElement06() {
+        var nodeList;
+        var testNode;
+        var valign;
+
+        nodeList = document.getElementsByTagName("h6");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        valign = testNode.align;
+        document.getElementById("alignLink").value = valign;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLHeadingElement06();">
+    <H1 ALIGN="center">Head Element 1</H1>
+    <H2 ALIGN="left">Head Element 2</H2>
+    <H3 ALIGN="right">Head Element 3</H3>
+    <H4 ALIGN="justify">Head Element 4</H4>
+    <H5 ALIGN="center">Head Element 5</H5>
+    <H6 ALIGN="left">Head Element 6</H6>
+    <h2>description</h2>
+    <p>
+      The align attribute specifies the horizontal text alignment(H6).
+      
+      Retrieve the align attribute and examine its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-6796462">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-6796462</a>
+    </div>
+    <form action="HTMLHeadingElement06.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="alignLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

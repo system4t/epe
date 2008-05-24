@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLMetaElement01
+    Created on : May 22, 2008, 1:00:13 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META NAME="Meta-Name" HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8" SCHEME="NIST">
+    <TITLE>NIST DOM HTML Test - META</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLMetaElement01() {
+        var nodeList;
+        var testNode;
+        var vcontent;
+
+        nodeList = document.getElementsByTagName("meta");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        vcontent = testNode.content;
+        document.getElementById("contentLink").value = vcontent;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLMetaElement01();">
+    <P>
+      <BR/>
+    </P>
+    <h2>description</h2>
+    <p>
+      The content attribute specifies associated information.
+      
+      Retrieve the content attribute and examine its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-87670826">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-87670826</a>
+    </div>
+    <form action="HTMLMetaElement01.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="contentLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

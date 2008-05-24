@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLImageElement07
+    Created on : May 21, 2008, 7:10:56 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - IMG</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLImageElement07() {
+        var nodeList;
+        var testNode;
+        var vismap;
+
+        nodeList = document.getElementsByTagName("img");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        vismap = testNode.isMap;
+        document.getElementById("isMapLink").value = vismap;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLImageElement07();">
+    <P>
+      <IMG ID="IMAGE-1" NAME="IMAGE-1" SRC="./pix/dts.gif" ALIGN="middle"
+           ALT="DTS IMAGE LOGO" BORDER="0" HEIGHT="47" HSPACE="4"
+           LONGDESC="./files/desc.html" USEMAP="#DTS-MAP" VSPACE="10" WIDTH="115"/>
+    </P>
+    <h2>description</h2>
+    <p>
+    The isMap attribute indicates the use of server-side image map.
+
+    Retrieve the isMap attribute and examine its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-58983880">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-58983880</a>
+    </div>
+    <form action="HTMLImageElement07.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="isMapLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

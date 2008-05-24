@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLObjectElement12
+    Created on : May 22, 2008, 2:33:03 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - OBJECT</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLObjectElement12() {
+        var nodeList;
+        var testNode;
+        var vstandby;
+
+        nodeList = document.getElementsByTagName("object");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        vstandby = testNode.standby;
+        document.getElementById("alignLink").value = vstandby;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLObjectElement12();">
+    <P>
+      <OBJECT ALIGN="middle" ARCHIVE="" BORDER="0" CODEBASE="http://www.w3.org/DOM/"
+              DATA="./pix/logo.gif" HEIGHT="60" HSPACE="0" STANDBY="Loading Image ..."
+              TABINDEX="0" TYPE="image/gif" USEMAP="#DivLogo-map"
+              VSPACE="0" WIDTH="550"></OBJECT>
+    </P>
+    <FORM NAME="OBJECT2" ACTION="./files/getData.pl" METHOD="post">
+      <P>
+        <OBJECT DECLARE="declare" NAME="OBJECT2" CODETYPE="image/gif"></OBJECT>
+      </P>
+    </FORM>
+    <h2>description</h2>
+    <p>
+    The standby attribute specifies a message to render while loading the
+    object.
+
+    Retrieve the standby attribute of the first OBJECT element and examine
+    its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-25039673">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-25039673</a>
+    </div>
+    <form action="HTMLObjectElement12.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="alignLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>
+

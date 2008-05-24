@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLDocument08
+    Created on : May 20, 2008, 5:50:10 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - DOCUMENT</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLDocument08() {
+        var vapplets;
+        var vlength;
+        vapplets = document.applets;
+        vlength = vapplets.length;
+        document.getElementById("lengthLink").value = vlength;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLDocument08();" ID="TEST-BODY">
+    <FORM ID="form1" ACCEPT-CHARSET="US-ASCII" ACTION="./files/getData.pl"
+          ENCTYPE="application/x-www-form-urlencoded" METHOD="post">
+      <P>
+        <TEXTAREA NAME="text1" COLS="20" ROWS="7"></TEXTAREA>
+        <INPUT TYPE="submit" NAME="submit" VALUE="Submit" />
+        <INPUT TYPE="reset" NAME="reset" VALUE="Reset" />
+      </P>
+    </FORM>
+    <P>
+      <MAP NAME="mapid" ID="mapid">
+        <AREA TABINDEX="10" ACCESSKEY="a" SHAPE="rect" ALT="Domain" COORDS="0,2,45,45"
+              HREF="./files/dletter.html" TITLE="Domain1">
+        <AREA TABINDEX="10" ACCESSKEY="a" SHAPE="rect" ALT="Domain" COORDS="0,2,45,45"
+              HREF="./files/dletter.html" TITLE="Domain2">
+      </MAP>
+    </P>
+    <P>
+      <IMG ID="IMAGE-1" NAME="IMAGE-1" SRC="./pix/dts.gif" ALT="DTS IMAGE LOGO"
+           LONGDESC="./files/desc.html" USEMAP="#DTS-MAP" WIDTH="115"/>
+    </P>
+    <P>
+      <OBJECT DATA="./pix/line.gif" CODETYPE="image/gif" HEIGHT="10">
+        <APPLET ALT="Applet Number 1" CODE="applet1.class" CODEBASE="applets"></APPLET>
+      </OBJECT>
+      <OBJECT DATA="./pix/logo.gif" type="image/gif">
+        <APPLET ALT="Applet Number 2" CODE="applet2.class" CODEBASE="applets"></APPLET>
+      </OBJECT>
+    </P>
+    <P>
+      <A ID="Anchor" DIR="LTR" HREF="./pix/submit.gif" ACCESSKEY="g" TYPE="image/gif"
+         COORDS="0,0,100,100" SHAPE="rect" REL="GLOSSARY" REV="STYLESHEET" HREF
+         LANG="en" CHARSET="US-ASCII" TABINDEX="22" NAME="Anchor">View Submit Button</A>
+    </P>
+    <h2>description</h2>
+    <p>
+      The applets attribute returns a collection of all OBJECT elements that
+      include applets abd APPLET elements in a document.
+      
+      Retrieve the applets attribute from the document and examine its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-85113862">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-85113862</a>
+    </div>
+    <form action="HTMLDocument08.html" method="post">
+      <div>
+        <input id="lengthLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

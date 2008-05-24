@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLTableElement14
+    Created on : May 15, 2008, 9:45:01 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - TABLE</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT type="text/javascript">
+      function HTMLTableElement14() {
+        var nodeList;
+        var testNode;
+        var vcellspacing;
+
+        nodeList = document.getElementsByTagName("table");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(1);
+        vcellspacing = testNode.cellSpacing;
+        document.getElementById("cellSpacingLink").value = vcellspacing;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLTableElement14()">
+    <TABLE ALIGN="center" SUMMARY="Table 1">
+      <TR>
+        <TH>Id</TH>
+        <TH>Name</TH>
+        <TH>Position</TH>
+        <TH>Salary</TH>
+      </TR>
+    </TABLE>
+    <TABLE ID="table-1" ALIGN="center" BORDER="4" BGCOLOR="#ff0000" FRAME="border"
+           CELLPADDING="2" CELLSPACING="2"
+           SUMMARY="HTML Control Table" RULES="all" WIDTH="680">
+      <CAPTION ALIGN="top">Table Caption</CAPTION>
+      <THEAD ALIGN="center" VALIGN="middle">
+        <TR ALIGN="center" BGCOLOR="#00FFFF" VALIGN="middle">
+          <TH ID="header-1">Employee Id</TH>
+          <TH ID="header-2" ABBR="maiden" AXIS="center" ALIGN="center"
+              BGCOLOR="#00FFFF" COLSPAN="1" HEIGHT="50" NOWRAP="nowrap"
+              ROWSPAN="1" SCOPE="col" HEADERS="header-1"
+              VALIGN="middle" WIDTH="100">Employee Name</TH>
+          <TH>Position</TH>
+          <TH>Salary</TH>
+          <TH>Gender</TH>
+          <TH>Address</TH>
+        </TR>
+      </THEAD>
+      <TFOOT ALIGN="center" VALIGN="middle">
+        <TR>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+        </TR>
+      </TFOOT>
+      <TBODY ALIGN="center" VALIGN="middle">
+        <TR>
+          <TD AXIS="center" ID="Table-3" ABBR="maiden2" ALIGN="center"
+              BGCOLOR="#FF0000" COLSPAN="1" HEIGHT="50" NOWRAP="nowrap"
+              ROWSPAN="1" SCOPE="col" HEADERS="header-2" VALIGN="middle"
+              WIDTH="175">EMP0001</TD>
+          <TD HEADERS="header-2">Margaret Martin</TD>
+          <TD>Accountant</TD>
+          <TD>56,000</TD>
+          <TD>Female</TD>
+          <TD>1230 North Ave. Dallas, Texas 98551</TD>
+        </TR>
+        <TR>
+          <TD>EMP0002</TD>
+          <TD>Martha Raynolds</TD>
+          <TD>Secretary</TD>
+          <TD>35,000</TD>
+          <TD>Female</TD>
+          <TD>1900 Dallas Road Dallas, Texas 98554</TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+    <TABLE SUMMARY="Table 3">
+      <TBODY>
+        <TR>
+          <TD>
+          </TD>
+        </TR>
+      </TBODY>
+      <TBODY>
+        <TR>
+          <TD>
+          </TD>
+        </TR>
+      </TBODY>
+      <TBODY>
+        <TR>
+          <TD>
+          </TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+    <h2>description</h2>
+    <p>
+      The cellSpacing attribute specifies the horizontal and vertical separation
+      between cells.
+      
+      Retrieve the cellSpacing attribute of the first TABLE element and examine
+      its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-68907883">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-68907883</a>
+    </div>
+    <form action="HTMLTableElement14.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="cellSpacingLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>
+

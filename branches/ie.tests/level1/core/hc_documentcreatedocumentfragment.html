@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : hc_documentcreatedocumentfragment
+    Created on : May 9, 2008, 1:12:44 PM
+    Author     : allan.jacobs
+-->
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <script type="text/javascript">
+      //<[CDATA[
+      function onloadListener() {
+        var newDocFragment;
+        var children;
+        var length;
+        var newDocFragmentName;
+        var newDocFragmentType;
+        var newDocFragmentValue;
+
+        newDocFragment = document.createDocumentFragment();
+        children = newDocFragment.childNodes;
+
+        length = children.length;
+        document.getElementById("xlength").value = length;
+        newDocFragmentName = newDocFragment.nodeName;
+
+        document.getElementById("xstrong").value = newDocFragmentName;
+        newDocFragmentType = newDocFragment.nodeType;
+        document.getElementById("xtype").value = newDocFragmentType;
+        newDocFragmentValue = newDocFragment.nodeValue;
+
+        document.getElementById("xvalue").value = newDocFragmentValue;
+        return true;
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="onloadListener();">
+    <h2>description</h2>
+    <p>
+      The "createDocumentFragment()" method creates an empty
+      DocumentFragment object.
+      Retrieve the entire DOM document and invoke its
+      "createDocumentFragment()" method.  The content, name,
+      type and value of the newly created object are output.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-35CB04B5">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-35CB04B5</a>
+    </div>
+    <form action="hc_documentcreatedocumentfragment.html" method="post">
+      <div>
+        <input id="xlength" type="hidden">
+        <input id="xstrong" type="hidden">
+        <input id="xtype" type="hidden">
+        <input id="xvalue" type="hidden">
+      </div>
+    </form>
+<p>
+Copyright &copy; 2001-2004 World Wide Web Consortium,
+(Massachusetts Institute of Technology, European Research Consortium
+for Informatics and Mathematics, Keio University). All
+Rights Reserved. This work is distributed under the
+<a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>

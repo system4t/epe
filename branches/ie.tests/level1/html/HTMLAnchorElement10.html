@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLAnchorElement10
+    Created on : May 17, 2008, 9:47:20 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - Anchor</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLAnchorElement10() {
+        var nodeList;
+        var testNode;
+        var vtabindex;
+
+        nodeList = document.getElementsByTagName("a");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        vtabindex = testNode.tabIndex;
+        document.getElementById("tabIndexLink").value = vtabindex;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLAnchorElement10();">
+    <P>
+      <A ID="Anchor" DIR="LTR" HREF="./pix/submit.gif" ACCESSKEY="g"
+         TYPE="image/gif"
+         COORDS="0,0,100,100" SHAPE="rect" REL="GLOSSARY" REV="STYLESHEET"
+         HREFLANG="en" CHARSET="US-ASCII" TABINDEX="22"
+         NAME="Anchor">View Submit Button</A>
+    </P>
+    <h2>description</h2>
+    <p>
+    The tabIndex attribute contains an index that represents the elements
+    position in the tabbing order.
+
+    Retrieve the tabIndex attribute and examine its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-41586466">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-41586466</a>
+    </div>
+    <form action="HTMLAnchorElement10.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="tabIndexLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

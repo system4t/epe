@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : hc_documentgetelementsbytagnametotallength
+    Created on : May 9, 2008, 7:28:30 PM
+    Author     : allan.jacobs
+-->
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <script type="text/javascript">
+      //<[CDATA[
+      function onloadListener() {
+        var success;
+        var ix;
+        var nameList;
+        var expectedNames = new Array();
+        expectedNames[0] = "html";
+        expectedNames[1] = "head";
+        expectedNames[2] = "title";
+        expectedNames[3] = "meta";
+        expectedNames[4] = "script";
+        expectedNames[5] = "script";
+        expectedNames[6] = "body";
+        expectedNames[7] = "p";
+        expectedNames[8] = "em";
+        expectedNames[9] = "strong";
+        expectedNames[10] = "code";
+        expectedNames[11] = "sup";
+        expectedNames[12] = "var";
+        expectedNames[13] = "acronym";
+        expectedNames[14] = "p";
+        expectedNames[15] = "em";
+        expectedNames[16] = "strong";
+        expectedNames[17] = "code";
+        expectedNames[18] = "sup";
+        expectedNames[19] = "var";
+        expectedNames[20] = "acronym";
+        expectedNames[21] = "p";
+        expectedNames[22] = "em";
+        expectedNames[23] = "strong";
+        expectedNames[24] = "code";
+        expectedNames[25] = "sup";
+        expectedNames[26] = "var";
+        expectedNames[27] = "acronym";
+        expectedNames[28] = "p";
+        expectedNames[29] = "em";
+        expectedNames[30] = "strong";
+        expectedNames[31] = "code";
+        expectedNames[32] = "sup";
+        expectedNames[33] = "var";
+        expectedNames[34] = "acronym";
+        expectedNames[35] = "p";
+        expectedNames[36] = "em";
+        expectedNames[37] = "strong";
+        expectedNames[38] = "code";
+        expectedNames[39] = "sup";
+        expectedNames[40] = "var";
+        expectedNames[41] = "acronym";
+        expectedNames[42] = "h2";
+        expectedNames[43] = "p";
+        expectedNames[44] = "div";
+        expectedNames[45] = "a";
+        expectedNames[46] = "form";
+        expectedNames[47] = "div";
+        expectedNames[48] = "input";
+        expectedNames[49] = "p";
+        expectedNames[50] = "a";
+        expectedNames[51] = "script";
+
+        var actualNames = new Array();
+
+        var thisElement;
+        var thisTag;
+
+        nameList = document.getElementsByTagName("*");
+        for(var indexN65864 = 0;indexN65864 < nameList.length; indexN65864++) {
+          thisElement = nameList.item(indexN65864);
+          thisTag = thisElement.tagName;
+          // ASJ: Internet Explorer includes the doctype and comment card above
+          // the HTML node.  Other browsers do not.  The specification says only that
+          // getElementsByTagName(*) should return all the nodes of the Document tree
+          // and fails to define the document tree root adequately.
+          //
+          // Note that Internet Explorer fails hc_commentgetcomment.html because it
+          // ignores comment nodes when traversing children.
+          //
+          if (thisTag != 'epe' && thisTag != "!") {
+            actualNames[actualNames.length] = thisTag;
+          }
+        }
+        success = false;
+        if (expectedNames.length == actualNames.length) {
+          success = true;
+//          expectedNames.sort();
+//          actualNames.sort();
+          for (ix = 0; ix < expectedNames.length; ix++) {
+            if (expectedNames[ix] != actualNames[ix].toLowerCase()) {
+              success = false;
+              break;
+            }
+          }
+        }
+        
+        document.getElementById("tagNames").value = success;
+        return true;
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="onloadListener();">
+    <p>
+      <em>EMP0001</em>
+      <strong>Margaret Martin</strong>
+      <code>Accountant</code>
+      <sup>56,000</sup>
+      <var>Female</var>
+      <acronym title="Yes">1230 North Ave. Dallas, Texas 98551</acronym>
+    </p>
+    <p>
+      <em>EMP0002</em>
+      <strong>Martha RaynoldsThis is a CDATASection with EntityReference number 2 &amp;ent2;
+      This is an adjacent CDATASection with a reference to a tab &amp;tab;</strong>
+      <code>Secretary</code>
+      <sup>35,000</sup>
+      <var>Female</var>
+      <acronym title="Yes" class="Yes">&beta; Dallas, &gamma;
+      98554</acronym>
+    </p>
+    <p>
+      <em>EMP0003</em>
+      <strong>Roger
+      Jones</strong>
+      <code>Department Manager</code>
+      <sup>100,000</sup>
+      <var>&delta;</var>
+      <acronym title="Yes" class="No">PO Box 27 Irving, texas 98553</acronym>
+    </p>
+    <p>
+      <em>EMP0004</em>
+      <strong>Jeny Oconnor</strong>
+      <code>Personnel Director</code>
+      <sup>95,000</sup>
+      <var>Female</var>
+      <acronym title="Yes" class="Y&alpha;">27 South Road. Dallas, Texas 98556</acronym>
+    </p>
+    <p>
+      <em>EMP0005</em>
+      <strong>Robert Myers</strong>
+      <code>Computer Specialist</code>
+      <sup>90,000</sup>
+      <var>male</var>
+      <acronym title="Yes">1821 Nordic. Road, Irving Texas 98558</acronym>
+    </p>
+    <h2>description</h2>
+    <p>
+      Retrieve the entire DOM document and invoke its
+      "getElementsByTagName(tagName)" method with tagName
+      equal to "*".  The method should return a NodeList
+      that contains all the elements of the document.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-A6C9094">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-A6C9094</a>
+    </div>
+    <form action="hc_documentgetelementsbytagnametotallength.html" method="post">
+      <div>
+        <input id="tagNames" type="hidden">
+      </div>
+    </form>
+<p>
+Copyright &copy; 2001-2004 World Wide Web Consortium,
+(Massachusetts Institute of Technology, European Research Consortium
+for Informatics and Mathematics, Keio University). All
+Rights Reserved. This work is distributed under the
+<a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>

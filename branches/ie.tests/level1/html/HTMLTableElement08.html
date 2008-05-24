@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLTableElement08
+    Created on : May 15, 2008, 9:06:55 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - TABLE</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT type="text/javascript">
+      function HTMLTableElement08() {
+        var ix;
+        var nodeList;
+        var tbodiesnodeList = new Array();
+        var testNode;
+        var tbodiesName;
+        var vtbodies;
+        var vsuccess;
+        var result = new Array();
+
+        var expectedOptions = new Array();
+        expectedOptions[0] = "tbody";
+
+        nodeList = document.getElementsByTagName("table");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(1);
+        tbodiesnodeList = testNode.tBodies;
+
+        for(var indexN65632 = 0;indexN65632 < tbodiesnodeList.length; indexN65632++) {
+          vtbodies = tbodiesnodeList.item(indexN65632);
+          tbodiesName = vtbodies.nodeName;
+          result[result.length] = tbodiesName;
+        }
+        vsuccess = false;
+        if (expectedOptions.length == result.length) {
+          vsuccess = true;
+          for (ix = 0; ix < result.length; ix++) {
+            if (expectedOptions[ix].toLowerCase() != result[ix].toLowerCase()) {
+              vsuccess = false;
+              break;
+            }
+          }
+        }
+        document.getElementById("tbodiesLink").value = vsuccess;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLTableElement08()">
+    <TABLE ALIGN="center" SUMMARY="Table 1">
+      <TR>
+        <TH>Id</TH>
+        <TH>Name</TH>
+        <TH>Position</TH>
+        <TH>Salary</TH>
+      </TR>
+    </TABLE>
+    <TABLE ID="table-1" ALIGN="center" BORDER="4" BGCOLOR="#ff0000"
+           FRAME="border" CELLPADDING="2" CELLSPACING="2"
+           SUMMARY="HTML Control Table" RULES="all" WIDTH="680">
+      <CAPTION ALIGN="top">Table Caption</CAPTION>
+      <THEAD ALIGN="center" VALIGN="middle">
+        <TR ALIGN="center" BGCOLOR="#00FFFF" VALIGN="middle">
+          <TH ID="header-1">Employee Id</TH>
+          <TH ID="header-2" ABBR="maiden" AXIS="center" ALIGN="center"
+              BGCOLOR="#00FFFF" COLSPAN="1" HEIGHT="50" NOWRAP="nowrap"
+              ROWSPAN="1" SCOPE="col" HEADERS="header-1"
+              VALIGN="middle" WIDTH="100">Employee Name</TH>
+          <TH>Position</TH>
+          <TH>Salary</TH>
+          <TH>Gender</TH>
+          <TH>Address</TH>
+        </TR>
+      </THEAD>
+      <TFOOT ALIGN="center" VALIGN="middle">
+        <TR>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+        </TR>
+      </TFOOT>
+      <TBODY ALIGN="center" VALIGN="middle">
+        <TR>
+          <TD AXIS="center" ID="Table-3" ABBR="maiden2" ALIGN="center"
+              BGCOLOR="#FF0000" COLSPAN="1" HEIGHT="50" NOWRAP="nowrap"
+              ROWSPAN="1" SCOPE="col" HEADERS="header-2" VALIGN="middle"
+              WIDTH="175">EMP0001</TD>
+          <TD HEADERS="header-2">Margaret Martin</TD>
+          <TD>Accountant</TD>
+          <TD>56,000</TD>
+          <TD>Female</TD>
+          <TD>1230 North Ave. Dallas, Texas 98551</TD>
+        </TR>
+        <TR>
+          <TD>EMP0002</TD>
+          <TD>Martha Raynolds</TD>
+          <TD>Secretary</TD>
+          <TD>35,000</TD>
+          <TD>Female</TD>
+          <TD>1900 Dallas Road Dallas, Texas 98554</TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+    <TABLE SUMMARY="Table 3">
+      <TBODY>
+        <TR>
+          <TD>
+          </TD>
+        </TR>
+      </TBODY>
+      <TBODY>
+        <TR>
+          <TD>
+          </TD>
+        </TR>
+      </TBODY>
+      <TBODY>
+        <TR>
+          <TD>
+          </TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+    <h2>description</h2>
+    <p>
+      The tBodies attribute returns a collection of all the defined
+      table bodies.
+      
+      Retrieve the tBodies attribute from the second TABLE element and
+      examine the items of the returned collection.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-63206416">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-63206416</a>
+    </div>
+    <form action="HTMLTableElement08.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="tbodiesLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

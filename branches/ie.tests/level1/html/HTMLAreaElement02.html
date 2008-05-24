@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLAreaElement02
+    Created on : May 18, 2008, 10:46:24 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - Area</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLAreaElement02() {
+        var nodeList;
+        var testNode;
+        var valt;
+
+        nodeList = document.getElementsByTagName("area");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        valt = testNode.alt;
+        document.getElementById("altLink").value = valt;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLAreaElement02();">
+    <P>
+      <MAP NAME="mapid" ID="mapid">
+        <AREA TABINDEX="10" ACCESSKEY="a" SHAPE="rect" ALT="Domain"
+              COORDS="0,2,45,45" HREF="./files/dletter.html" TITLE="Domain">
+      </MAP>
+    </P>
+    <h2>description</h2>
+    <p>
+      The alt attribute specifies an alternate text for user agents not
+      rendering the normal content of this element.
+      
+      Retrieve the alt attribute and examine its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-39775416">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-39775416</a>
+    </div>
+    <form action="HTMLAreaElement02.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="altLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

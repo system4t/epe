@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLPreElement01
+    Created on : May 22, 2008, 5:57:59 PM
+    Author     : allan.jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - PRE</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLPreElement01() {
+        var nodeList;
+        var testNode;
+        var vwidth;
+
+        nodeList = document.getElementsByTagName("pre");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        vwidth = testNode.width;
+        document.getElementById("widthLink").value = vwidth;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLPreElement01();">
+    <PRE WIDTH="277">The PRE is used to indicate pre-formatted text.  Visual agents may:
+
+                leave white space intact.
+                May render text with a fixed-pitch font.
+                May disable automatic word wrap.
+                Must not disable bidirectional processing.
+    </PRE>
+    <h2>description</h2>
+    <p>
+      The width attribute specifies the fixed width for content.
+      
+      Retrieve the width attribute and examine its value.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-13894083">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-html#ID-13894083</a>
+    </div>
+    <form action="HTMLPreElement01.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="widthLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

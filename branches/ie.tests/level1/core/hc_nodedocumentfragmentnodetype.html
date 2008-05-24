@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : hc_nodedocumentfragmentnodetype
+    Created on : May 11, 2008, 11:49:27 AM
+    Author     : allan.jacobs
+-->
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <script type="text/javascript">
+      //<[CDATA[
+      function onloadListener() {
+        var docFragment;
+        var nodeType;
+
+        docFragment = document.createDocumentFragment();
+        nodeType = docFragment.nodeType;
+        document.getElementById("nodeDocumentFragmentNodeTypeAssert1").value = nodeType;
+        return true;
+      }
+      //]]>
+    </script>
+  </head>
+  <body onload="onloadListener();">
+    <h2>description</h2>
+    <p>
+    The "getNodeType()" method for a DocumentFragment Node
+    returns the constant value 11.
+
+    Invoke the "createDocumentFragment()" method and
+    examine the NodeType of the document fragment
+    returned by the "getNodeType()" method.   The method
+    should return 11.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-111237558">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-111237558</a>
+    </div>
+    <div>
+      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-B63ED1A3">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-B63ED1A3</a>
+    </div>
+    <form action="hc_nodedocumentfragmentnodetype.html" method="post">
+      <div>
+        <input id="nodeDocumentFragmentNodeTypeAssert1" type="hidden">
+      </div>
+    </form>
+<p>
+Copyright &copy; 2001-2004 World Wide Web Consortium,
+(Massachusetts Institute of Technology, European Research Consortium
+for Informatics and Mathematics, Keio University). All
+Rights Reserved. This work is distributed under the
+<a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+</p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>
