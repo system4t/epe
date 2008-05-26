@@ -3,7 +3,7 @@
 <!-- 
     Document   : HTMLObjectElement08
     Created on : May 22, 2008, 2:33:03 PM
-    Author     : allan.jacobs
+    Author     : NIST, Mary Brady, Allan Jacobs
 -->
 <HTML>
   <HEAD>
@@ -15,7 +15,6 @@
         var nodeList;
         var testNode;
         var vdata;
-        var len;
 
         nodeList = document.getElementsByTagName("object");
         document.getElementById("Asize").value = nodeList.length;
@@ -24,9 +23,8 @@
         if (vdata.indexOf("./") == 0) {
           vdata = vdata.substring(2);
         }
-        else {
-          len = document.URL.lastIndexOf("/") + 1;
-          vdata = vdata.substring(len);
+        else if (vdata.indexOf("http://www.w3.org/DOM/") == 0) {
+          vdata = vdata.substring(22);
         }
         document.getElementById("dataLink").value = vdata;
         return true;

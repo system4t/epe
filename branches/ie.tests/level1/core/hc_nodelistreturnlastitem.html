@@ -3,7 +3,7 @@
 <!-- 
     Document   : hc_nodelistreturnlastitem
     Created on : May 11, 2008, 9:17:07 PM
-    Author     : allan.jacobs
+    Author     : Curt Arnold, Allan Jacobs
 -->
 <html>
   <head>
@@ -31,6 +31,11 @@
           child = child.previousSibling;
           childName = child.nodeName;
           index -= 6;
+        }
+        else {
+          child = child.previousSibling;
+          childName = child.nodeName;
+          index -= 7;
         }
         document.getElementById("lastNodeName").value = childName.toLowerCase();
         document.getElementById("index").value = index;

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLBodyElement11
+    Created on : May 24, 2008, 8:01:10 PM
+    Author     : Curt Arnold, Allan Jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - DOCUMENT</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLBodyElement11() {
+        var body;
+        var state;
+        var version = null;
+
+        body = document.body;
+        state = body.isSupported("cOrE", version);
+        document.getElementById("isSupportedCore").value = state;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLBodyElement11();"  ID="TEST-BODY">
+    <FORM ID="form1" ACCEPT-CHARSET="US-ASCII" ACTION="./files/getData.pl"
+          ENCTYPE="application/x-www-form-urlencoded" METHOD="post">
+      <P>
+        <TEXTAREA NAME="text1" COLS="20" ROWS="7"></TEXTAREA>
+        <INPUT TYPE="submit" NAME="submit" VALUE="Submit" />
+        <INPUT TYPE="reset" NAME="reset" VALUE="Reset" />
+      </P>
+    </FORM>
+    <P>
+      <MAP NAME="mapid" ID="mapid">
+        <AREA TABINDEX="10" ACCESSKEY="a" SHAPE="rect" ALT="Domain"
+              COORDS="0,2,45,45" HREF="./files/dletter.html" TITLE="Domain1">
+        <AREA TABINDEX="10" ACCESSKEY="a" SHAPE="rect" ALT="Domain"
+              COORDS="0,2,45,45" HREF="./files/dletter.html" TITLE="Domain2">
+      </MAP>
+    </P>
+    <P>
+      <IMG ID="IMAGE-1" NAME="IMAGE-1" SRC="./pix/dts.gif"
+           ALT="DTS IMAGE LOGO" LONGDESC="./files/desc.html" USEMAP="#DTS-MAP"
+           WIDTH="115"/>
+    </P>
+    <P>
+      <OBJECT DATA="./pix/line.gif" CODETYPE="image/gif" HEIGHT="10">
+        <APPLET ALT="Applet Number 1" CODE="applet1.class"></APPLET>
+      </OBJECT>
+      <OBJECT DATA="./pix/logo.gif" type="image/gif">
+        <APPLET ALT="Applet Number 2" CODE="applet2.class"></APPLET>
+      </OBJECT>
+    </P>
+    <P>
+      <A ID="Anchor" DIR="LTR" HREF="./pix/submit.gif" ACCESSKEY="g"
+         TYPE="image/gif" COORDS="0,0,100,100" SHAPE="rect" REL="GLOSSARY"
+         REV="STYLESHEET" HREFLANG="en" CHARSET="US-ASCII" TABINDEX="22"
+         NAME="Anchor">View Submit Button</A>
+    </P>
+    <h2>description</h2>
+    <p>
+      Checks that Node.isSupported("cOrE", null) returns true.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-Core/core#Level-2-Core-Node-supports">http://www.w3.org/TR/DOM-Level-2-Core/core#Level-2-Core-Node-supports</a>
+    </div>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-62018039">http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-62018039</a>
+    </div>
+    <form action="HTMLBodyElement11.html" method="post">
+      <div>
+        <input id="isSupportedCore" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

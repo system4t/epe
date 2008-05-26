@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLSelectElement20
+    Created on : May 24, 2008, 9:48:44 PM
+    Author     : Curt Arnold, Allan Jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - SELECT</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLSelectElement20() {
+        var nodeList;
+        var testNode;
+        var optLength;
+        var selected;
+        var newOpt;
+        var newOptText;
+        var retNode;
+        var options;
+        var otherSelect;
+        var selectedNode;
+        var success;
+
+        nodeList = document.getElementsByTagName("select");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        otherSelect = nodeList.item(1);
+        newOpt = document.createElement("option");
+        newOptText = document.createTextNode("EMP31415");
+        retNode = newOpt.appendChild(newOptText);
+        options = otherSelect.options;
+
+        selectedNode = options.item(0);    
+        success = false;
+        try {
+          testNode.add(newOpt,selectedNode);
+        }
+        catch(ex) {
+          success = (typeof(ex.code) != 'undefined' && ex.code == 8);
+        }
+        document.getElementById("throw_NOT_FOUND_ERR").value = success;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLSelectElement20();">
+    <FORM ID="form1" ACTION="./files/getData.pl" METHOD="post">
+      <P>
+        <SELECT ID="selectId" DIR="ltr" TABINDEX="7" NAME="select1" MULTIPLE="multiple" SIZE="1">
+          <OPTION SELECTED="selected" value="EMP1">EMP10001</OPTION>
+          <OPTION>EMP10002</OPTION>
+          <OPTION>EMP10003</OPTION>
+          <OPTION>EMP10004</OPTION>
+          <OPTION>EMP10005</OPTION>
+        </SELECT>
+      </P>
+    </FORM>
+    <P>
+      <SELECT NAME="select2">
+        <OPTION>EMP20001</OPTION>
+        <OPTION>EMP20002</OPTION>
+        <OPTION>EMP20003</OPTION>
+        <OPTION>EMP20004</OPTION>
+        <OPTION>EMP20005</OPTION>
+      </SELECT>
+    </P>
+    <P>
+      <SELECT NAME="select3" DISABLED="disabled" TABINDEX="1">
+        <OPTION>EMP30001</OPTION>
+        <OPTION>EMP30002</OPTION>
+        <OPTION>EMP30003</OPTION>
+        <OPTION>EMP30004</OPTION>
+        <OPTION>EMP30005</OPTION>
+      </SELECT>
+    </P>
+    <h2>description</h2>
+    <p>
+      Attempting to add an new option using HTMLSelectElement.add before a node that is not a child of the select
+      element should raise a NOT_FOUND_ERR.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-14493106">http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-14493106</a>
+    </div>
+    <form action="HTMLSelectElement20.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="throw_NOT_FOUND_ERR" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

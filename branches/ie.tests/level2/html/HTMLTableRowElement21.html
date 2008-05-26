@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLTableRowElement21
+    Created on : May 25, 2008, 3:03:55 AM
+    Author     : NIST, Rick Rivello, Allan Jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - TABLEROW</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLTableRowElement21() {
+        var nodeList;
+        var cellsnodeList;
+        var testNode;
+        var trNode;
+        var cellNode;
+        var value;
+        var vcells;
+
+        nodeList = document.getElementsByTagName("tr");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(3);
+        cellsnodeList = testNode.cells;
+        vcells = cellsnodeList.length;
+        document.getElementById("cellsLink1").value = vcells;
+        
+        trNode = cellsnodeList.item(5);
+        cellNode = trNode.firstChild;
+        value = cellNode.nodeValue;
+        document.getElementById("value1Link").value = value;
+        
+        newCell = testNode.deleteCell(-1);
+        testNode = nodeList.item(3);
+        cellsnodeList = testNode.cells;
+        vcells = cellsnodeList.length;
+        document.getElementById("cellsLink2").value = vcells;
+        
+        trNode = cellsnodeList.item(4);
+        cellNode = trNode.firstChild;
+        value = cellNode.nodeValue;
+        document.getElementById("value2Link").value = value;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLTableRowElement21();">
+    <TABLE ALIGN="center" SUMMARY="Table 1">
+      <TR>
+        <TH>Id</TH>
+        <TH>Name</TH>
+        <TH>Position</TH>
+        <TH>Salary</TH>
+      </TR>
+    </TABLE>
+    <TABLE ID="table-1" ALIGN="center" BORDER="4" BGCOLOR="#ff0000" FRAME="border"
+           CELLPADDING="2" CELLSPACING="2" SUMMARY="HTML Control Table"
+           RULES="all" WIDTH="680">
+      <CAPTION ALIGN="top">Table Caption</CAPTION>
+      <THEAD ALIGN="center" VALIGN="middle">
+        <TR ALIGN="center" BGCOLOR="#00FFFF" VALIGN="middle" CHAR="*" CHAROFF="1">
+          <TH ID="header-1">Employee Id</TH>
+          <TH ID="header-2" ABBR="maiden" AXIS="center" ALIGN="center"
+              BGCOLOR="#00FFFF" COLSPAN="1" HEIGHT="50" NOWRAP="nowrap"
+              ROWSPAN="1" SCOPE="col"
+              HEADERS="header-1" VALIGN="middle" WIDTH="100">Employee Name</TH>
+          <TH>Position</TH>
+          <TH>Salary</TH>
+          <TH>Gender</TH>
+          <TH>Address</TH>
+        </TR>
+      </THEAD>
+      <TFOOT ALIGN="center" VALIGN="middle">
+        <TR>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+        </TR>
+      </TFOOT>
+      <TBODY ALIGN="center" VALIGN="middle">
+        <TR>
+          <TD AXIS="center" ID="Table-3" ABBR="maiden2" ALIGN="center"
+              BGCOLOR="#FF0000" COLSPAN="1" HEIGHT="50" NOWRAP="nowrap"
+              ROWSPAN="1" SCOPE="col"
+              HEADERS="header-2" VALIGN="middle" WIDTH="175">EMP0001</TD>
+          <TD HEADERS="header-2">Margaret Martin</TD>
+          <TD>Accountant</TD>
+          <TD>56,000</TD>
+          <TD>Female</TD>
+          <TD>1230 North Ave. Dallas, Texas 98551</TD>
+        </TR>
+        <TR>
+          <TD>EMP0002</TD>
+          <TD>Martha Raynolds</TD>
+          <TD>Secretary</TD>
+          <TD>35,000</TD>
+          <TD>Female</TD>
+          <TD>1900 Dallas Road Dallas, Texas 98554</TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+    <h2>description</h2>
+    <p>
+      The deleteCell() method deletes a cell from the currtent row.  If
+      the index is -1 the last cell in the row is deleted.
+      
+      Retrieve the fourth TR element and examine the value of
+      the cells length attribute which should be set to six.
+      Check the value of the last TD element.  Invoke the
+      deleteCell() with an index of negative one
+      which will delete the last cell in the row.
+      Check the value of the of the last cell
+      and also the numbers of cells should now be five.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-11738598">http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-11738598</a>
+    </div>
+    <form action="HTMLTableRowElement21.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="cellsLink1" type="hidden">
+        <input id="value1Link" type="hidden">
+        <input id="cellsLink2" type="hidden">
+        <input id="value2Link" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

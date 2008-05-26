@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLTableSectionElement28
+    Created on : May 25, 2008, 3:41:17 AM
+    Author     : NIST, Rick Rivello, Allan Jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - TABLESECTION</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLTableSectionElement28() {
+        var success;
+        var nodeList;
+        var testNode;
+
+        nodeList = document.getElementsByTagName("thead");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        success = false;
+        try {
+          testNode.deleteRow(1);
+        }
+        catch(ex) {
+          success = (typeof(ex.code) != 'undefined' && ex.code == 1);
+        }
+        document.getElementById("HTMLTableSectionElement28").value = success;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLTableSectionElement28();">
+    <TABLE ALIGN="center" SUMMARY="Table 1">
+      <TBODY>
+        <TR>
+          <TH>Id</TH>
+          <TH>Name</TH>
+          <TH>Position</TH>
+          <TH>Salary</TH>
+        </TR>
+      </TBODY>
+    </TABLE>
+    <TABLE ID="table-1" ALIGN="center" BORDER="4" BGCOLOR="#ff0000"
+           FRAME="border" CELLPADDING="2" CELLSPACING="2"
+           SUMMARY="HTML Control Table" RULES="all" WIDTH="680">
+      <CAPTION ALIGN="top">Table Caption</CAPTION>
+      <THEAD ALIGN="center" VALIGN="middle" CHAR="*" CHAROFF="1">
+        <TR ALIGN="center" BGCOLOR="#00FFFF" VALIGN="middle" CHAR="*" CHAROFF="1">
+          <TH ID="header-1">Employee Id</TH>
+          <TH ID="header-2" ABBR="maiden" AXIS="center" ALIGN="center"
+              BGCOLOR="#00FFFF" COLSPAN="1" HEIGHT="50" NOWRAP="nowrap"
+              ROWSPAN="1" SCOPE="col" HEADERS="header-1" VALIGN="middle"
+              WIDTH="100">Employee Name</TH>
+          <TH>Position</TH>
+          <TH>Salary</TH>
+          <TH>Gender</TH>
+          <TH>Address</TH>
+        </TR>
+      </THEAD>
+      <TFOOT ALIGN="center" VALIGN="middle" CHAR="+" CHAROFF="2">
+        <TR>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+          <TH>next page ...</TH>
+        </TR>
+      </TFOOT>
+      <TBODY ALIGN="center" VALIGN="middle" CHAR="$" CHAROFF="3">
+        <TR>
+          <TD AXIS="center" ID="Table-3" ABBR="maiden2" ALIGN="center"
+              BGCOLOR="#FF0000" COLSPAN="1" HEIGHT="50" NOWRAP="nowrap"
+              ROWSPAN="1" SCOPE="col"
+              HEADERS="header-2" VALIGN="middle" WIDTH="175">EMP0001</TD>
+          <TD HEADERS="header-2">Margaret Martin</TD>
+          <TD>Accountant</TD>
+          <TD>56,000</TD>
+          <TD>Female</TD>
+          <TD>1230 North Ave. Dallas, Texas 98551</TD>
+        </TR>
+        <TR>
+          <TD>EMP0002</TD>
+          <TD>Martha Raynolds</TD>
+          <TD>Secretary</TD>
+          <TD>35,000</TD>
+          <TD>Female</TD>
+          <TD>1900 Dallas Road Dallas, Texas 98554</TD>
+        </TR>
+      </TBODY>
+    </TABLE>
+    <h2>description</h2>
+    <p>
+      The deleteRow() method throws a INDEX_SIZE_ERR DOMException
+      if the specified index is equal to the number of rows.
+      
+      Retrieve the first THEAD element which has one row.  Try
+      to delete a row using an index of 1.  This should throw
+      a INDEX_SIZE_ERR DOMException since the index is equal to the
+      number of rows.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-5625626">http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-5625626</a>
+    </div>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#xpointer(id('ID-5625626')/raises/exception[@name='DOMException']/descr/p[substring-before(.,':')='INDEX_SIZE_ERR'])">http://www.w3.org/TR/DOM-Level-2-HTML/html#xpointer(id('ID-5625626')/raises/exception[@name='DOMException']/descr/p[substring-before(.,':')='INDEX_SIZE_ERR'])</a>
+    </div>
+    <form action="HTMLTableSectionElement28.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="HTMLTableSectionElement28" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

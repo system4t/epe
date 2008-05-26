@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLOptionsCollection06
+    Created on : May 25, 2008, 4:13:15 AM
+    Author     : NIST, Rick Rivello, Allan Jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - OPTIONSCOLLECTION</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLOptionsCollection06() {
+        var nodeList;
+        var testNode;
+        var optionsNode;
+        var optionsList;
+        
+        nodeList = document.getElementsByTagName("select");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        optionsList = testNode.options;
+
+        optionsNode = optionsList.item(10);
+        document.getElementById("optionsIndexLink").value = optionsNode;
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLOptionsCollection06();">
+    <FORM ID="form1" NAME="form1" ACTION="./files/getData.pl" METHOD="post">
+      <P>
+        <SELECT ID="selectId" DIR="ltr" TABINDEX="7" NAME="select1" MULTIPLE="multiple" SIZE="1">
+          <OPTION SELECTED="selected" value="10001">EMP10001</OPTION>
+          <OPTION LABEL="l1">EMP10002</OPTION>
+          <OPTION>EMP10003</OPTION>
+          <OPTION>EMP10004</OPTION>
+          <OPTION>EMP10005</OPTION>
+        </SELECT>
+      </P>
+    </FORM>
+    <P>
+      <SELECT NAME="select2" disabled="disabled">
+        <OPTION>EMP20001</OPTION>
+        <OPTION>EMP20002</OPTION>
+        <OPTION>EMP20003</OPTION>
+        <OPTION>EMP20004</OPTION>
+        <OPTION DISABLED="disabled">EMP20005</OPTION>
+      </SELECT>
+    </P>
+    <h2>description</h2>
+    <p>
+      An HTMLOptionsCollection is a list of nodes representing HTML option
+      element.
+      An individual node may be accessed by either ordinal index, the node's
+      name or id attributes.  (Test ordinal index).
+      The item() method retrieves a node specified by ordinal index.
+      A value of null is returned if the index is out of range.
+      
+      Retrieve the first SELECT element.  Create a HTMLOptionsCollection.
+      Retrieve the tenth item in the list - null should be returned since
+      there are not 10 items in the list.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#HTMLOptionsCollection-item">http://www.w3.org/TR/DOM-Level-2-HTML/html#HTMLOptionsCollection-item</a>
+    </div>
+    <form action="HTMLOptionsCollection06.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="optionsIndexLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

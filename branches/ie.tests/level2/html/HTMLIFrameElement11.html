@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLIFrameElement11
+    Created on : May 24, 2008, 9:15:35 PM
+    Author     : NIST, Rick Rivello, Allan Jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - IFRAME2</TITLE>
+    <!--  required by frame contents  -->
+    <SCRIPT type="text/javascript">
+      function HTMLIFrameElement11() {
+        var testNode;
+        var cd;
+        var vtitle;
+      
+        testNode = document.getElementById("Iframe2");
+        cd = testNode.contentDocument;
+
+        vtitle = cd.title;
+        document.getElementById("titleLink").value = vtitle;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLIFrameElement11();">
+    <IFRAME ID="Iframe1" NAME="Iframe1" SRC="iframe.html">IFRAME1</IFRAME>
+    <IFRAME ID="Iframe2" SRC="frame.html" NAME="Iframe2">IFRAME2</IFRAME>
+    <h2>description</h2>
+    <p>
+      Retrieve the contentDocument attribute of the second IFRAME element
+      and examine its title.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-67133006">http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-67133006</a>
+    </div>
+    <form action="HTMLDocument27.html" method="post">
+      <div>
+        <input id="titleLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

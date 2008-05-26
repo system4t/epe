@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLOptionsCollection04
+    Created on : May 25, 2008, 4:13:15 AM
+    Author     : NIST, Rick Rivello, Allan Jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - OPTIONSCOLLECTION</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLOptionsCollection04() {
+        var nodeList;
+        var testNode;
+        var optionsNode;
+        var formsnodeList;
+        var vname;
+
+        nodeList = document.getElementsByTagName("form");
+        document.getElementById("Asize").value = nodeList.length;
+        testNode = nodeList.item(0);
+        formsnodeList = testNode.elements;
+        optionsNode = formsnodeList.namedItem("selectId");
+        vname = optionsNode.nodeName;
+        document.getElementById("nameIndexLink").value = vname.toLowerCase();
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLOptionsCollection04();">
+    <FORM ID="form1" NAME="form1" ACTION="./files/getData.pl" METHOD="post">
+      <P>
+        <SELECT ID="selectId" DIR="ltr" TABINDEX="7" NAME="select1" MULTIPLE="multiple" SIZE="1">
+          <OPTION SELECTED="selected" value="10001">EMP10001</OPTION>
+          <OPTION LABEL="l1">EMP10002</OPTION>
+          <OPTION>EMP10003</OPTION>
+          <OPTION>EMP10004</OPTION>
+          <OPTION>EMP10005</OPTION>
+        </SELECT>
+      </P>
+    </FORM>
+    <P>
+      <SELECT NAME="select2" disabled="disabled">
+        <OPTION>EMP20001</OPTION>
+        <OPTION>EMP20002</OPTION>
+        <OPTION>EMP20003</OPTION>
+        <OPTION>EMP20004</OPTION>
+        <OPTION DISABLED="disabled">EMP20005</OPTION>
+      </SELECT>
+    </P>
+    <h2>description</h2>
+    <p>
+      An HTMLOptionsCollection is a list of nodes representing HTML option
+      element.
+      An individual node may be accessed by either ordinal index, the node's
+      name or id attributes.  (Test node name).
+      The namedItem method retrieves a Node using a name.  It first searches
+      for a node with a matching id attribute.  If it doesn't find one, it
+      then searches for a Node with a matching name attribute, but only
+      those elements that are allowed a name attribute.
+      
+      Retrieve the first FORM element.  Create a HTMLCollection of the elements.
+      Search for an element that has selectId as the value for the id attribute.
+      Get the nodeName of that element.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#HTMLOptionsCollection-namedItem">http://www.w3.org/TR/DOM-Level-2-HTML/html#HTMLOptionsCollection-namedItem</a>
+    </div>
+    <form action="HTMLOptionsCollection04.html" method="post">
+      <div>
+        <input id="Asize" type="hidden">
+        <input id="nameIndexLink" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>

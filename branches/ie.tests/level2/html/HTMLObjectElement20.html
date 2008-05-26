@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : HTMLObjectElement20
+    Created on : May 24, 2008, 9:43:17 PM
+    Author     : NIST, Rick Rivello, Allan Jacobs
+-->
+<HTML>
+  <HEAD>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=utf-8">
+    <TITLE>NIST DOM HTML Test - OBJECT</TITLE>
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <SCRIPT TYPE="text/javascript">
+      function HTMLObjectElement20() {
+        var nodeList;
+        var testNode;
+        var cd;
+
+        nodeList = document.getElementsByTagName("object");
+        testNode = nodeList.item(1);
+        cd = testNode.contentDocument;
+        document.getElementById("noContentDocument").value = (cd == null);
+        return true;
+      }
+    </SCRIPT>
+  </HEAD>
+  <BODY onload="HTMLObjectElement20();">
+    <P>
+      <OBJECT ALIGN="middle" ARCHIVE="" BORDER="0" CODEBASE="http://www.w3.org/DOM/"
+              DATA="./pix/logo.gif" HEIGHT="60" HSPACE="0" STANDBY="Loading Image ..."
+              TABINDEX="0" TYPE="image/gif" USEMAP="#DivLogo-map"
+              VSPACE="0" WIDTH="550"></OBJECT>
+    </P>
+    <FORM ID="object2" ACTION="./files/getData.pl" METHOD="post">
+      <P>
+        <OBJECT DECLARE="declare" NAME="OBJECT2" CODETYPE="image/gif"></OBJECT>
+      </P>
+    </FORM>
+    <h2>description</h2>
+    <p>
+      The contentDocument attribute specifies the document this object contains,
+      if there is any and it is available, or null otherwise.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-38538621">http://www.w3.org/TR/DOM-Level-2-HTML/html#ID-38538621</a>
+    </div>
+    <form action="HTMLObjectElement20.html" method="post">
+      <div>
+        <input id="noContentDocument" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </BODY>
+</HTML>
+
