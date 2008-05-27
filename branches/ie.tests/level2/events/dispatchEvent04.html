@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : dispatchEvent04
+    Created on : May 23, 2008, 12:12:33 AM
+    Author     : Curt Arnold, Allan Jacobs
+-->
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <script type="text/javascript" src="../../lib/uem.js"></script>
+    <SCRIPT>
+      function dispatchEvent04() {
+        var success = false;
+        var preventDefault;
+        var evt = document.createEvent("UIEvents");
+        
+        try {
+          preventDefault = document.dispatchEvent(evt);
+
+        } catch (ex) {
+          success = (typeof(ex.code) != 'undefined' && ex.code == 0);
+        }
+        document.getElementById("throw_UNSPECIFIED_EVENT_TYPE_ERR").value = success;
+        return true;
+      }
+    </SCRIPT>
+  </head>
+  <body onload="dispatchEvent04();">
+    <h2>description</h2>
+    <p>
+      An created but not initialized event is passed to EventTarget.dispatchEvent().  Should raise
+      UNSPECIFIED_EVENT_TYPE_ERR EventException.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-Events/events#Events-EventTarget-dispatchEvent">http://www.w3.org/TR/DOM-Level-2-Events/events#Events-EventTarget-dispatchEvent</a>
+    </div>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-Events/events#xpointer(id('Events-EventTarget-dispatchEvent')/raises/exception[@name='EventException']/descr/p[substring-before(.,':')='UNSPECIFIED_EVENT_TYPE_ERR'])">http://www.w3.org/TR/DOM-Level-2-Events/events#xpointer(id('Events-EventTarget-dispatchEvent')/raises/exception[@name='EventException']/descr/p[substring-before(.,':')='UNSPECIFIED_EVENT_TYPE_ERR'])</a>
+    </div>
+    <form action="dispatchEvent04.html" method="post">
+      <div>
+        <input id="throw_UNSPECIFIED_EVENT_TYPE_ERR" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>
+

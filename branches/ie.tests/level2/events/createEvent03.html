@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : createEvent03
+    Created on : May 23, 2008, 12:04:39 AM
+    Author     : Curt Arnold, Allan Jacobs
+-->
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <script type="text/javascript" src="../../lib/uem.js"></script>
+    <SCRIPT>
+      function createEvent02() {
+        var event = document.createEvent("UIEvents");
+        document.getElementById("notnull").value = (event != null);
+        return true;
+      }
+    </SCRIPT>
+  </head>
+  <body onload="createEvent02();">
+    <h2>description</h2>
+    <p>
+      An object implementing the Event interface is created by using
+      DocumentEvent.createEvent method with eventType equals "UIEvents".
+      Only applicable if implementation supports the "UIEvents" feature.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-Events/events#Events-DocumentEvent-createEvent">http://www.w3.org/TR/DOM-Level-2-Events/events#Events-DocumentEvent-createEvent</a>
+    </div>
+    <form action="createEvent03.html" method="post">
+      <div>
+        <input id="notnull" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>
+

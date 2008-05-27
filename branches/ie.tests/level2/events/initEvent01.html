@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : initEvent01
+    Created on : May 25, 2008, 12:47:26 PM
+    Author     : Curt Arnold, Allan Jacobs
+-->
+<html>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="../../lib/epe.js"></script>
+    <script type="text/javascript" src="../../lib/uem.js"></script>
+    <SCRIPT>
+      function initEvent01() {
+        var event;
+        var expectedEventType = "rotate";
+        var actualEventType;
+        var expectedCanBubble = true;
+        var actualCanBubble;
+        var expectedCancelable = false;
+        var actualCancelable;
+
+        event = document.createEvent("Events");
+        document.getElementById("notnull").value = (event != null);
+        event.initEvent(expectedEventType,expectedCanBubble,expectedCancelable);
+        actualEventType = event.type;
+
+        document.getElementById("type").value = actualEventType;
+        actualCancelable = event.cancelable;
+
+        document.getElementById("cancelable").value = actualCancelable;
+        actualCanBubble = event.bubbles;
+
+        document.getElementById("canBubble").value = actualCanBubble;
+        return true;
+      }
+    </SCRIPT>
+  </head>
+  <body onload="initEvent01();">
+    <h2>description</h2>
+    <p>
+      The Event.initEvent method is called for event returned by DocumentEvent.createEvent("events")
+      and the state is checked to see if it reflects the parameters.
+    </p>
+    <div>
+      <a href="http://www.w3.org/TR/DOM-Level-2-Events/events#Events-Event-initEvent">http://www.w3.org/TR/DOM-Level-2-Events/events#Events-Event-initEvent</a>
+    </div>
+    <form action="initEvent01.html" method="post">
+      <div>
+        <input id="notnull" type="hidden">
+        <input id="type" type="hidden">
+        <input id="cancelable" type="hidden">
+        <input id="canBubble" type="hidden">
+      </div>
+    </form>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>
