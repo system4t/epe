@@ -232,9 +232,9 @@ if (document.createEventObject) {
    *    
    * Weird IE behavior: When assigning event handlers using attachEvent 'this' references the window object
    *                    so we use event.srcElement instead.       
-   */
+  */
   
-    EPE.checkInnerHTML =
+  EPE.checkInnerHTML =
     function() {
       // EPE handles document changes
       if (event.propertyName == 'innerHTML') {
