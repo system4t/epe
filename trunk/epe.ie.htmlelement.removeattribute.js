@@ -14,5 +14,15 @@ if (document.createEventObject && window.EPE) {
     };
     // Define PlugIn for all elements
   EPE.PlugIn.RemoveAttribute = new EPE.PlugIn();
-  EPE.PlugIn.RemoveAttribute.addEPEListener('create',function(){this._removeAttribute = this.removeAttribute; this.removeAttribute = EPE.removeAttribute;});
+  EPE.PlugIn.RemoveAttribute.addEPEListener(
+    'create',
+    function() {
+      // Can't assign to element.removeAttribute when tag is OBJECT or APPLET
+      // No workaround.
+      if (!(this.constructor == HTMLObjectElement || this.constructor == HTMLAppletElement)) {
+        this._removeAttribute = this.removeAttribute;
+        this.removeAttribute = EPE.removeAttribute;
+      }
+    }
+  );
 }
