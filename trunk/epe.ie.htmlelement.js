@@ -21,7 +21,6 @@ if (document.createEventObject) {
 
   // Declare namespace
   var EPE = {};
-  EPE.version = '2.0';
   
   // Cache elements between creation and insertion. This is nessesary if
   // you are altering the prototype of an element constructor between
