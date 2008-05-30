@@ -133,14 +133,37 @@ if (document.createEventObject) {
         }
         // Copy properties from HTMLElement prototype
         oPro = HTMLElement._prototype;
-        for (var p in oPro)
-          elm[p] = oPro[p];
+        if (elm.nodeName != "OBJECT" && elm.nodeName != "APPLET") {
+          for (var p in oPro) {
+            elm[p] = oPro[p];
+          }
+        }
+        else {
+          for (var p in oPro) {
+            try {
+              elm[p] = oPro[p];
+            }
+            catch (ex) {
+            }
+          }
+        }
         // Copy properties from constructor prototype
         // effectively overwritting duplicate properties
         // defined on the HTMLElement
         var oPro = oCon._prototype;
-        for (var p in oPro)
-          elm[p] = oPro[p];
+        if (elm.nodeName != "OBJECT" && elm.nodeName != "APPLET") {
+          for (var p in oPro)
+            elm[p] = oPro[p];
+        }
+        else {
+          for (var p in oPro) {
+            try {
+              elm[p] = oPro[p];
+            }
+            catch (ex) {
+            }
+          }
+        }
         // If any auxiliary functions are registered for handling changes to
         // nodes when they are created/inserted they are executed now, parsing
         // the node as a single argument. Aux. functions are executed in the
@@ -457,16 +480,41 @@ if (document.createEventObject) {
   // Execute create listeners
   EPE.PlugIn.executeCreate =
     function(elm) {
-      var con = elm.constructor.toString();
+      var con = null;
+      try {
+        con = elm.constructor.toString();
+      }
+      catch (ex) {
+      }
       // Execute listeners on specific element
-      if (this.create[con]) {
-        for(var i=0; i<this.create[con].length; i++)
-          this.create[con][i].apply(elm);
+      if (con != null && this.create[con]) {
+        if (elm.nodeName != 'APPLET' && elm.nodeName != 'OBJECT') {
+          for(var i=0; i<this.create[con].length; i++)
+            this.create[con][i].apply(elm);
+        }
+        else {
+          for(var i=0; i<this.create[con].length; i++)
+            try {
+              this.create[con][i].apply(elm);
+            }
+            catch (ex) {
+            }
+        }
       }
       // Execute listeners on HTMLElement
       else if (this.create['HTMLElement']) {
-        for(var i=0; i<this.create['HTMLElement'].length; i++)
-          this.create['HTMLElement'][i].apply(elm);
+        for(var i=0; i<this.create['HTMLElement'].length; i++) {
+          if (elm.nodeName != 'APPLET' && elm.nodeName != 'OBJECT') {
+            this.create['HTMLElement'][i].apply(elm);
+          }
+          else {
+            try {
+              this.create['HTMLElement'][i].apply(elm);
+            }
+            catch (ex) {
+            }
+          }
+        }
       }
     };
   
