@@ -137,6 +137,7 @@ if (document.createEventObject) {
             elm[p] = oPro[p];
           }
         }
+        // Temp. solution for OBJECT and APPLET tags
         else {
           for (var p in oPro) {
             try {
@@ -154,6 +155,7 @@ if (document.createEventObject) {
           for (var p in oPro)
             elm[p] = oPro[p];
         }
+        // Temp. solution for OBJECT and APLLET tags
         else {
           for (var p in oPro) {
             try {
@@ -483,6 +485,7 @@ if (document.createEventObject) {
       if (elm.nodeName != 'APPLET' && elm.nodeName != 'OBJECT') {
         con = elm.constructor.toString();
       }
+      // Temp. solution for OBJECT and APPLET tags
       else {
         try {
           con = elm.constructor.toString();
@@ -496,6 +499,7 @@ if (document.createEventObject) {
           for(var i=0; i<this.create[con].length; i++)
             this.create[con][i].apply(elm);
         }
+        // Temp. solution for OBJECT and APPLET tags
         else {
           for(var i=0; i<this.create[con].length; i++)
             try {
@@ -511,6 +515,7 @@ if (document.createEventObject) {
           if (elm.nodeName != 'APPLET' && elm.nodeName != 'OBJECT') {
             this.create['HTMLElement'][i].apply(elm);
           }
+          // Temp. solution for OBJECT and APPLET tags
           else {
             try {
               this.create['HTMLElement'][i].apply(elm);
