@@ -480,10 +480,15 @@ if (document.createEventObject) {
   EPE.PlugIn.executeCreate =
     function(elm) {
       var con = null;
-      try {
+      if (elm.nodeName != 'APPLET' && elm.nodeName != 'OBJECT') {
         con = elm.constructor.toString();
       }
-      catch (ex) {
+      else {
+        try {
+          con = elm.constructor.toString();
+        }
+        catch (ex) {
+        }
       }
       // Execute listeners on specific element
       if (con != null && this.create[con]) {
