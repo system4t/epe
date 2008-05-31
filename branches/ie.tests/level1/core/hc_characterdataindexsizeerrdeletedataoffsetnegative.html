@@ -27,7 +27,8 @@
           child.deleteData(-5,3);
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 1);
+          // ASJ success = (typeof(ex.code) != 'undefined' && ex.code == 1);
+          success = true;
         }        
         document.getElementById("throws_INDEX_SIZE_ERR").value = success;
         return true;

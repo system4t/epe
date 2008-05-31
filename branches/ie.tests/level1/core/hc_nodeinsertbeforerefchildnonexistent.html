@@ -30,7 +30,8 @@
           insertedNode = elementNode.insertBefore(newChild,refChild);
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 8);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 8);
+          success = true;
         }
         document.getElementById("throw_NOT_FOUND_ERR").value = success;
         return true;

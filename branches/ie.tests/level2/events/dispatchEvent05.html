@@ -21,7 +21,8 @@
           preventDefault = document.dispatchEvent(evt);
 
         } catch (ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 0);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 0);
+          success = true;
         }
         document.getElementById("throw_UNSPECIFIED_EVENT_TYPE_ERR").value = success;
         return true;

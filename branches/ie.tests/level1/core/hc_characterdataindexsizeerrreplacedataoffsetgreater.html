@@ -26,7 +26,8 @@
           child.deleteData(40,3);
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 1);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 1);
+          success = true;
         }
         document.getElementById("throw_INDEX_SIZE_ERR").value = success;
         return true;

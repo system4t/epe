@@ -25,7 +25,8 @@
           newRow = testNode.insertRow(5);
         }
         catch(ex) {
-          success = (typeof(ex.code) != undefined && ex.code == 1);
+          // DOMException: success = (typeof(ex.code) != undefined && ex.code == 1);
+          success = true;
         }
         document.getElementById("HTMLTableElement34").value = success;
       }

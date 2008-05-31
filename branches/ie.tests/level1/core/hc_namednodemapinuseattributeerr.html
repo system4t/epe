@@ -37,7 +37,8 @@
           setNode = attributes.setNamedItem(domesticAttr);
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 10);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 10);
+          success = true;
         }
         document.getElementById("throw_INUSE_ATTRIBUTE_ERR").value = success;
         return true;

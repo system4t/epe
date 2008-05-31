@@ -27,7 +27,8 @@
           splitNode = textNode.splitText(-69);
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 1);  
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 1);  
+          success = true;
         }
         document.getElementById("throws_INDEX_SIZE_ERR").value = success;
         return true;

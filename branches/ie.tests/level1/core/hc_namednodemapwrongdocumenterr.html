@@ -33,7 +33,8 @@
           setNode = attributes.setNamedItem(newAttribute);
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 4);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 4);
+          success = true;
         }
         document.getElementById("throw_WRONG_DOCUMENT_ERR").value = success;
         doc1.close();

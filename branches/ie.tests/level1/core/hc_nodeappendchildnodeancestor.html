@@ -31,7 +31,8 @@
           appendedChild = employeeNode.appendChild(newChild);
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 3);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 3);
+          success = true;
         }
         document.getElementById("throw_HIERARCHY_REQUEST_ERR").value = success;
         return true;

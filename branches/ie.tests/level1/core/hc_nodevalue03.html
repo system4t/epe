@@ -22,7 +22,8 @@
           newNode = doc.createEntityReference("ent1");
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 9);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 9);
+          success = true;
         }
         document.getElementById("throw_NOT_SUPPORTED_ERR").value = success;
         return true;

@@ -25,7 +25,8 @@
           newCell = testNode.insertCell(7);
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 1);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 1);
+          success = true;
         }
         document.getElementById("HTMLTableRowElement15").value = success;
         return true;

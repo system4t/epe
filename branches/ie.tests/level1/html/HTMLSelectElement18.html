@@ -28,8 +28,9 @@
         document.getElementById("Asize").value = nodeList.length;
         testNode = nodeList.item(0);
         newOpt = document.createElement("option");
-        newOptText = document.createTextNode("EMP31415");
-        retNode = newOpt.appendChild(newOptText);
+        // newOptText = document.createTextNode("EMP31415");
+        // retNode = newOpt.appendChild(newOptText);
+        newOpt.text = "EMP31415";
         testNode.add(newOpt,nullNode);
         optLength = testNode.length;
         document.getElementById("optLength").value = optLength;

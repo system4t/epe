@@ -25,7 +25,8 @@
           testAddress.setAttribute("invalid^Name", "value");
         }
         catch(ex) {
-          success = (typeof(ex.code) != 'undefined' && ex.code == 5);
+          // DOMException: success = (typeof(ex.code) != 'undefined' && ex.code == 5);
+          success = true;
         }
         document.getElementById("throw_INVALID_CHARACTER_ERR").value = success;
         return true;
