@@ -1,8 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <!-- 
-    Document   : dispatchClickEvent01
-    Created on : May 26, 2008, 5:29:01 PM
+    Document   : dispatchClickEvent02
+    Created on : Jun 1, 2008, 12:08:11 AM
     Author     : Allan Jacobs
 -->
 <html>
@@ -38,7 +38,7 @@
         var evt;
         var preventDefault;
 
-        document.addEventListener("click", handleEvent, false);
+        document.addEventListener("click", handleEvent, true);
         evt = document.createEvent("MouseEvents");
         evt.initMouseEvent("click",true,false,window, 1,
           100, 101, 102, 103, false, false, false, null,
@@ -54,8 +54,9 @@
   <body onload="dispatchClickEvent01();">
     <h2>description</h2>
     <p>
-      An EventListener registered on the target node with capture false, should
-      recieve any event fired on that node.
+      An event is dispatched to the document with a capture listener attached.
+      A capturing EventListener will not be triggered by events dispatched directly to
+      the EventTarget upon which it is registered.
     </p>
     <div>
       <a href="http://www.w3.org/TR/DOM-Level-2-Events/events#Events-EventTarget-dispatchEvent">http://www.w3.org/TR/DOM-Level-2-Events/events#Events-EventTarget-dispatchEvent</a>
@@ -63,7 +64,7 @@
     <div>
       <a href="http://www.w3.org/TR/DOM-Level-2-Events/events#xpointer(id('Events-EventTarget-dispatchEvent')/raises/exception[@name='EventException']/descr/p[substring-before(.,':')='UNSPECIFIED_EVENT_TYPE_ERR'])">http://www.w3.org/TR/DOM-Level-2-Events/events#xpointer(id('Events-EventTarget-dispatchEvent')/raises/exception[@name='EventException']/descr/p[substring-before(.,':')='UNSPECIFIED_EVENT_TYPE_ERR'])</a>
     </div>
-    <form action="dispatchClickEvent01.html" method="post">
+    <form action="dispatchClickEvent02.html" method="post">
       <div>
         <input id="atCount" type="hidden">
         <input id="bubbleCount" type="hidden">

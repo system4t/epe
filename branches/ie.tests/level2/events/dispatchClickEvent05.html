@@ -1,8 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <!-- 
-    Document   : dispatchClickEvent01
-    Created on : May 26, 2008, 5:29:01 PM
+    Document   : dispatchClickEvent05
+    Created on : Jun 1, 2008, 12:22:14 AM
     Author     : Allan Jacobs
 -->
 <html>
@@ -16,7 +16,6 @@
       var bubbledEvents = new Array();
       var capturedEvents = new Array();
       var allEvents = new Array();
-      
       function handleEvent(evt) {
         switch(evt.eventPhase) {
           case 1:
@@ -32,30 +31,35 @@
             break;
         }
         allEvents[allEvents.length] = evt;
-      };
-
-      function dispatchClickEvent01() {
+      }
+      function EventListenerN65589() {
+      }
+      EventListenerN65589.prototype.handleEvent = function(e) { }
+      function dispatchClickEvent05() {
         var evt;
         var preventDefault;
+        var other = new EventListenerN65589();
 
         document.addEventListener("click", handleEvent, false);
+        document.removeEventListener("click", handleEvent, true);
+        document.removeEventListener("select", handleEvent, false);
+        document.removeEventListener("click", other.handleEvent, false);
         evt = document.createEvent("MouseEvents");
         evt.initMouseEvent("click",true,false,window, 1,
           100, 101, 102, 103, false, false, false, null,
           1, null);
         preventDefault = document.dispatchEvent(evt);
-        document.getElementById("atCount").value = atEvents.length;
-        document.getElementById("bubbleCount").value = bubbledEvents.length;
-        document.getElementById("captureCount").value = capturedEvents.length;
+        document.getElementById("eventCount").value = allEvents.length;
         return true;
       }
     </SCRIPT>
   </head>
-  <body onload="dispatchClickEvent01();">
+  <body onload="dispatchClickEvent05();">
     <h2>description</h2>
     <p>
-      An EventListener registered on the target node with capture false, should
-      recieve any event fired on that node.
+      A monitor is added, multiple calls to removeEventListener
+      are mde with similar but not identical arguments, and an event is dispatched.
+      The monitor should recieve handleEvent calls.
     </p>
     <div>
       <a href="http://www.w3.org/TR/DOM-Level-2-Events/events#Events-EventTarget-dispatchEvent">http://www.w3.org/TR/DOM-Level-2-Events/events#Events-EventTarget-dispatchEvent</a>
@@ -63,11 +67,9 @@
     <div>
       <a href="http://www.w3.org/TR/DOM-Level-2-Events/events#xpointer(id('Events-EventTarget-dispatchEvent')/raises/exception[@name='EventException']/descr/p[substring-before(.,':')='UNSPECIFIED_EVENT_TYPE_ERR'])">http://www.w3.org/TR/DOM-Level-2-Events/events#xpointer(id('Events-EventTarget-dispatchEvent')/raises/exception[@name='EventException']/descr/p[substring-before(.,':')='UNSPECIFIED_EVENT_TYPE_ERR'])</a>
     </div>
-    <form action="dispatchClickEvent01.html" method="post">
+    <form action="dispatchClickEvent05.html" method="post">
       <div>
-        <input id="atCount" type="hidden">
-        <input id="bubbleCount" type="hidden">
-        <input id="captureCount" type="hidden">
+        <input id="eventCount" type="hidden">
       </div>
     </form>
     <p>
