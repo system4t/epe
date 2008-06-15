@@ -35,10 +35,12 @@
       };
 
       function changeText() {
-        var n;
-        document.addEventListener("DOMCharacterDataModified", handleEvent, false);
+        var n,t;
         n = document.getElementById("changeableNode");
-        n.appendChild(document.createTextNode("A"));
+        n.addEventListener("DOMCharacterDataModified", handleEvent, false);
+        t = document.createTextNode("C");
+        n.appendChild(t);
+        t.appendData("D");
         document.getElementById("atCount").value = atEvents.length;
         document.getElementById("bubbleCount").value = bubbledEvents.length;
         document.getElementById("captureCount").value = capturedEvents.length;
