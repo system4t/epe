@@ -5,7 +5,7 @@
 // 4. Element chache
 // 5. Functions for collabaration with external scripts (hooks)
 // 6. Redeclaration of native JS functions/methods
-// 7. Prototype hadnling
+// 7. Prototype handling
 // 8. Element constructor declarations
 
 // Works for IE version 6.0 and above
@@ -27,7 +27,7 @@ if (document.createEventObject) {
   // you are altering the prototype of an element constructor between
   // the creation and insertion of the element.
   // 1 = on, 0 = off. Default value is 0
-  // See http://www.jslab.dk/epe.installation.php for more info
+  // See http://www.jslab.dk/epe.features.php#enable.cache for more info
   EPE.CACHE_ELEMENTS = 0;
   
   // Experimental support for HTMLCollections
@@ -138,14 +138,39 @@ if (document.createEventObject) {
         }
         // Copy properties from HTMLElement prototype
         oPro = HTMLElement._prototype;
-        for (var p in oPro)
-          elm[p] = oPro[p];
+        if (elm.nodeName != "OBJECT" && elm.nodeName != "APPLET") {
+          for (var p in oPro) {
+            elm[p] = oPro[p];
+          }
+        }
+        // Temp. solution for OBJECT and APPLET tags
+        else {
+          for (var p in oPro) {
+            try {
+              elm[p] = oPro[p];
+            }
+            catch (ex) {
+            }
+          }
+        }
         // Copy properties from constructor prototype
         // effectively overwritting duplicate properties
         // defined on the HTMLElement
         var oPro = oCon._prototype;
-        for (var p in oPro)
-          elm[p] = oPro[p];
+        if (elm.nodeName != "OBJECT" && elm.nodeName != "APPLET") {
+          for (var p in oPro)
+            elm[p] = oPro[p];
+        }
+        // Temp. solution for OBJECT and APLLET tags
+        else {
+          for (var p in oPro) {
+            try {
+              elm[p] = oPro[p];
+            }
+            catch (ex) {
+            }
+          }
+        }
         // If any auxiliary functions are registered for handling changes to
         // nodes when they are created/inserted they are executed now, parsing
         // the node as a single argument. Aux. functions are executed in the
@@ -331,7 +356,7 @@ if (document.createEventObject) {
     EPE.cache.addRecursive =
       function(node) {
         if (!node.tagName)
-          return
+          return;
         if (node.childNodes) {
           for(var i=0; i<node.childNodes.length; i++)
             EPE.cache.addRecursive(node.childNodes[i]);
@@ -462,16 +487,49 @@ if (document.createEventObject) {
   // Execute create listeners
   EPE.PlugIn.executeCreate =
     function(elm) {
-      var con = elm.constructor.toString();
+      var con = null;
+      if (elm.nodeName != 'APPLET' && elm.nodeName != 'OBJECT') {
+        con = elm.constructor.toString();
+      }
+      // Temp. solution for OBJECT and APPLET tags
+      else {
+        try {
+          con = elm.constructor.toString();
+        }
+        catch (ex) {
+        }
+      }
       // Execute listeners on specific element
-      if (this.create[con]) {
-        for(var i=0; i<this.create[con].length; i++)
-          this.create[con][i].apply(elm);
+      if (con != null && this.create[con]) {
+        if (elm.nodeName != 'APPLET' && elm.nodeName != 'OBJECT') {
+          for(var i=0; i<this.create[con].length; i++)
+            this.create[con][i].apply(elm);
+        }
+        // Temp. solution for OBJECT and APPLET tags
+        else {
+          for(var i=0; i<this.create[con].length; i++)
+            try {
+              this.create[con][i].apply(elm);
+            }
+            catch (ex) {
+            }
+        }
       }
       // Execute listeners on HTMLElement
       else if (this.create['HTMLElement']) {
-        for(var i=0; i<this.create['HTMLElement'].length; i++)
-          this.create['HTMLElement'][i].apply(elm);
+        for(var i=0; i<this.create['HTMLElement'].length; i++) {
+          if (elm.nodeName != 'APPLET' && elm.nodeName != 'OBJECT') {
+            this.create['HTMLElement'][i].apply(elm);
+          }
+          // Temp. solution for OBJECT and APPLET tags
+          else {
+            try {
+              this.create['HTMLElement'][i].apply(elm);
+            }
+            catch (ex) {
+            }
+          }
+        }
       }
     };
   
@@ -833,7 +891,7 @@ if (document.createEventObject) {
       // This loop causes all elements of type tag to fire onpropertychange
       // Changes to the prototype is an intricate part of EPE
       // and should not be communicated to other scripts
-      var l = elms.length
+      var l = elms.length;
       for(var i=0; i<l; i++) {
         EPE.disableWatch(elms[i]);
         elms[i][p] = v;
