@@ -15,7 +15,7 @@
       function onloadListener() {
         var success;
         var elementList;
-        var ix1;
+        var ix1, ix2;
         var testAddr;
         var addrAttr;
         var attrNode;
@@ -41,12 +41,17 @@
           attrList[attrList.length] = attrName;
         }
         success = false;
-        if (htmlExpected.length == attrList.length) {
+        if (htmlExpected.length <= attrList.length) {
           htmlExpected.sort();
           attrList.sort();
           success = true;
-          for (ix1 = 0; ix1 < attrList.length; ix1++) {
-            if (htmlExpected[ix1].toLowerCase() != attrList[ix1].toLowerCase()) {
+          for (ix2 = 0; ix2 < htmlExpected.length; ix2++) {
+            for (ix1 = 0; ix1 < attrList.length; ix1++) {
+              if (htmlExpected[ix2].toLowerCase() == attrList[ix1].toLowerCase()) {
+                break;
+              }
+            }
+            if (ix1 >= attrList.length) {
               success = false;
               break;
             }
