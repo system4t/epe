@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<!-- 
+    Document   : nodeIterator04
+    Created on : Jun 6, 2008, 8:10:24 PM
+    Author     : Allan Jacobs
+-->
+<html id="id1">
+  <head id="id2">
+    <title id="id3"></title>
+    <meta id="id4" http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script id="id5" type="text/javascript" src="../../lib/epe.js"></script>
+    <script id="id6" type="text/javascript" src="../../lib/uem.js"></script>
+    <script id="id7" type="text/javascript" charset="UTF-8" src="../../lib/NodeFilter.js"></script>
+    <script id="id8" type="text/javascript" charset="UTF-8" src="../../lib/NodeIterator.js"></script>
+    <script id="id9" type="text/javascript" charset="UTF=8" src="../../lib/DocumentTraversal.js"></script>
+    <script id="id10">
+      function handleEvent(evt) {
+        var startNode = document.getElementById("id1");
+        var nodeIterator = document.createNodeIterator(
+        startNode, NodeFilter.SHOW_ALL,
+        { acceptNode : function(node) {
+            return NodeFilter.FILTER_ACCEPT;
+          }},
+        false);
+        var n = null;
+        // var out = "";
+        var elementNodeCount = 0;
+        var nid = "";
+        var nidv = "";
+        while ((n = nodeIterator.nextNode()) !== null) {
+          ;
+        }
+        var nlast = n;
+        while ((n = nodeIterator.previousNode()) !== null) {
+          // Document.TEXT_NODE=3
+          if (n.nodeType == 3) {
+            if (n.nodeValue.search("^\s*$") != -1) {
+              // out += "TextNode" + "\n";
+            }
+          }
+          // Document.ELEMENT_NODE=1
+          else if (n.nodeType == 1) {
+            // out += n.tagName + "\n";
+            nid = n.id ? n.id : "No id";
+            if (elementNodeCount < 20) {
+              if (nid == "No id" || (nid.indexOf("id") == 0 && nid.indexOf("v") < 0)) {
+                elementNodeCount++;
+                nidv = "id"+elementNodeCount+"v";
+                if (nid == "No id") alert(n.tagName);
+                document.getElementById(nidv).value = nid;
+              }
+            }
+            else {
+              elementNodeCount++;
+            }
+          }
+          // Document.COMMENT_NODE=8
+          // Document.DOCUMENT_TYPE_NODE=10
+          else if (n.nodeType == 10 || n.nodeType == 8) {
+            // out += n.nodeValue + "\n";
+          }
+        }
+        document.getElementById("elementCount").value = elementNodeCount;
+        document.getElementById("afterTheEndNull").value = (nlast == null);
+      };
+    </script>
+  </head>
+  <body id="id11" onload="handleEvent(event);">
+    <h2 id="id12">description</h2>
+    <p id="id13">
+      Traverse a DOM tree in the forward direction and then from the terminal node,
+      in the reverse direction.  A call to nextNode() at the terminal node returns
+      null and leaves the position of the iterator unchanged.
+    </p>
+    <div id="id14">
+      <a  id="id15" href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/traversal.html#Iterator-overview">http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/traversal.html#Iterator-overview</a>
+    </div>
+    <form  id="id16" action="nodeIterator04.html" method="post">
+      <div id="id17">
+        <input id="id18" name="testButton" type="button"
+               value="Click Me" onclick="handleEvent(event);">
+        <input id="afterTheEndNull" type="hidden">
+        <input id="elementCount" type="hidden">
+        <input id="id1v" type="hidden">
+        <input id="id2v" type="hidden">
+        <input id="id3v" type="hidden">
+        <input id="id4v" type="hidden">
+        <input id="id5v" type="hidden">
+        <input id="id6v" type="hidden">
+        <input id="id7v" type="hidden">
+        <input id="id8v" type="hidden">
+        <input id="id9v" type="hidden">
+        <input id="id10v" type="hidden">
+        <input id="id11v" type="hidden">
+        <input id="id12v" type="hidden">
+        <input id="id13v" type="hidden">
+        <input id="id14v" type="hidden">
+        <input id="id15v" type="hidden">
+        <input id="id16v" type="hidden">
+        <input id="id17v" type="hidden">
+        <input id="id18v" type="hidden">
+        <input id="id19v" type="hidden">
+        <input id="id20v" type="hidden">
+      </div>
+    </form>
+    <pre id="id19">
+// Copyright 2007 - 2008 The JSLab Team, Tavs Dokkedahl and Allan Jacobs
+// Contact: http://www.jslab.dk/contact.php
+//
+// EPE is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// any later version.
+//
+// EPE is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program. If not, see <a id="id20" href="http://www.gnu.org/licenses/">http://gnu.org/licenses/</a>.
+    </pre>
+    <script id="id21" type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>
