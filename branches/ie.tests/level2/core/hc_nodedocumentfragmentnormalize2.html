@@ -23,7 +23,7 @@
         retval = docFragment.appendChild(txtNode);
         docFragment.normalize();
         txtNode = docFragment.firstChild;
-        document.getElementById("noChild").value = txtNode;
+        document.getElementById("noChild").value = (txtNode == null);
         return true;
       }
       //]]>

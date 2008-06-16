@@ -28,7 +28,7 @@
         nodeValue = txtNode.nodeValue;
         document.getElementById("normalizedNodeValue").value = nodeValue;
         retval = txtNode.nextSibling;
-        document.getElementById("singleChild").value = retval;
+        document.getElementById("singleChild").value = (retval == null);
         return true;
       }
       //]]>
