@@ -22,7 +22,7 @@
         employeeNode = elementList.item(1);
         lcNode = employeeNode.lastChild;
         nsNode = lcNode.nextSibling;
-        document.getElementById("nodeGetNextSiblingNullAssert1").value = nsNode;
+        document.getElementById("nodeGetNextSiblingNullAssert1").value = (nsNode == null);
         return true;
       }
       //]]>

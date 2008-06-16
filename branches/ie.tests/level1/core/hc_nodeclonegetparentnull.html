@@ -22,7 +22,7 @@
         employeeNode = elementList.item(1);
         clonedNode = employeeNode.cloneNode(false);
         parentNode = clonedNode.parentNode;
-        document.getElementById("nodeCloneGetParentNullAssert1").value = parentNode;
+        document.getElementById("nodeCloneGetParentNullAssert1").value = (parentNode == null);
         return true;
       }
       //]]>

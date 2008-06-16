@@ -38,7 +38,7 @@
 
         document.getElementById("firstChild").value = childValue;
         secondChild = firstChild.nextSibling;
-        document.getElementById("secondChildNull").value = secondChild;
+        document.getElementById("secondChildNull").value = (secondChild == null);
         
         return true;
       }

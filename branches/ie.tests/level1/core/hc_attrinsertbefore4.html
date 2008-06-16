@@ -39,7 +39,7 @@
         retval = titleAttr.insertBefore(docFrag, refChild);
         document.getElementById("attrValue").value = titleAttr.value;
         document.getElementById("attrNodeValue").value = titleAttr.nodeValue;
-        document.getElementById("retvalValue").value = retval.nodeValue;
+        document.getElementById("retvalValue").value = (retval.nodeValue == null);
         firstChild = titleAttr.firstChild;
         document.getElementById("firstChildValue").value = firstChild.nodeValue;
         lastChild = titleAttr.lastChild;

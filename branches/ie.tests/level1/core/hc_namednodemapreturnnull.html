@@ -23,7 +23,7 @@
         attributes = testEmployee.attributes;
 
         districtNode = attributes.getNamedItem("lang");
-        document.getElementById("langAttrNull").value = districtNode;
+        document.getElementById("langAttrNull").value = (districtNode == null);
         return true;
       }
       //]]>

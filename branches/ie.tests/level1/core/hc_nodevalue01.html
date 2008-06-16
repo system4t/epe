@@ -17,10 +17,10 @@
         var newValue;
         newNode = document.createElement("acronym");
         newValue = newNode.nodeValue;
-        document.getElementById("initiallyNull").value = newValue;
+        document.getElementById("initiallyNull").value = (newValue == null);
         newNode.nodeValue = "This should have no effect";
         newValue = newNode.nodeValue;
-        document.getElementById("nullAfterAttemptedChange").value = newValue;
+        document.getElementById("nullAfterAttemptedChange").value = (newValue == null);
         return true;
       }
       //]]>

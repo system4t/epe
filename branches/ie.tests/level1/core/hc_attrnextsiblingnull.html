@@ -24,7 +24,7 @@
         attributes = testNode.attributes;
         domesticAttr = attributes.getNamedItem("title");
         s = domesticAttr.nextSibling;
-        document.getElementById("attrNextSiblingNullAssert").value = s;
+        document.getElementById("attrNextSiblingNullAssert").value = (s == null);
         return true;
       }
       //]]>

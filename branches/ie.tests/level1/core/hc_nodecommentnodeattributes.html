@@ -35,7 +35,7 @@
         document.getElementById("existingCommentAttributesNull").value = attrsNull;
         commentNode = document.createComment("This is a comment");
         attrList = commentNode.attributes;
-        document.getElementById("createdCommentAttributesNull").value = attrList;
+        document.getElementById("createdCommentAttributesNull").value = (attrList == null);
         return true;
       }
       //]]>

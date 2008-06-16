@@ -20,7 +20,7 @@
         elementList = document.getElementsByTagName("acronym");
         testEmployee = elementList.item(0);
         domesticAttr = testEmployee.getAttributeNode("invalidAttribute");
-        document.getElementById("elementGetAttributeNodeNullAssert").value = domesticAttr;
+        document.getElementById("elementGetAttributeNodeNullAssert").value = (domesticAttr == null);
         return true;
       }
       //]]>

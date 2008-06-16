@@ -20,10 +20,10 @@
         docFragment = document.createDocumentFragment();
         attrList = docFragment.attributes;
 
-        document.getElementById("attributesNull").value = attrList;
+        document.getElementById("attributesNull").value = (attrList == null);
         value = docFragment.nodeValue;
 
-        document.getElementById("initiallyNull").value = value;
+        document.getElementById("initiallyNull").value = (value == null);
         return true;
       }
       //]]>

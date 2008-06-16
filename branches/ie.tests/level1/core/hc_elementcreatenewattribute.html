@@ -24,7 +24,7 @@
         testAddress = elementList.item(0);
         newAttribute = document.createAttribute("lang");
         oldAttr = testAddress.setAttributeNode(newAttribute);
-        document.getElementById("old_attr_doesnt_exist").value = oldAttr;
+        document.getElementById("old_attr_doesnt_exist").value = (oldAttr == null);
         districtAttr = testAddress.getAttributeNode("lang");
         document.getElementById("new_district_accessible").value = (districtAttr != null);
         attrVal = testAddress.getAttribute("lang");

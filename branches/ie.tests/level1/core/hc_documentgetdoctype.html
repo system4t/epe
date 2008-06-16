@@ -24,9 +24,9 @@
           docTypeName = docType.name;
           document.getElementById("nodeName").value = docTypeName;
           nodeValue = docType.nodeValue;
-          document.getElementById("nodeValue").value = nodeValue;
+          document.getElementById("nodeValue").value = (nodeValue == null);
           attributes = docType.attributes;
-          document.getElementById("attributes").value = attributes;
+          document.getElementById("attributes").value = (attributes == null);
         }
         return true;
       }

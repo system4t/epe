@@ -26,8 +26,8 @@
         textNode = titleAttr.firstChild;
         document.getElementById("textNodeNotNull").value = (textNode != null);
         document.getElementById("child1IsYes").value = textNode.nodeValue;
-        document.getElementById("nextSiblingIsNull").value = textNode.nextSibling;
-        document.getElementById("previousSiblingIsNull").value = textNode.previousSibling;
+        document.getElementById("nextSiblingIsNull").value = (textNode.nextSibling == null);
+        document.getElementById("previousSiblingIsNull").value = (textNode.previousSibling == null);
         return true;
       }
       //]]>

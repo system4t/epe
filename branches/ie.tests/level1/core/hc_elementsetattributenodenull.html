@@ -22,7 +22,7 @@
         testEmployee = elementList.item(2);
         newAttribute = document.createAttribute("lang");
         districtAttr = testEmployee.setAttributeNode(newAttribute);
-        document.getElementById("elementSetAttributeNodeNullAssert").value = districtAttr;
+        document.getElementById("elementSetAttributeNodeNullAssert").value = (districtAttr == null);
         return true;
       }
       //]]>

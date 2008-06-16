@@ -18,7 +18,7 @@
 
         elementNode = document.documentElement;
         elementValue = elementNode.nodeValue;
-        document.getElementById("elementNodeValue").value = elementValue;
+        document.getElementById("elementNodeValue").value = (elementValue == null);
         return true;
       }
       //]]>

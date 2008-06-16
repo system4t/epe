@@ -27,7 +27,7 @@
         attributes = testEmployee.attributes;
 
         districtAttr = attributes.getNamedItem("lang");
-        document.getElementById("removed_item_null").value = districtAttr;
+        document.getElementById("removed_item_null").value = (districtAttr == null);
         return true;
       }
       //]]>

@@ -37,7 +37,7 @@
         document.getElementById("child2IsTerday").value = textNode.nodeValue;
         textNode = childNodes.item(2);
         // assertNull("thirdItemIsNull",textNode);
-        document.getElementById("thirdItemIsNull").value = textNode;
+        document.getElementById("thirdItemIsNull").value = (textNode == null);
         return true;
       }
       //]]>

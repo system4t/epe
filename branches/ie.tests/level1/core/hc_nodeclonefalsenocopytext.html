@@ -27,7 +27,7 @@
         childNode = childList.item(3);
         clonedNode = childNode.cloneNode(false);
         lastChildNode = clonedNode.lastChild;
-        document.getElementById("nodeCloneFalseNoCopyTextAssert1").value = lastChildNode;
+        document.getElementById("nodeCloneFalseNoCopyTextAssert1").value = (lastChildNode == null);
         return true;
       }
       //]]>

@@ -39,7 +39,7 @@
         value = firstChild.nodeValue;
         document.getElementById("firstChildValue").value = firstChild.nodeValue;
         secondChild = firstChild.nextSibling;
-        document.getElementById("secondChildIsNull").value = secondChild;
+        document.getElementById("secondChildIsNull").value = (secondChild == null);
         return true;
       }
       //]]>

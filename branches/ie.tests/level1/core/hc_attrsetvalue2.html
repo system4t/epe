@@ -41,7 +41,7 @@
         firstChild = titleAttr.lastChild;
         document.getElementById("firstChildValue").value = firstChild.nodeValue;
         otherChild = firstChild.nextSibling;
-        document.getElementById("nextSiblingIsNull").value = otherChild;
+        document.getElementById("nextSiblingIsNull").value = (otherChild == null);
         return true;
       }
       //]]>

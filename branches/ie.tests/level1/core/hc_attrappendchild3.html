@@ -40,7 +40,7 @@
         retval = titleAttr.appendChild(textNode);
         document.getElementById("attrValue").value = titleAttr.value;
         document.getElementById("attrNodeValue").value = titleAttr.nodeValue;
-        document.getElementById("retvalValue").value = retval.nodeValue;
+        document.getElementById("retvalValue").value = (retval.nodeValue == null);
         lastChild = titleAttr.lastChild;
         document.getElementById("lastChildValue").value = lastChild.nodeValue;
         return true;

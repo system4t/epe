@@ -32,7 +32,7 @@
         document.getElementById("attrNodeValue").value = titleAttr.nodeValue;
         document.getElementById("retvalValue").value = retval.nodeValue;
         firstChild = titleAttr.firstChild;
-        document.getElementById("firstChildNull").value = firstChild;
+        document.getElementById("firstChildNull").value = (firstChild == null);
         return true;
       }
       //]]>

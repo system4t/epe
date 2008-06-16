@@ -27,7 +27,7 @@
 
         removedNode = attributes.removeNamedItem("class");
         streetAttr = attributes.getNamedItem("class");
-        document.getElementById("isnull").value = streetAttr;
+        document.getElementById("isnull").value = (streetAttr == null);
         return true;
       }
       //]]>

@@ -23,7 +23,7 @@
         textNode = testAddr.firstChild;
 
         attrList = textNode.attributes;
-        document.getElementById("text_attributes_is_null").value = attrList;
+        document.getElementById("text_attributes_is_null").value = (attrList == null);
         return true;
       }
       //]]>

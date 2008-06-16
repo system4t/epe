@@ -24,7 +24,7 @@
         newElementType = newElement.nodeType;
         document.getElementById("xtype").value = newElementType;
         newElementValue = newElement.nodeValue;
-        document.getElementById("valueInitiallyNull").value = newElementValue;
+        document.getElementById("valueInitiallyNull").value = (newElementValue == null);
         return true;
       }
       //]]>

@@ -28,7 +28,7 @@
         textNode = childNodes.item(0);
         document.getElementById("child1IsYes").value = textNode.nodeValue;
         textNode = childNodes.item(1);
-        document.getElementById("secondItemIsNull").value = textNode;
+        document.getElementById("secondItemIsNull").value = (textNode == null);
         return true;
       }
       //]]>

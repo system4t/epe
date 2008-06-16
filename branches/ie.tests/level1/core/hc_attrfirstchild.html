@@ -26,9 +26,9 @@
         document.getElementById("textNodeIsNotNull").value = (textNode != null);
         document.getElementById("child1IsYes").value = textNode.nodeValue;
         var otherChild = textNode.nextSibling;
-        document.getElementById("nextSiblingIsNull").value = otherChild;
+        document.getElementById("nextSiblingIsNull").value = (otherChild == null);
         otherChild = textNode.previousSibling;
-        document.getElementById("previousSiblingIsNull").value = otherChild;
+        document.getElementById("previousSiblingIsNull").value = (otherChild == null);
         return true;
       }
       //]]>

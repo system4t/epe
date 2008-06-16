@@ -21,11 +21,11 @@
 
         if((newNode != null)) {
           newValue = newNode.nodeValue;
-          document.getElementById("initiallyNull") = newValue;
+          document.getElementById("initiallyNull").value = (newValue == null);
           newNode.nodeValue = "This should have no effect";
 
           newValue = newNode.nodeValue;
-          document.getElementById("nullAfterAttemptedChange").value = newValue;
+          document.getElementById("nullAfterAttemptedChange").value = (newValue == null);
           return true;
         }
       }
