@@ -20,7 +20,7 @@
         var attributes;
         var attributeNode;
         var attributeName;
-        var ix;
+        var ix1, ix2;
         var result = new Array();
         var htmlExpected = new Array();
         htmlExpected[0] = "class";
@@ -41,10 +41,15 @@
           result[result.length] = attributeName;
         }
         success = false;
-        if (htmlExpected.length == result.length) {
+        if (htmlExpected.length <= result.length) {
           success = true;
-          for (ix = 0; ix < result.length; ix++) {
-            if (result[ix].toLowerCase() != htmlExpected[ix].toLowerCase()) {
+          for (ix1 = 0; ix1 < htmlExpected.length; ix1++) {
+            for (ix2 = 0; ix2 < result.length; ix2++) {
+              if (result[ix2].toLowerCase() == htmlExpected[ix1].toLowerCase()) {
+                break;
+              }
+            }
+            if (ix2 >= result.length) {
               success = false;
               break;
             }
