@@ -25,7 +25,7 @@
         document.getElementById("IsIndex.Prompt").value = prompt;
         vform = testNode.form;
 
-        document.getElementById("formNullLink").value = vform;
+        document.getElementById("formNullLink").value = (vform == null);
         document.getElementById("Asize").value = nodeList.length;
         return true;
       }

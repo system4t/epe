@@ -22,7 +22,7 @@
         testNode = nodeList.item(0);
         formsnodeList = testNode.elements;
         formNode = formsnodeList.namedItem(9);
-        document.getElementById("nameIndexLink").value = formNode;
+        document.getElementById("nameIndexLink").value = (formNode == null);
         return true;
       }
     </SCRIPT>

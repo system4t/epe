@@ -23,7 +23,7 @@
         document.getElementById("Asize").value = nodeList.length;
         testNode = nodeList.item(0);
         vsection1 = testNode.tHead;
-        document.getElementById("vsection1Id").value = vsection1;
+        document.getElementById("vsection1Id").value = (vsection1 == null);
         newHead = testNode.createTHead();
         vsection2 = testNode.tHead;
         document.getElementById("vsection2Id").value = (vsection2 != null);
