@@ -24,7 +24,7 @@
         formsnodeList = testNode.elements;
 
         optionsNode = formsnodeList.namedItem("select9");
-        document.getElementById("nameIndexLink").value = optionsNode;
+        document.getElementById("nameIndexLink").value = (optionsNode == null);
         return true;
       }
     </SCRIPT>
