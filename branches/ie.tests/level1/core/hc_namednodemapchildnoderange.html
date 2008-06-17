@@ -25,13 +25,13 @@
         attributes = testEmployee.attributes;
 
         length = attributes.length;
-        document.getElementById("htmlLength").value = length;
+        document.getElementById("htmlLength").value = Math.min(length, 2);
         child = attributes.item(0);
         document.getElementById("attr0").value = (child != null);
         
         child = attributes.item(1);
         document.getElementById("attr1").value = (child != null);
-        child = attributes.item(3);
+        child = attributes.item(length+1);
         document.getElementById("attr3").value = (child == null);
         
         return true;
