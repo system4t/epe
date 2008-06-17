@@ -37,7 +37,7 @@
         var preventDefault;
 
         document.addEventListener("foo", handleEvent, false);
-        evt = document.createEvent("Events");
+        evt = document.createEvent("Event");
         evt.initEvent("foo",true,false);
         preventDefault = document.dispatchEvent(evt);
         document.getElementById("atCount").value = atEvents.length;

@@ -39,7 +39,7 @@
         var preventDefault;
 
         document.addEventListener("click", handleEvent, true);
-        evt = document.createEvent("MouseEvents");
+        evt = document.createEvent("MouseEvent");
         evt.initMouseEvent("click",true,false,window, 1,
           100, 101, 102, 103, false, false, false, null,
           1, null);

@@ -44,7 +44,7 @@
         document.removeEventListener("foo", handleEvent, true);
         document.removeEventListener("food", handleEvent, false);
         document.removeEventListener("foo", other.handleEvent, false);
-        evt = document.createEvent("Events");
+        evt = document.createEvent("Event");
         evt.initEvent("foo",true,false);
         preventDefault = document.dispatchEvent(evt);
         document.getElementById("eventCount").value = allEvents.length;

@@ -19,7 +19,7 @@
         var actualCanBubble;
         var actualCancelable;
 
-        event = document.createEvent("Events");
+        event = document.createEvent("Event");
         document.getElementById("notnull").value = (event != null);
         event.initEvent("rotate", true, true);
         actualEventType = event.type;

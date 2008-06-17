@@ -15,7 +15,7 @@
       function dispatchEvent05() {
         var success = false;
         var preventDefault;
-        var evt = document.createEvent("MouseEvents");
+        var evt = document.createEvent("MouseEvent");
         
         try {
           preventDefault = document.dispatchEvent(evt);

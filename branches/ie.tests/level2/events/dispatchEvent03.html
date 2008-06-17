@@ -17,7 +17,7 @@
         var preventDefault;
         var evt = null;
         
-        evt = document.createEvent("MutationEvents");
+        evt = document.createEvent("MutationEvent");
         try {
           preventDefault = document.dispatchEvent(evt);
 
@@ -33,7 +33,7 @@
   <body onload="dispatchEvent03();">
     <h2>description</h2>
     <p>
-      An created but not initialized event is passed to EventTarget.dispatchEvent().  Should raise
+      A created but not initialized event is passed to EventTarget.dispatchEvent().  Should raise
       UNSPECIFIED_EVENT_TYPE_ERR EventException.
     </p>
     <div>

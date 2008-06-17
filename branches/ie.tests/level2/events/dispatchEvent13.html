@@ -66,7 +66,7 @@
         listeners[listeners.length] = listener2;
         document.addEventListener("foo", listener1.handleEvent, false);
         document.addEventListener("foo", listener2.handleEvent, false);
-        evt = document.createEvent("Events");
+        evt = document.createEvent("Event");
         evt.initEvent("foo",true,false);
         preventDefault = document.dispatchEvent(evt);
         document.getElementById("eventCount").value = events.length;

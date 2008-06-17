@@ -44,7 +44,7 @@
         document.removeEventListener("click", handleEvent, true);
         document.removeEventListener("select", handleEvent, false);
         document.removeEventListener("click", other.handleEvent, false);
-        evt = document.createEvent("MouseEvents");
+        evt = document.createEvent("MouseEvent");
         evt.initMouseEvent("click",true,false,window, 1,
           100, 101, 102, 103, false, false, false, null,
           1, null);

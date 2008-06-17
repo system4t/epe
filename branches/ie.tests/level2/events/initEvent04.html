@@ -21,7 +21,7 @@
         var expectedCancelable = false;
         var actualCancelable;
 
-        event = document.createEvent("MutationEvents");
+        event = document.createEvent("MutationEvent");
         document.getElementById("notnull").value = (event != null);
         event.initEvent(expectedEventType,expectedCanBubble,expectedCancelable);
         actualEventType = event.type;
