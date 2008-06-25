@@ -206,10 +206,21 @@ if (document.createEventObject) {
         if (a[i].tagName != '!' && a[i].tagName != 'epe')
           EPE.extend(a[i]);
       }
+      // Execute aux. init functions which are registered
+      // by external scripts
+      for(var i=0; i<EPE.init.aux.length; i++)
+        EPE.init.aux[i]();
       // Execute original onload handler if any exist
       if (EPE.__R1)
         EPE.__R1();
     };
+  
+  /**
+   * Storage for functions which should be executed after EPE has
+   * initialized but before control is given back to the user
+   * script.      
+   */
+  EPE.init.aux = [];
   
   /***********************************************
   *
@@ -424,7 +435,7 @@ if (document.createEventObject) {
   // Storage for external functions which are executed when
   // an alement is attached to the document
   EPE.PlugIn.attach = {};
-
+  
   /**
    * Add a create or change listener.  These listeners are called from EPE.extend which
    * is called when application code invokes the init method,
