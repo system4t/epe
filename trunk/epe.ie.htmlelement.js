@@ -264,6 +264,9 @@ if (document.createEventObject) {
    * Watch handler for changes to a node which originate from altering innerHTML
    * or from property changes.  When this function executes the changes have
    * already been made and attached to the document.
+   * 
+   * Note: onpropertychange fires on the document object even though no pseudo
+   *       (epe tag) contructor is attached to the document.   
    *    
    * Weird IE behavior: When assigning event handlers using attachEvent 'this' references the window object
    *                    so we use event.srcElement instead.       
@@ -271,8 +274,10 @@ if (document.createEventObject) {
   
   EPE.checkInnerHTML =
     function() {
+      // If source of event is document or window then no event.srcElement exist
+      // not du we have to about innerHTML
       // EPE handles document changes
-      if (event.propertyName == 'innerHTML') {
+      if (event.srcElement && event.propertyName == 'innerHTML') {
         // Sortcut
         var elm = event.srcElement;
         // All child nodes inserted by innerHTML
@@ -285,8 +290,12 @@ if (document.createEventObject) {
         }
       }
       // Aux. functions might handle changes to other properties
-      else
-        EPE.PlugIn.executeChange(event.srcElement,event);
+      else {
+        if (event.srcElement)
+          EPE.PlugIn.executeChange(event.srcElement,event);
+        else if (this == document)
+          EPE.PlugIn.executeChange(document,event);
+      }
     };
   
   /**
@@ -544,6 +553,7 @@ if (document.createEventObject) {
       var con = elm.constructor.toString();
       // Stop property watching
       EPE.disableWatch(elm);
+      // If element is in fact the document object
       // Execute listeners on specific element
       if (this.change[con]) {
         for(var i=0; i<this.change[con].length; i++)
@@ -987,6 +997,14 @@ if (document.createEventObject) {
     a.push(EPE.uniqueTags[i]);
   }
   EPE.uniqueTags = a;
+
+  /**
+  * HTMLDocument. Just a placeholder - not meant to be instantiated
+  * @constructor
+  */
+  function HTMLDocument() {}
+  document.constructor = HTMLDocument;
+  HTMLDocument.toString = EPE.constructorToString;
 
   /**
   * HTMLElement.  The other elements inherit from this object.
