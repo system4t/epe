@@ -1,6 +1,0 @@
-Input type=radio
-----------------
-The only way to create a radio button and giving it a name is by
-document.createElement('<input name=value>')
-EPE will give an element created with such a declaration a type of HTMLElement. This is not
-all that bad as the element will stilll have the prototype declarations of HTMLInputElement.
