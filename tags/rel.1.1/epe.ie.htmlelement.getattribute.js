@@ -8,17 +8,16 @@
 // specifications for more information
 // W3C Anchor href attribute: http://www.w3.org/TR/html4/struct/links.html#adef-href
 // W3C URI type definition: http://www.w3.org/TR/html4/types.html#type-uri
-if (document.createEventObject && window.EPE) {
-  // Define new EPE replacement function
-  HTMLElement.prototype.getAttribute =
-    function(a) {
-      a = a.toLowerCase();
-      // Style attribute is an object in IE6+7
-      // so we need to expand it to a string
-      if (a == 'style') {
-        var s = this.style.cssText.toLowerCase();
-        return s.charAt(s.length - 1) != ';' ? s + ';' : s;
-      }
-      return this.getAttributeNode(a).nodeValue;
-    };
-}
+
+// Define new EPE replacement function
+HTMLElement.prototype.getAttribute =
+  function(a) {
+    a = a.toLowerCase();
+    // Style attribute is an object in IE6+7
+    // so we need to expand it to a string
+    if (a == 'style') {
+      var s = this.style.cssText.toLowerCase();
+      return s.charAt(s.length - 1) != ';' ? s + ';' : s;
+    }
+    return this.getAttributeNode(a).nodeValue;
+  };

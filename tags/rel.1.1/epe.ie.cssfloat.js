@@ -1,5 +1,4 @@
-// Disable the default behavior when dragging an image.
-// Useful if you're using drag'n'drop.
+// Map IE styleFloat to W3C cssFloat
 
 EPE.PlugIn.CssFloat = new EPE.PlugIn();
 EPE.PlugIn.CssFloat.addEPEListener('attach',

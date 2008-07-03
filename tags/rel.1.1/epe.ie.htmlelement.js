@@ -1,3 +1,8 @@
+// Element Prototype Extension
+// Version: 1.1
+// Revision: 78
+// Release date: 3/7 - 2008
+//
 // Content
 // 1. User configurable settings
 // 2. Element creation
@@ -21,6 +26,8 @@ if (document.createEventObject) {
 
   // Declare namespace
   var EPE = {};
+  // Version number
+  EPE.version = 1.1;
 
   // Cache elements between creation and insertion. This is nessesary if
   // you are altering the prototype of an element constructor between
@@ -28,15 +35,6 @@ if (document.createEventObject) {
   // 1 = on, 0 = off. Default value is 0
   // See http://www.jslab.dk/epe.features.php#enable.cache for more info
   EPE.CACHE_ELEMENTS = 0;
-  
-  // Experimental support for HTMLCollections
-  // 1 = on, 0 = off. Default value is 0
-  EPE.ENABLE_COLLECTIONS = 0;
-  
-  // Experimental support for W3C inheritance
-  // Object -> Node -> Element -> HTMLElement
-  // 1 = on, 0 = off. Default value is 0
-  EPE.ENABLE_W3C_INHERITANCE = 0;
   
   // THERE ARE NO CONFIGURABLE SETTINGS BELOW THIS LINE
 
@@ -113,14 +111,6 @@ if (document.createEventObject) {
           // appendChild
           // insertBefore
           // replaceChild
-          // If HTMLCollections are enabled
-          if (EPE.ENABLE_COLLECTIONS) {
-            // Methods on elements which returns collections
-            // Save ref. to original methods
-            elm._getElementsByTagName = elm.getElementsByTagName;
-            // Replace with EPE versions
-            elm.getElementsByTagName = EPE.getElementsByTagName;
-          }
           // Save ref. to original methods
           elm._appendChild = elm.appendChild;
           elm._insertBefore = elm.insertBefore;
