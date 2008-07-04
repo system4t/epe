@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml" onlayoutcomplete="layout();">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+    <meta name="generator" content="PSPad editor, www.pspad.com">
+    <title>EPE.IE.HTMLElement.HTMLDocument.unitTest</title>
+    
+    <script type="text/javascript" src="epe.ie.htmlelement.js"></script>
+    <script type="text/javascript" src="../../uem/trunk/uem.ie.js"></script>
+    <script type="text/javascript" src="../../uem/trunk/uem.ie.event.js"></script>
+    <script type="text/javascript" src="../../uem/trunk/uem.ie.uievent.js"></script>
+    <script type="text/javascript" src="../../uem/trunk/uem.ie.mouseevent.js"></script>
+
+    <script type="text/javascript">
+    
+      // Override IE native getAttribute
+      
+      function test(e) {
+        if (this == window)
+          document.body.innerHTML +='window ' + e.eventPhase + '<br/>';
+        else if (this == document)
+          document.body.innerHTML += 'document ' + e.eventPhase + '<br/>';
+        else
+          document.body.innerHTML += this.tagName + ' ' + e.eventPhase + '<br/>';
+      };
+      
+      function test2(e) {
+        //alert(this == window)
+        //alert('hej');
+      };
+      
+      function test3(e) {
+        alert('window' + e.eventPhase);
+      };
+      
+      window.addEventListener('blur', test, true);
+
+      //window.attachEvent('onload',function(){alert('window')});
+      function main() {
+        //document.constructor = document;
+        //window.DEBUG = true;
+        
+        //document.addEventListener('click', test, true);
+        //document.addEventListener('click', test, false);
+        
+        //window.addEventListener('resize', test, false);
+        //window.onresize = test;
+        //document.body.addEventListener('click', test, true);
+        //document.body.addEventListener('click', test, false);
+        //document.getElementById('div').addEventListener('click', test, false);
+        
+        //alert(document.prototype);
+      }
+   
+    </script>
+  </head>
+  <body onload="main();" style="border: 1px solid #000;">
+    <div id="div" style="border: 1px solid #f00; width: 100px; height: 100px;" class="main">Hello</div>
+    <script type="text/javascript">
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
+    </script>
+  </body>
+</html>

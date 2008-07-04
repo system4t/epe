@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+    <meta name="generator" content="PSPad editor, www.pspad.com">
+    <title>EPE.FF.HTMLColElement.UnitTest</title>
+    <style type="text/css">
+      table {
+        border: 1px solid #000;
+        border-collapse: collapse;
+      }
+      
+      table td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 4px;
+      }
+    </style>
+    <script type="text/javascript" src="epe.ff.htmlcolelement.js"></script>
+    <script type="text/javascript">
+    
+      function test(e) {
+        if (e.target == document.body)
+          alert('attribute changed');
+      }
+      
+      function test2(e) {
+        //if (e.target == document.body)
+          alert('subtree modified');
+      }
+      
+      // For Firefox/Opera
+      document.addEventListener('DOMAttrModified', test, true);
+      // For Safari
+      document.addEventListener("DOMSubtreeModified", function(){document.title="DOM Changed at " + new Date()}, false);
+    
+      function load() {
+        var table = document.getElementById('dataTable');
+        //document.body.watch('align',test);
+        document.getElementById('testDiv').addEventListener("DOMSubTreeModified", test2, true);
+        //document.body.setAttribute('border',1);
+        document.getElementById('testDiv').appendChild(document.createElement('input'));
+        //table.addEventListener('DOMSubTreeModified', test2, true);
+        
+      }
+   
+    </script>
+  </head>
+  <body onload="load();">
+    <table id="dataTable" cellspacing="0" cellpadding="0" border="0">
+      <colgroup id="col1" span="2" width="200px" align="right" style="font-weight: bold;"></colgroup>
+      <colgroup id="col2" span="1" width="50px" style="color: #f00; text-decoration: underline; text-align: center; "></colgroup>
+      <colgroup id="col3" valign="top"></colgroup>
+      <thead> 
+        <tr id="rowHead">
+          <td id="colTd0"><div id="colDiv0" class="column left">&#35;</div></td>
+          <td id="colTd1"><div id="colDiv1" class="column middle">Fabrikant<img src="gfx_test/asc.gif" class="order" /></div></td>
+          <td id="colTd2"><div id="colDiv2" class="column middle">Model</div></td>
+          <td id="colTd3"><div id="colDiv3" class="column right">Gruppenummer<img src="gfx_test/desc.gif" class="order" /></div></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td> 0</td><td> 0</td><td> 0</td><td> 0</td></tr>
+        <tr><td> 1</td><td> 1</td><td> 1</td><td> 1</td></tr>
+        <tr><td> 2</td><td> 2</td><td> 2</td><td> 2</td></tr>
+        <tr><td> 3</td><td> 3</td><td> 3</td><td> 3</td></tr>
+        <tr><td> 4</td><td> 4</td><td> 4</td><td> 4</td></tr>
+        <tr><td> 5</td><td> 5</td><td> 5</td><td> 5</td></tr>
+        <tr><td> 6</td><td> 6</td><td> 6</td><td> 6</td></tr>
+        <tr><td> 7</td><td> 7</td><td> 7</td><td> 7</td></tr>
+        <tr><td> 8</td><td> 8</td><td> 8</td><td> 8</td></tr>
+        <tr><td> 9</td><td> 9</td><td> 9</td><td> 9</td></tr>
+        <tr><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+        <tr><td>11</td><td>11</td><td>11</td><td>11</td></tr>
+        <tr><td>12</td><td style="color: #0f0;">12</td><td>12</td><td>12</td></tr>
+        <tr><td>13</td><td>13</td><td>13</td><td>13</td></tr>
+        <tr><td>14</td><td>14</td><td>14</td><td>14</td></tr>
+        <tr><td>15</td><td>15</td><td>15</td><td>15</td></tr>
+        <tr><td>16</td><td>16</td><td>16</td><td>16</td></tr>
+        <tr><td>17</td><td>17</td><td>17</td><td>17</td></tr>
+        <tr><td>18</td><td>18</td><td>18</td><td>18</td></tr>
+        <tr><td>19</td><td>19</td><td style="text-decoration: none;">19</td><td>19</td></tr>
+        <tr><td>20</td><td>20</td><td>20</td><td>20</td></tr>
+        <tr><td>21</td><td>21</td><td>21</td><td>21</td></tr>
+        <tr><td>22</td><td>22</td><td>22</td><td>22</td></tr>
+        <tr><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+        <tr><td>24</td><td>24</td><td>24</td><td>24</td></tr>
+      </tbody>                    
+    </table>                      
+    <div id="testDiv"></div>
+  </body>                         
+</html>                           
+                                  
