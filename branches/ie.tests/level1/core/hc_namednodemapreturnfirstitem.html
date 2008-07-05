@@ -13,7 +13,6 @@
     <script type="text/javascript">
       //<[CDATA[
       function onloadListener() {
-        var success;
         var elementList;
         var testAddress;
         var attributes;
@@ -22,7 +21,7 @@
         var htmlExpected = new Array();
         htmlExpected[0] = "title";
         htmlExpected[1] = "class";
-
+        var matches = 0;
         var expected = new Array();
         expected[0] = "title";
         expected[1] = "class";
@@ -37,17 +36,16 @@
           nodeName = child.nodeName;
           actual[actual.length] = nodeName;
         }
-        success = false;
-        if (htmlExpected.length == actual.length) {
-          success = true;
+        if (htmlExpected.length <= actual.length) {
           for (var ix = 0; ix < actual.length; ix++) {
-            if (htmlExpected[ix].toLowerCase() != actual[ix].toLowerCase()) {
-              success = true;
-              break;
+            for (var jx = 0; jx < htmlExpected.length; jx++) {
+              if (htmlExpected[jx].toLowerCase() == actual[ix].toLowerCase()) {
+                matches++;
+              }
             }
           }
         }
-        document.getElementById("attrName_html").value = success;
+        document.getElementById("attrName_html").value = matches;
         return true;
       }
       //]]>
@@ -114,15 +112,15 @@
         <input id="attrName_html" type="hidden">
       </div>
     </form>
-<p>
-Copyright &copy; 2001-2004 World Wide Web Consortium,
-(Massachusetts Institute of Technology, European Research Consortium
-for Informatics and Mathematics, Keio University). All
-Rights Reserved. This work is distributed under the
-<a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
-in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
-the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-</p>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
     <script type="text/javascript">
       if (window.EPE) {
         EPE.__R1 = document.documentElement.childNodes[1].onload;
