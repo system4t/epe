@@ -22,9 +22,14 @@
         elementList = document.getElementsByTagName("acronym");
         testEmployee = elementList.item(2);
         streetAttr = testEmployee.getAttributeNode("class");
-        replacedAttr = testEmployee.setAttributeNode(streetAttr);
-        document.getElementById("replacedAttr").value =
-          (streetAttr == replacedAttr);
+        try {
+          replacedAttr = testEmployee.setAttributeNode(streetAttr);
+          document.getElementById("replacedAttr").value =
+            (streetAttr == replacedAttr);
+        }
+        catch(ex) {
+          document.getElementById("replacedAttr").value = ex.message;
+        }
         return true;
       }
       //]]>
@@ -84,22 +89,22 @@
       inadvertanly made this test.
     </p>
     <div>
-      <a href="http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-887236154">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-887236154</a>
+      <a href="http://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#ID-745549614">http://www.w3.org/TR/1998/REC-DOM-Level-1-19981001/level-one-core#ID-887236154</a>
     </div>
     <form action="hc_elementreplaceattributewithself.html" method="post">
       <div>
         <input id="replacedAttr" type="hidden">
       </div>
     </form>
-<p>
-Copyright &copy; 2001-2004 World Wide Web Consortium,
-(Massachusetts Institute of Technology, European Research Consortium
-for Informatics and Mathematics, Keio University). All
-Rights Reserved. This work is distributed under the
-<a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
-in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
-the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-</p>
+    <p>
+      Copyright &copy; 2001-2004 World Wide Web Consortium,
+      (Massachusetts Institute of Technology, European Research Consortium
+      for Informatics and Mathematics, Keio University). All
+      Rights Reserved. This work is distributed under the
+      <a href="http://www.w3.org/Consortium/Legal/2002/copyright-software-20021231">W3C&reg; Software License</a>
+      in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even
+      the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    </p>
     <script type="text/javascript">
       if (window.EPE) {
         EPE.__R1 = document.documentElement.childNodes[1].onload;

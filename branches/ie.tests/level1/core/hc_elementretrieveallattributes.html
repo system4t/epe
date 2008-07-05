@@ -19,6 +19,7 @@
         var attributes;
         var attribute;
         var attributeName;
+        var matches = 0;
         var actual = new Array();
 
         var htmlExpected = new Array();
@@ -38,16 +39,17 @@
           actual[actual.length] = attributeName;
         }
         success = false;
-        if (htmlExpected.length == actual.length) {
+        if (htmlExpected.length <= actual.length) {
           success = true;
           for (var ix = 0; ix < actual.length; ix++) {
-            if (htmlExpected[ix].toLowerCase() != actual[ix].toLowerCase()) {
-              success = false;
-              break;
+            for (var jx = 0; jx < htmlExpected.length; jx++) {
+              if (htmlExpected[jx].toLowerCase() == actual[ix].toLowerCase()) {
+                matches++;
+              }
             }
           }
         }
-        document.getElementById("htmlAttributeNames").value = success;
+        document.getElementById("htmlAttributeNames").value = (matches == htmlExpected.length);
         return true;
       }
       //]]>

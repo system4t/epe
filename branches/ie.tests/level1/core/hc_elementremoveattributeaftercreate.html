@@ -22,11 +22,13 @@
         elementList = document.getElementsByTagName("acronym");
         testEmployee = elementList.item(2);
         newAttribute = document.createAttribute("lang");
+        newAttribute.nodeValue = "en";
         districtAttr = testEmployee.setAttributeNode(newAttribute);
         districtAttr = testEmployee.removeAttributeNode(newAttribute);
         attributes = testEmployee.attributes;
-
         districtAttr = attributes.getNamedItem("lang");
+        // IE is merely truncating the attribute node's value.
+//        document.getElementById("removed_item_null").value = (districtAttr == null || !districtAttr.nodeValue);
         document.getElementById("removed_item_null").value = (districtAttr == null);
         return true;
       }

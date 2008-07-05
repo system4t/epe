@@ -27,6 +27,8 @@
 
         removedNode = attributes.removeNamedItem("class");
         streetAttr = attributes.getNamedItem("class");
+        // removeNamedItem merely sets the value of the
+        // attribute to the empty string on IE.
         document.getElementById("isnull").value = (streetAttr == null);
         return true;
       }

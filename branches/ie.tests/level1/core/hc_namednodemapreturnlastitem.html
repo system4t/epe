@@ -13,7 +13,6 @@
     <script type="text/javascript">
       //<[CDATA[
       function onloadListener() {
-        var success;
         var elementList;
         var testAddress;
         var attributes;
@@ -22,7 +21,7 @@
         var htmlExpected = new Array();
         htmlExpected[0] = "title";
         htmlExpected[1] = "class";
-
+        var matches = 0;
         var expected = new Array();
         expected[0] = "title";
         expected[1] = "class";
@@ -37,17 +36,16 @@
           nodeName = child.nodeName;
           actual[actual.length] = nodeName;
         }
-        success = false;
-        if (htmlExpected.length == actual.length) {
-          success = true;
+        if (htmlExpected.length <= actual.length) {
           for (var ix = 0; ix < actual.length; ix++) {
-            if (htmlExpected[ix].toLowerCase() != actual[ix].toLowerCase()) {
-              success = true;
-              break;
+            for (var jx = 0; jx < htmlExpected.length; jx++) {
+              if (htmlExpected[jx].toLowerCase() == actual[ix].toLowerCase()) {
+                matches++;
+              }
             }
           }
         }
-        document.getElementById("attrName_html").value = success;
+        document.getElementById("attrName_html").value = matches;
         return true;
       }
       //]]>

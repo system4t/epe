@@ -23,7 +23,9 @@
         testEmployee = elementList.item(1);
         attributes = testEmployee.attributes;
         streetAttr = attributes.getNamedItem("class");
-        document.getElementById("typeAssert").value = streetAttr.constructor;
+        // IE returns a native Attr object without a constructor.
+        // document.getElementById("typeAssert").value = streetAttr.constructor;
+        document.getElementById("typeAssert").value = streetAttr.nodeType;
         attrName = streetAttr.nodeName;
         document.getElementById("nodeName").value = attrName.toLowerCase();
         attrName = streetAttr.name;
