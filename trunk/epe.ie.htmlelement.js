@@ -998,19 +998,24 @@ if (document.createEventObject) {
   }
   EPE.uniqueTags = a;
 
-  /**
-  * HTMLDocument. Just a placeholder - not meant to be instantiated
-  * @constructor
-  */
+  // IE conditional comments have to be used to hide the function declarations
+  // below from Safari and Opera. This is due to Sarafi and Opeara following
+  // the ECMA 262 spec on conditional function declarations. Firefox deviates
+  // from the spec but might correct it in the future.
+  // The conditional comments renders the jsdoc comments useless so they have
+  // been changed to inline comments
+
+  // HTMLDocument. Just a placeholder - not meant to be instantiated
+  // @constructor
+  
+  /*@cc_on
   function HTMLDocument() {}
   document.constructor = HTMLDocument;
   HTMLDocument.toString = EPE.constructorToString;
-
-  /**
-  * HTMLElement.  The other elements inherit from this object.
-  * @param t {String} A tag name.
-  * @constructor
-  */
+  
+  // HTMLElement.  The other elements inherit from this object.
+  // @param t {String} A tag name.
+  // @constructor
   function HTMLElement(t) {
     if (t) {
       var elm = EPE.IECreateElement(t);
@@ -1020,10 +1025,8 @@ if (document.createEventObject) {
   }
   HTMLElement.tags = ['all'];
 
-  /**
-   *  A (anchor) tag.
-   *  @constructor
-   */
+  //  A (anchor) tag.
+  //  @constructor
   function HTMLAnchorElement() {
     var elm = EPE.IECreateElement('a');
     EPE.extend(elm,arguments.callee);
@@ -1031,10 +1034,9 @@ if (document.createEventObject) {
   }
   HTMLAnchorElement.tags = ['a'];
   
-  /**
-   *  APPLET tag.
-   *  @constructor
-   */
+
+  //  APPLET tag.
+  //  @constructor
   function HTMLAppletElement() {
     var elm = EPE.IECreateElement('applet');
     EPE.extend(elm,arguments.callee);
@@ -1042,10 +1044,8 @@ if (document.createEventObject) {
   }
   HTMLAppletElement.tags = ['applet'];
   
-  /**
-   * AREA tag.
-   * @constructor
-   */
+  // AREA tag.
+  // @constructor
   function HTMLAreaElement() {
     var elm = EPE.IECreateElement('area');
     EPE.extend(elm,arguments.callee);
@@ -1053,9 +1053,7 @@ if (document.createEventObject) {
   }
   HTMLAreaElement.tags = ['area'];
   
-  /**
-   * BASE tag.
-   */
+  // BASE tag.
   function HTMLBaseElement() {
     var elm = EPE.IECreateElement('base');
     EPE.extend(elm,arguments.callee);
@@ -1063,10 +1061,8 @@ if (document.createEventObject) {
   }
   HTMLBaseElement.tags = ['base'];
   
-  /**
-   * BASEFONT tag.
-   * @constructor
-   */
+  // BASEFONT tag.
+  // @constructor
   function HTMLBaseFontElement() {
     var elm = EPE.IECreateElement('basefont');
     EPE.extend(elm,arguments.callee);
@@ -1074,10 +1070,8 @@ if (document.createEventObject) {
   }
   HTMLBaseFontElement.tags = ['basefont'];
   
-  /**
-   *  BODY tag.
-   *  @constructor
-   */
+  //  BODY tag.
+  //  @constructor
   function HTMLBodyElement() {
     var elm = EPE.IECreateElement('body');
     EPE.extend(elm,arguments.callee);
@@ -1085,10 +1079,8 @@ if (document.createEventObject) {
   }
   HTMLBodyElement.tags = ['body'];
   
-  /**
-   * BR tag.
-   * @constructor
-   */
+  // BR tag.
+  // @constructor
   function HTMLBRElement() {
     var elm = EPE.IECreateElement('br');
     EPE.extend(elm,arguments.callee);
@@ -1096,10 +1088,8 @@ if (document.createEventObject) {
   }
   HTMLBRElement.tags = ['br'];
   
-  /**
-   * BUTTON tag.
-   * @constructor
-   */
+  // BUTTON tag.
+  // @constructor
   function HTMLButtonElement() {
     var elm = EPE.IECreateElement('button');
     EPE.extend(elm,arguments.callee);
@@ -1107,10 +1097,8 @@ if (document.createEventObject) {
   }
   HTMLButtonElement.tags = ['button'];
   
-  /**
-   * CAPTION tag.
-   * @constructor
-   */
+  // CAPTION tag.
+  // @constructor
   function HTMLTableCaptionElement() {
     var elm = EPE.IECreateElement('caption');
     EPE.extend(elm,arguments.callee);
@@ -1118,10 +1106,8 @@ if (document.createEventObject) {
   }
   HTMLTableCaptionElement.tags = ['caption'];
   
-  /**
-   * COL, COLGROUP tag.
-   * @constructor
-   */
+  // COL, COLGROUP tag.
+  // @constructor
   function HTMLTableColElement(tag) {
     var elm = EPE.IECreateElement(tag);
     EPE.extend(elm,arguments.callee);
@@ -1129,10 +1115,8 @@ if (document.createEventObject) {
   }
   HTMLTableColElement.tags = ['col','colgroup'];
   
-  /**
-   * DIR tag.
-   * @constructor
-   */
+  // DIR tag.
+  // @constructor
   function HTMLDirectoryElement() {
     var elm = EPE.IECreateElement('dir');
     EPE.extend(elm,arguments.callee);
@@ -1140,10 +1124,8 @@ if (document.createEventObject) {
   }
   HTMLDirectoryElement.tags = ['dir'];
   
-  /**
-   * DIV tag.
-   * @constructor
-   */
+  // DIV tag.
+  // @constructor
   function HTMLDivElement() {
     var elm = EPE.IECreateElement('div');
     EPE.extend(elm,arguments.callee);
@@ -1151,10 +1133,8 @@ if (document.createEventObject) {
   }
   HTMLDivElement.tags = ['div'];
   
-  /**
-   * DL tag.
-   * @constructor
-   */
+  // DL tag.
+  // @constructor
   function HTMLDListElement() {
     var elm = EPE.IECreateElement('dl');
     EPE.extend(elm,arguments.callee);
@@ -1162,10 +1142,8 @@ if (document.createEventObject) {
   }
   HTMLDListElement.tags = ['dl'];
   
-  /**
-   * FIELDSET tag.
-   * @constructor
-   */
+  // FIELDSET tag.
+  // @constructor
   function HTMLFieldSetElement() {
     var elm = EPE.IECreateElement('fieldset');
     EPE.extend(elm,arguments.callee);
@@ -1173,10 +1151,8 @@ if (document.createEventObject) {
   }
   HTMLFieldSetElement.tags = ['fieldset'];
   
-  /**
-   * FONT tag.
-   * @constructor
-   */
+  // FONT tag.
+  // @constructor
   function HTMLFontElement() {
     var elm = EPE.IECreateElement('font');
     EPE.extend(elm,arguments.callee);
@@ -1184,10 +1160,8 @@ if (document.createEventObject) {
   }
   HTMLFontElement.tags = ['font'];
   
-  /**
-   * FORM tag.
-   * @constructor
-   */
+  // FORM tag.
+  // @constructor
   function HTMLFormElement() {
     var elm = EPE.IECreateElement('form');
     EPE.extend(elm,arguments.callee);
@@ -1195,10 +1169,9 @@ if (document.createEventObject) {
   }
   HTMLFormElement.tags = ['form'];
   
-  /**
-   * FRAME tag.
-   * @constructor
-   */
+
+  // FRAME tag.
+  // @constructor
   function HTMLFrameElement() {
     var elm = EPE.IECreateElement('frame');
     EPE.extend(elm,arguments.callee);
@@ -1206,10 +1179,8 @@ if (document.createEventObject) {
   }
   HTMLFrameElement.tags = ['frame'];
   
-  /**
-   * FRAMESET tag.
-   * @constructor
-   */
+  // FRAMESET tag.
+  // @constructor
   function HTMLFrameSetElement() {
     var elm = EPE.IECreateElement('frameset');
     EPE.extend(elm,arguments.callee);
@@ -1217,11 +1188,9 @@ if (document.createEventObject) {
   }
   HTMLFrameSetElement.tags = ['framset'];
   
-  /**
-   * H1, H2, H3, H4, H5, H6 tag.
-   * @param t {String} A tag name.  One of 'h1', 'h2', 'h3', 'h4', 'h5', or 'h6'.
-   * @constructor
-   */
+  // H1, H2, H3, H4, H5, H6 tag.
+  // @param t {String} A tag name.  One of 'h1', 'h2', 'h3', 'h4', 'h5', or 'h6'.
+  // @constructor
   function HTMLHeadingElement(t) {
     var elm = EPE.IECreateElement(t);
     EPE.extend(elm,arguments.callee);
@@ -1229,10 +1198,8 @@ if (document.createEventObject) {
   }
   HTMLHeadingElement.tags = ['h1','h2','h3','h4','h5','h6'];
   
-  /**
-   * HEAD tag.
-   * @constructor
-   */
+  // HEAD tag.
+  // @constructor
   function HTMLHeadElement() {
     var elm = EPE.IECreateElement('head');
     EPE.extend(elm,arguments.callee);
@@ -1240,10 +1207,8 @@ if (document.createEventObject) {
   }
   HTMLHeadElement.tags = ['head'];
   
-  /**
-   * HR tag.
-   * @constructor
-   */
+  // HR tag.
+  // @constructor
   function HTMLHRElement() {
     var elm = EPE.IECreateElement('hr');
     EPE.extend(elm,arguments.callee);
@@ -1251,10 +1216,8 @@ if (document.createEventObject) {
   }
   HTMLHRElement.tags = ['hr'];
   
-  /**
-   * HTML tag.
-   * @constructor
-   */
+  // HTML tag.
+  // @constructor
   function HTMLHtmlElement() {
     var elm = EPE.IECreateElement('html');
     EPE.extend(elm,arguments.callee);
@@ -1262,10 +1225,8 @@ if (document.createEventObject) {
   }
   HTMLHtmlElement.tags = ['html'];
   
-  /**
-   * IFRAME tag.
-   * @constructor
-   */
+  // IFRAME tag.
+  // @constructor
   function HTMLIFrameElement() {
     var elm = EPE.IECreateElement('iframe');
     EPE.extend(elm,arguments.callee);
@@ -1273,10 +1234,8 @@ if (document.createEventObject) {
   }
   HTMLIFrameElement.tags = ['iframe'];
   
-  /**
-   * IMG tag.
-   * @constructor
-   */
+  // IMG tag.
+  // @constructor
   function HTMLImageElement() {
     var elm = EPE.IECreateElement('img');
     EPE.extend(elm,arguments.callee);
@@ -1284,10 +1243,8 @@ if (document.createEventObject) {
   }
   HTMLImageElement.tags = ['img'];
   
-  /**
-   * INPUT tag.
-   * @constructor
-   */
+  // INPUT tag.
+  // @constructor
   function HTMLInputElement() {
     var elm = EPE.IECreateElement('input');
     EPE.extend(elm,arguments.callee);
@@ -1295,11 +1252,9 @@ if (document.createEventObject) {
   }
   HTMLInputElement.tags = ['input'];
   
-  /**
-   * DEL, INS tag.
-   * @param t {String} A tag name.  One of 'del' or 'ins'.
-   * @constructor
-   */
+  // DEL, INS tag.
+  // @param t {String} A tag name.  One of 'del' or 'ins'.
+  // @constructor
   function HTMLModElement(t) {
     var elm = EPE.IECreateElement(t);
     EPE.extend(elm,arguments.callee);
@@ -1307,10 +1262,8 @@ if (document.createEventObject) {
   }
   HTMLModElement.tags = ['del','ins'];
   
-  /**
-   * ISINDEX tag.
-   * @constructor
-   */
+  // ISINDEX tag.
+  // @constructor
   function HTMLIsIndexElement() {
     var elm = EPE.IECreateElement('isindex');
     EPE.extend(elm,arguments.callee);
@@ -1318,10 +1271,8 @@ if (document.createEventObject) {
   }
   HTMLIsIndexElement.tags = ['isindex'];
   
-  /**
-   * LABEL tag.
-   * @constructor
-   */
+  // LABEL tag.
+  // @constructor
   function HTMLLabelElement() {
     var elm = EPE.IECreateElement('label');
     EPE.extend(elm,arguments.callee);
@@ -1329,10 +1280,8 @@ if (document.createEventObject) {
   }
   HTMLLabelElement.tags = ['label'];
   
-  /**
-   * LEGEND tag.
-   * @constructor
-   */
+  // LEGEND tag.
+  // @constructor
   function HTMLLegendElement() {
     var elm = EPE.IECreateElement('legend');
     EPE.extend(elm,arguments.callee);
@@ -1340,10 +1289,8 @@ if (document.createEventObject) {
   }
   HTMLLegendElement.tags = ['legend'];
   
-  /**
-   * LI tag.
-   * @constructor
-   */
+  // LI tag.
+  // @constructor
   function HTMLLIElement() {
     var elm = EPE.IECreateElement('li');
     EPE.extend(elm,arguments.callee);
@@ -1351,10 +1298,8 @@ if (document.createEventObject) {
   }
   HTMLLIElement.tags = ['li'];
   
-  /**
-   * LINK tag.
-   * @constructor
-   */
+  // LINK tag.
+  // @constructor
   function HTMLLinkElement() {
     var elm = EPE.IECreateElement('link');
     EPE.extend(elm,arguments.callee);
@@ -1362,10 +1307,8 @@ if (document.createEventObject) {
   }
   HTMLLinkElement.tags = ['link'];
   
-  /**
-   * MAP tag.
-   * @constructor
-   */
+  // MAP tag.
+  // @constructor
   function HTMLMapElement() {
     var elm = EPE.IECreateElement('map');
     EPE.extend(elm,arguments.callee);
@@ -1373,10 +1316,8 @@ if (document.createEventObject) {
   }
   HTMLMapElement.tags = ['map'];
   
-  /**
-   * MENU tag.
-   * @constructor
-   */
+  // MENU tag.
+  // @constructor
   function HTMLMenuElement() {
     var elm = EPE.IECreateElement('menu');
     EPE.extend(elm,arguments.callee);
@@ -1384,10 +1325,8 @@ if (document.createEventObject) {
   }
   HTMLMenuElement.tags = ['menu'];
   
-  /**
-   * META tag.
-   * @constructor
-   */
+  // META tag.
+  // @constructor
   function HTMLMetaElement() {
     var elm = EPE.IECreateElement('meta');
     EPE.extend(elm,arguments.callee);
@@ -1395,10 +1334,8 @@ if (document.createEventObject) {
   }
   HTMLMetaElement.tags = ['meta'];
   
-  /**
-   * OBJECT tag.
-   * @constructor
-   */
+  // OBJECT tag.
+  // @constructor
   function HTMLObjectElement() {
     var elm = EPE.IECreateElement('object');
     EPE.extend(elm,arguments.callee);
@@ -1406,10 +1343,8 @@ if (document.createEventObject) {
   }
   HTMLObjectElement.tags = ['object'];
   
-  /**
-   * OL tag.
-   * @constructor
-   */
+  // OL tag.
+  // @constructor
   function HTMLOListElement() {
     var elm = EPE.IECreateElement('ol');
     EPE.extend(elm,arguments.callee);
@@ -1417,10 +1352,8 @@ if (document.createEventObject) {
   }
   HTMLOListElement.tags = ['ol'];
   
-  /**
-   * OPTGROUP tag.
-   * @constructor
-   */
+  // OPTGROUP tag.
+  // @constructor
   function HTMLOptGroupElement() {
     var elm = EPE.IECreateElement('optgroup');
     EPE.extend(elm,arguments.callee);
@@ -1428,10 +1361,8 @@ if (document.createEventObject) {
   }
   HTMLOptGroupElement.tags = ['optgroup'];
   
-  /**
-   * OPTION tag.
-   * @constructor
-   */
+  // OPTION tag.
+  // @constructor
   function HTMLOptionElement() {
     var elm = EPE.IECreateElement('option');
     EPE.extend(elm,arguments.callee);
@@ -1439,10 +1370,8 @@ if (document.createEventObject) {
   }
   HTMLOptionElement.tags = ['option'];
   
-  /**
-   * P tag.
-   * @constructor
-   */
+  // P tag.
+  // @constructor
   function HTMLParagraphElement() {
     var elm = EPE.IECreateElement('p');
     EPE.extend(elm,arguments.callee);
@@ -1450,10 +1379,8 @@ if (document.createEventObject) {
   }
   HTMLParagraphElement.tags = ['p'];
 
-  /**
-   * PARAM tag.
-   * @constructor
-   */
+  // PARAM tag.
+  // @constructor
   function HTMLParamElement() {
     var elm = EPE.IECreateElement('param');
     EPE.extend(elm,arguments.callee);
@@ -1461,10 +1388,8 @@ if (document.createEventObject) {
   }
   HTMLParamElement.tags = ['param'];
   
-  /**
-   * PRE tag.
-   * @constructor
-   */
+  // PRE tag.
+  // @constructor
   function HTMLPreElement() {
     var elm = EPE.IECreateElement('pre');
     EPE.extend(elm,arguments.callee);
@@ -1472,10 +1397,8 @@ if (document.createEventObject) {
   }
   HTMLPreElement.tags = ['pre'];
   
-  /**
-   * Q tag.
-   * @constructor
-   */
+  // Q tag.
+  // @constructor
   function HTMLQuoteElement() {
     var elm = EPE.IECreateElement('q');
     EPE.extend(elm,arguments.callee);
@@ -1483,10 +1406,8 @@ if (document.createEventObject) {
   }
   HTMLQuoteElement.tags = ['q'];
   
-  /**
-   * SELECT tag.
-   * @constructor
-   */
+  // SELECT tag.
+  // @constructor
   function HTMLSelectElement() {
     var elm = EPE.IECreateElement('select');
     EPE.extend(elm,arguments.callee);
@@ -1494,10 +1415,8 @@ if (document.createEventObject) {
   }
   HTMLSelectElement.tags = ['select'];
   
-  /**
-   * SCRIPT tag.
-   * @constructor
-   */
+  // SCRIPT tag.
+  // @constructor
   function HTMLScriptElement() {
     var elm = EPE.IECreateElement('script');
     EPE.extend(elm,arguments.callee);
@@ -1505,11 +1424,9 @@ if (document.createEventObject) {
   }
   HTMLScriptElement.tags = ['script'];
   
-/**
- * EM, SPAN, STRONG tag.  This is not a W3C class.
- * @param t {String} A tag name.  One of 'em', 'span', or 'strong'.
- * @constructor
- */
+  // EM, SPAN, STRONG tag.  This is not a W3C class.
+  // @param t {String} A tag name.  One of 'em', 'span', or 'strong'.
+  // @constructor
   function HTMLSpanElement(t) {
     var elm = EPE.IECreateElement(t);
     EPE.extend(elm,arguments.callee);
@@ -1517,10 +1434,8 @@ if (document.createEventObject) {
   }
   HTMLSpanElement.tags = ['em','span','strike','strong'];
   
-  /**
-   * STYLE tag.
-   * @constructor
-   */
+  // STYLE tag.
+  // @constructor
   function HTMLStyleElement() {
     var elm = EPE.IECreateElement('style');
     EPE.extend(elm,arguments.callee);
@@ -1528,10 +1443,8 @@ if (document.createEventObject) {
   }
   HTMLStyleElement.tags = ['style'];
   
-  /**
-   * TABLE tag.
-   * @constructor
-   */
+  // TABLE tag.
+  // @constructor
   function HTMLTableElement() {
     var elm = EPE.IECreateElement('table');
     EPE.extend(elm,arguments.callee);
@@ -1549,11 +1462,9 @@ if (document.createEventObject) {
   }
   HTMLTableElement.tags = ['table'];
  
-  /**
-   * TBODY, TFOOT, THEAD tag.
-   * @param t {String} A tag name.  One of 'tbody', 'tfoot', or 'thead'.
-   * @constructor
-   */
+  // TBODY, TFOOT, THEAD tag.
+  // @param t {String} A tag name.  One of 'tbody', 'tfoot', or 'thead'.
+  // @constructor
   function HTMLTableSectionElement(t) {
     var elm = EPE.IECreateElement(t);
     EPE.extend(elm,arguments.callee);
@@ -1565,11 +1476,9 @@ if (document.createEventObject) {
   }
   HTMLTableSectionElement.tags = ['tbody','tfoot','thead'];
   
-  /**
-   * TD, TH tag.
-   * @param t {String} A tag name.  One of 'tr' or 'th'.
-   * @constructor
-   */
+  // TD, TH tag.
+  // @param t {String} A tag name.  One of 'tr' or 'th'.
+  // @constructor
   function HTMLTableCellElement(t) {
     var elm = EPE.IECreateElement(t);
     EPE.extend(elm,arguments.callee);
@@ -1577,10 +1486,8 @@ if (document.createEventObject) {
   }
   HTMLTableCellElement.tags = ['td','th'];
   
-  /**
-   * TEXTAREA tag.
-   * @constructor
-   */
+  // TEXTAREA tag.
+  // @constructor
   function HTMLTextAreaElement() {
     var elm = EPE.IECreateElement('textarea');
     EPE.extend(elm,arguments.callee);
@@ -1588,10 +1495,8 @@ if (document.createEventObject) {
   }
   HTMLTextAreaElement.tags = ['textarea'];
   
-  /**
-   * TITLE tag.
-   * @constructor
-   */
+  // TITLE tag.
+  // @constructor
   function HTMLTitleElement() {
     var elm = EPE.IECreateElement('title');
     EPE.extend(elm,arguments.callee);
@@ -1599,10 +1504,8 @@ if (document.createEventObject) {
   }
   HTMLTitleElement.tags = ['title'];
   
-  /**
-   * TR tag.
-   * @constructor
-   */
+  // TR tag.
+  // @constructor
   function HTMLTableRowElement() {
     var elm = EPE.IECreateElement('tr');
     EPE.extend(elm,arguments.callee);
@@ -1614,16 +1517,15 @@ if (document.createEventObject) {
   }
   HTMLTableRowElement.tags = ['tr'];
   
-  /**
-   * UL tag.
-   * @constructor
-   */
+  // UL tag.
+  // @constructor
   function HTMLUListElement() {
     var elm = EPE.IECreateElement('ul');
     EPE.extend(elm,arguments.callee);
     return elm;
   }
   HTMLUListElement.tags = ['ul'];
+  @*/
  
   // Create pseudo prototype object on all HTML constructors
   EPE.initPrototype(HTMLElement);
