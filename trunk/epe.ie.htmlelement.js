@@ -22,21 +22,11 @@ if (document.createEventObject) {
   // Declare namespace
   var EPE = {};
 
-  // Cache elements between creation and insertion. This is nessesary if
-  // you are altering the prototype of an element constructor between
-  // the creation and insertion of the element.
+  // Cache elements between creation and insertion. This is nessesary in
+  // a number of situations especially when using innerHTML
   // 1 = on, 0 = off. Default value is 0
   // See http://www.jslab.dk/epe.features.php#enable.cache for more info
-  EPE.CACHE_ELEMENTS = 0;
-  
-  // Experimental support for HTMLCollections
-  // 1 = on, 0 = off. Default value is 0
-  EPE.ENABLE_COLLECTIONS = 0;
-  
-  // Experimental support for W3C inheritance
-  // Object -> Node -> Element -> HTMLElement
-  // 1 = on, 0 = off. Default value is 0
-  EPE.ENABLE_W3C_INHERITANCE = 0;
+  EPE.CACHE_ELEMENTS = 1;
   
   // THERE ARE NO CONFIGURABLE SETTINGS BELOW THIS LINE
 
@@ -47,7 +37,7 @@ if (document.createEventObject) {
   *
   *
   ***********************************************/
-
+  
   // Save native createElement method
   EPE.IECreateElement = document.createElement;
   
@@ -113,14 +103,6 @@ if (document.createEventObject) {
           // appendChild
           // insertBefore
           // replaceChild
-          // If HTMLCollections are enabled
-          if (EPE.ENABLE_COLLECTIONS) {
-            // Methods on elements which returns collections
-            // Save ref. to original methods
-            elm._getElementsByTagName = elm.getElementsByTagName;
-            // Replace with EPE versions
-            elm.getElementsByTagName = EPE.getElementsByTagName;
-          }
           // Save ref. to original methods
           elm._appendChild = elm.appendChild;
           elm._insertBefore = elm.insertBefore;
@@ -275,7 +257,7 @@ if (document.createEventObject) {
   EPE.checkInnerHTML =
     function() {
       // If source of event is document or window then no event.srcElement exist
-      // not du we have to about innerHTML
+      // nor do we have to worry about innerHTML
       // EPE handles document changes
       if (event.srcElement && event.propertyName == 'innerHTML') {
         // Sortcut
@@ -334,81 +316,27 @@ if (document.createEventObject) {
 
   // If caching is turned on
   if (EPE.CACHE_ELEMENTS) {
-    // Temp. storage for elements which are created but not
-    // yet attached to the document
-    EPE.cache = {};
     
-    /**
-     * Insert an element into the cache if element is not in the cache already
-     * 
-     * @param elm The element to insert.
-     */ 
+    EPE.cache = EPE.IECreateElement('epe');
+    document.documentElement.childNodes[0].appendChild(EPE.cache);
+    
     EPE.cache.add =
       function(elm) {
-        var tag = elm.tagName.toLowerCase();
-        // If tagname doesn't exist in cache then elm doesn't either
-        if (!this[tag]) {
-          this[tag] = [];
-          this[tag].push(elm);
-        }
-        else {
-          // Only cache if element is not cached already
-          var l = this[tag].length;
-          for(var i=0; i<l; i++) {
-            if (this[tag] == elm)
-              return;
-          }
-          this[tag].push(elm);
+        if (elm.canHaveChildren) {
+          EPE.cache.appendChild(elm);
+          elm.cached = true;
         }
       };
     
-    /**
-     * Insert a document fragment into the cache. Only element nodes
-     * are inserted and a node is never inserted more than once
-     * @param node The root element of the fragment to insert.
-     */ 
-    EPE.cache.addRecursive =
-      function(node) {
-        if (!node.tagName)
-          return;
-        if (node.childNodes) {
-          for(var i=0; i<node.childNodes.length; i++)
-            EPE.cache.addRecursive(node.childNodes[i]);
-          EPE.cache.add(node);
-        }
-      };
-    
-    /**
-     * Remove an element from the cache
-     * @param elm The element to remove.
-     */
     EPE.cache.remove =
       function(elm) {
-        var tag = elm.tagName.toLowerCase();
-        if (!this[tag])
-          return;
-        var l = this[tag].length;
-        var n = 0;
-        for(var i=0; i<l; i++)
-          this[tag][i] == elm ? n++ : this[tag][i-n] = this[tag][i];
-        this[tag].length = this[tag].length - n;
-        if (!this[tag].length)
-          delete this[tag];
-      };
-    
-    /**
-     * Remove a document fragment from the cache.
-     * @param elm The root element of the fragment to remove.
-     */
-    EPE.cache.removeRecursive =
-      function(node) {
-        if (!node.tagName)
-          return;
-        if (node.childNodes) {
-          for(var i=0; i<node.childNodes.length; i++)
-            EPE.cache.removeRecursive(node.childNodes[i]);
-          EPE.cache.remove(node);
-        }
+        elm.cached = null;
+        if (elm.childNodes.length) {
+          for(var i=0; i<elm.childNodes.length; i++)
+            if (elm.childNodes[i].cached)
+              EPE.cache.remove(elm.childNodes[i]);
+        } 
+        EPE.cache.removeChild(elm);
       };
   }
 
@@ -606,8 +534,8 @@ if (document.createEventObject) {
     function(elm) {
       EPE.extendInnerHTML(elm);
       // Remove from cache
-      if (EPE.CACHE_ELEMENTS)
-        EPE.cache.removeRecursive(elm);
+      if (EPE.CACHE_ELEMENTS && elm.cached)
+        EPE.cache.remove(elm);
       return this._appendChild(elm);
     };
   
@@ -622,8 +550,8 @@ if (document.createEventObject) {
   EPE.insertBefore =
     function(newChild, refChild) {
       EPE.extendInnerHTML(newChild);
-      if (EPE.CACHE_ELEMENTS)
-        EPE.cache.removeRecursive(elm);
+      if (EPE.CACHE_ELEMENTS && newChild.cached)
+        EPE.cache.remove(newChild);
       return this._insertBefore(newChild, refChild);
     };
   
@@ -638,8 +566,8 @@ if (document.createEventObject) {
   EPE.replaceChild =
     function(newChild, oldChild) {
       EPE.extendInnerHTML(newChild);
-      if (EPE.CACHE_ELEMENTS)
-        EPE.cache.removeRecursive(elm);
+      if (EPE.CACHE_ELEMENTS && newChild.cached)
+        EPE.cache.remove(newChild);
       return this._replaceChild(newChild, oldChild);
     };
   
@@ -853,19 +781,6 @@ if (document.createEventObject) {
           EPE.enableWatch(elms[i]);
         }
       }
-      // Get elements from cache if enabled by user 
-      if (EPE.CACHE_ELEMENTS) {
-        // For all entries in cache which are arrays (all except add/remove methods)
-        for(var i in EPE.cache) {
-          elms = EPE.cache[i];
-          if (elms.constructor == Array) {
-            // For all cached tags of type i
-            // No need to disable watch as these elements are not attached to the document yet.
-            for(var j=0; j<l; j++)
-              elms[i][j][p] = v;
-          }
-        }
-      }
     };
   
   /**
@@ -894,13 +809,6 @@ if (document.createEventObject) {
         EPE.disableWatch(elms[i]);
         elms[i][p] = v;
         EPE.enableWatch(elms[i]);
-      }
-      // Get elements from cache if enabled by user 
-      if (EPE.CACHE_ELEMENTS && EPE.cache[tag]) {
-        elms = EPE.cache[tag];
-        var l = elms.length;
-        for(var i=0; i<l; i++)
-          elms[i][p] = v;
       }
     };
    
