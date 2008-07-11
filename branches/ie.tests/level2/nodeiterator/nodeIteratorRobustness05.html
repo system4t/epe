@@ -24,8 +24,7 @@
         //          }},
         //        false);
         var f ={ acceptNode : function(node) { return 1 } };
-        var nodeIterator = document.createNodeIterator(
-        startNode, -1, f, false);
+        var nodeIterator = document.createNodeIterator(startNode, -1, f, false);
         var n = null;
         // var out = "";
         var elementNodeCount = 0;
@@ -50,6 +49,9 @@
                 if (nid == "No id") alert(n.tagName);
                 document.getElementById(nidv).value = nid;
               }
+              if (nid == "id12") {
+                document.getElementById("id11").removeChild(n);
+              }
             }
             else {
               elementNodeCount++;
@@ -71,7 +73,11 @@
   <body id="id11" onload="handleEvent(event);">
     <h2 id="id12">description</h2>
     <p id="id13">
-      Traverse a DOM tree in the forward direction.
+      Traverse a DOM tree in the forward direction.  At some point in the
+      traversal, the next node is deleted.  The next node returned from
+      nextNode() should not be the deleted node, but the result that would
+      have obtained by calling nextNode() on the deleted node before the
+      deletion.
     </p>
     <div id="id14">
       <a  id="id15" href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/traversal.html#Iterator-overview">http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/traversal.html#Iterator-overview</a>

@@ -26,6 +26,7 @@
         var n = null;
         // var out = "";
         var elementNodeCount = 0;
+        var scriptCount = 0;
         var nid = "";
         var nidv = "";
         var nprev = nodeIterator.previousNode();
@@ -50,6 +51,7 @@
             }
             else {
               elementNodeCount++;
+              if (n.tagName == "SCRIPT") scriptCount++;
             }
           }
           // Document.COMMENT_NODE=8
@@ -58,6 +60,8 @@
             // out += n.nodeValue + "\n";
           }
         }
+        // Allow Norton to append a final script element.
+        elementNodeCount -= Math.min(1, scriptCount);
         document.getElementById("elementCount").value = elementNodeCount;
         document.getElementById("beforeBeginningNull").value = (nprev == null);
       };

@@ -26,6 +26,7 @@
         var n = null;
         // var out = "";
         var elementNodeCount = 0;
+        var scriptCount = 0;
         var nid = "";
         var nidv = "";
         while ((n = nodeIterator.nextNode()) !== null) {
@@ -43,6 +44,11 @@
           else if (n.nodeType == 1) {
             // out += n.tagName + "\n";
             nid = n.id ? n.id : "No id";
+            // Allow one Norton script element.
+            if (nid == "No id" && n.tagName == "SCRIPT" && scriptCount == 0) {
+              scriptCount++;
+              continue;
+            }
             if (elementNodeCount < 20) {
               if (nid == "No id" || (nid.indexOf("id") == 0 && nid.indexOf("v") < 0)) {
                 elementNodeCount++;

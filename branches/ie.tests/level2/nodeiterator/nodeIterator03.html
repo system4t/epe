@@ -22,47 +22,55 @@
         { acceptNode : function(node) {
             return NodeFilter.FILTER_ACCEPT;
           }},
-      false);
-      var n = null;
-      // var out = "";
-      var elementNodeCount = 0;
-      var nid = "";
-      var nidv = "";
-      while ((n = nodeIterator.nextNode()) !== null) {
-        ;
-      }
-    while ((n = nodeIterator.previousNode()) !== null) {
-      // Document.TEXT_NODE=3
-      if (n.nodeType == 3) {
-        if (n.nodeValue.search("^\s*$") != -1) {
-          // out += "TextNode" + "\n";
+        false);
+        var n = null;
+        // var out = "";
+        var elementNodeCount = 0;
+        var scriptCount = 0;
+        var nid = "";
+        var nidv = "";
+        var ntag = "";
+        while ((n = nodeIterator.nextNode()) !== null) {
+          nid = n.id;
+          ntag = n.tagName;
         }
-      }
-      // Document.ELEMENT_NODE=1
-      else if (n.nodeType == 1) {
-        // out += n.tagName + "\n";
-        nid = n.id ? n.id : "No id";
-        if (elementNodeCount < 20) {
-          if (nid == "No id" || (nid.indexOf("id") == 0 && nid.indexOf("v") < 0)) {
-            elementNodeCount++;
-            nidv = "id"+elementNodeCount+"v";
-            if (nid == "No id") alert(n.tagName);
-            //alert(nidv + "=" + nid);
-            document.getElementById(nidv).value = nid;
+        while ((n = nodeIterator.previousNode()) !== null) {
+          // Document.TEXT_NODE=3
+          if (n.nodeType == 3) {
+            if (n.nodeValue.search("^\s*$") != -1) {
+              // out += "TextNode" + "\n";
+            }
+          }
+          // Document.ELEMENT_NODE=1
+          else if (n.nodeType == 1) {
+            // out += n.tagName + "\n";
+            nid = n.id ? n.id : "No id";
+            // Allow one Norton script element.
+            if (nid == "No id" && n.tagName == "SCRIPT" && scriptCount == 0) {
+              scriptCount++;
+              continue;
+            }
+            if (elementNodeCount < 20) {
+              if (nid == "No id" || (nid.indexOf("id") == 0 && nid.indexOf("v") < 0)) {
+                elementNodeCount++;
+                nidv = "id"+elementNodeCount+"v";
+                if (nid == "No id") alert(n.tagName);
+                //alert(nidv + "=" + nid);
+                document.getElementById(nidv).value = nid;
+              }
+            }
+            else {
+              elementNodeCount++;
+            }
+          }
+          // Document.COMMENT_NODE=8
+          // Document.DOCUMENT_TYPE_NODE=10
+          else if (n.nodeType == 10 || n.nodeType == 8) {
+            // out += n.nodeValue + "\n";
           }
         }
-        else {
-          elementNodeCount++;
-        }
-      }
-      // Document.COMMENT_NODE=8
-      // Document.DOCUMENT_TYPE_NODE=10
-      else if (n.nodeType == 10 || n.nodeType == 8) {
-        // out += n.nodeValue + "\n";
-      }
-    }
-    document.getElementById("elementCount").value = elementNodeCount;
-  };
+        document.getElementById("elementCount").value = elementNodeCount;
+      };
     </script>
   </head>
   <body id="id11" onload="handleEvent(event);">
@@ -119,10 +127,10 @@
 // along with this program. If not, see <a id="id20" href="http://www.gnu.org/licenses/">http://gnu.org/licenses/</a>.
     </pre>
     <script id="id21" type="text/javascript">
-  if (window.EPE) {
-    EPE.__R1 = document.documentElement.childNodes[1].onload;
-    document.documentElement.childNodes[1].onload = EPE.init;
-  }
+      if (window.EPE) {
+        EPE.__R1 = document.documentElement.childNodes[1].onload;
+        document.documentElement.childNodes[1].onload = EPE.init;
+      }
     </script>
   </body>
 </html>

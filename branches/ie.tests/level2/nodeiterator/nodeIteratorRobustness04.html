@@ -1,8 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
 <!-- 
-    Document   : nodeIterator01
-    Created on : Jun 6, 2008, 1:43:19 PM
+    Document   : nodeIterator04
+    Created on : Jun 6, 2008, 8:10:24 PM
     Author     : Allan Jacobs
 -->
 <html id="id1">
@@ -16,16 +16,13 @@
     <script id="id9" type="text/javascript" charset="UTF=8" src="../../lib/DocumentTraversal.js"></script>
     <script id="id10">
       function handleEvent(evt) {
-        var startNode = document.getElementsByTagName("html")[0];
-        //        var nodeIterator = document.createNodeIterator(
-        //        startNode, NodeFilter.SHOW_ALL,
-        //        { acceptNode : function(node) {
-        //            return NodeFilter.FILTER_ACCEPT;
-        //          }},
-        //        false);
-        var f ={ acceptNode : function(node) { return 1 } };
+        var startNode = document.getElementById("id1");
         var nodeIterator = document.createNodeIterator(
-        startNode, -1, f, false);
+        startNode, NodeFilter.SHOW_ALL,
+        { acceptNode : function(node) {
+            return NodeFilter.FILTER_ACCEPT;
+          }},
+        false);
         var n = null;
         // var out = "";
         var elementNodeCount = 0;
@@ -33,6 +30,10 @@
         var nid = "";
         var nidv = "";
         while ((n = nodeIterator.nextNode()) !== null) {
+          ;
+        }
+        var nlast = n;
+        while ((n = nodeIterator.previousNode()) !== null) {
           // Document.TEXT_NODE=3
           if (n.nodeType == 3) {
             if (n.nodeValue.search("^\s*$") != -1) {
@@ -43,17 +44,27 @@
           else if (n.nodeType == 1) {
             // out += n.tagName + "\n";
             nid = n.id ? n.id : "No id";
-            if (elementNodeCount < 21) {
-              if (nid == "No id" || (nid.indexOf("id") == 0 && nid.indexOf("v") < 0)) {
+            // Allow one Norton script element.
+            if (nid == "No id" && n.tagName == "SCRIPT" && scriptCount == 0) {
+              scriptCount++;
+              continue;
+            }
+            if (elementNodeCount < 22) {
+              if (nid == "No id" || nid == "insert" || (nid.indexOf("id") == 0 && nid.indexOf("v") < 0)) {
                 elementNodeCount++;
                 nidv = "id"+elementNodeCount+"v";
                 if (nid == "No id") alert(n.tagName);
                 document.getElementById(nidv).value = nid;
               }
+              if (nid == "id12") {
+                var v = document.createElement("h2");
+                v.id = "insert";
+                document.getElementById("id11").insertBefore(v,
+                  document.getElementById("id12"));
+              }
             }
             else {
               elementNodeCount++;
-              if (n.tagName == "SCRIPT") scriptCount++;
             }
           }
           // Document.COMMENT_NODE=8
@@ -62,24 +73,27 @@
             // out += n.nodeValue + "\n";
           }
         }
-        // Allow Norton to append a final script element.
-        elementNodeCount -= Math.min(1, scriptCount);
         document.getElementById("elementCount").value = elementNodeCount;
+        document.getElementById("afterTheEndNull").value = (nlast == null);
       };
     </script>
   </head>
   <body id="id11" onload="handleEvent(event);">
     <h2 id="id12">description</h2>
     <p id="id13">
-      Traverse a DOM tree in the forward direction.
+      Traverse a DOM tree in the forward direction and then from the terminal node,
+      in the reverse direction.   At some point in the traversal in the reverse
+      direction, a new node is inserted before the next node.  The next node
+      returned from previousNode() is the newly inserted node.
     </p>
     <div id="id14">
       <a  id="id15" href="http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/traversal.html#Iterator-overview">http://www.w3.org/TR/2000/REC-DOM-Level-2-Traversal-Range-20001113/traversal.html#Iterator-overview</a>
     </div>
-    <form  id="id16" action="nodeIterator01.html" method="post">
+    <form  id="id16" action="nodeIterator04.html" method="post">
       <div id="id17">
         <input id="id18" name="testButton" type="button"
                value="Click Me" onclick="handleEvent(event);">
+        <input id="afterTheEndNull" type="hidden">
         <input id="elementCount" type="hidden">
         <input id="id1v" type="hidden">
         <input id="id2v" type="hidden">
@@ -102,6 +116,7 @@
         <input id="id19v" type="hidden">
         <input id="id20v" type="hidden">
         <input id="id21v" type="hidden">
+        <input id="id22v" type="hidden">
       </div>
     </form>
     <pre id="id19">
@@ -129,4 +144,3 @@
     </script>
   </body>
 </html>
-
