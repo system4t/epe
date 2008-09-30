@@ -24,7 +24,7 @@ if (document.createEventObject) {
 
   // Cache elements between creation and insertion. This is nessesary in
   // a number of situations especially when using innerHTML
-  // 1 = on, 0 = off. Default value is 0
+  // 1 = on, 0 = off. Default value is 1
   // See http://www.jslab.dk/epe.features.php#enable.cache for more info
   EPE.CACHE_ELEMENTS = 1;
   
@@ -303,6 +303,12 @@ if (document.createEventObject) {
         EPE.extend(node);
         // Execute onattach events
         EPE.PlugIn.executeAttach(node);
+        // Temporary fix for nasty bug when assigning event handlers
+        // as properties
+        for(var p in node) {
+          if (/^on/i.test(p) && node[p] && node[p] != UEM.wrapper)
+            node.addEventListener(p.substring(2), node[p], false);
+        }
       }
     };
    
