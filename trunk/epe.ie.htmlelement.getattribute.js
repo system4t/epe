@@ -19,6 +19,9 @@ if (document.createEventObject && window.EPE) {
         var s = this.style.cssText.toLowerCase();
         return s.charAt(s.length - 1) != ';' ? s + ';' : s;
       }
-      return this.getAttributeNode(a).nodeValue;
+      else {
+        a = this.getAttributeNode(a);
+        return a ? a.nodeValue : null;
+      }
     };
 }

@@ -2,7 +2,7 @@
 // 1. User configurable settings
 // 2. Element creation
 // 3. Element property change
-// 4. Element chache
+// 4. Element cache
 // 5. Functions for collabaration with external scripts (hooks)
 // 6. Redeclaration of native JS functions/methods
 // 7. Prototype handling
