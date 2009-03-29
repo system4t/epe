@@ -25,7 +25,7 @@ if (document.createEventObject) {
       if (s.rules[i])
         s.cssRules[k++] = new CSSStyleRule(s.rules[i]);
     }
-    // Copy prototype functions ti native IE stylesheet
+    // Copy prototype functions to native IE stylesheet
     for(var p in this.constructor.prototype)
       s[p] = this.constructor.prototype[p];
   }
@@ -53,7 +53,7 @@ if (document.createEventObject) {
           this.addRule(sel[i],tmp[1],-1);
       }
       else 
-      this.addRule(tmp[0],tmp[1],-1);
+        this.addRule(tmp[0],tmp[1],-1);
     };
   
   // Object for single CSS class
