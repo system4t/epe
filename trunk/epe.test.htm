@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns = "http://www.w3.org/1999/xhtml">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <title>JavaScript Lab - EPE Test</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!--[if lt IE 8]>
+      <script type="text/javascript" src="ie67/epe.js"></script>
+      <script type="text/javascript" src="ie67/epe.createelement.js"></script>
+      <script type="text/javascript" src="ie67/epe.extend.js"></script>
+      <script type="text/javascript" src="ie67/epe.tags.js"></script>
+      <script type="text/javascript" src="ie67/epe.init.js"></script>
+    <![endif]-->
+    <!--[if IE 8]>
+      <script type="text/javascript" src="ie8/epe.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      
+      HTMLDivElement.prototype.test =
+        function() {
+          alert('test of HTMLDivElement');
+        };
+      
+      
+      HTMLElement.prototype.test =
+        function() {
+          alert('test of HTMLElement');
+        };
+      
+      HTMLBodyElement.prototype.test =
+        function() {
+          alert('test of HTMLBodyElement');
+        };
+
+      function main() {
+        var div = document.createElement('input');
+        alert(document.body.test);
+        
+      }
+      
+      window.onload = main;
+      
+    </script>
+    
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+    <script type="text/javascript">
+      alert('hej');
+      EPE.init();
+    </script>
+    <![endif]-->
+  </body>
+</html>
