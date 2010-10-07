@@ -12,7 +12,12 @@ document.createElement =
     t = t.toLowerCase();
     // Return an element wrapped in a proper [ELEMENT] constructor
     // If no constructor exists use HTMLElement.
-    return EPE.tags[t] ? new EPE.tags[t](t) : new HTMLElement(t);
+    
+    // return EPE.tags[t] ? new EPE.tags[t](t) : new HTMLElement(t);
+    // Temp. fix for hasOwnProperty
+    var elm = EPE.tags[t] ? new EPE.tags[t](t) : new HTMLElement(t);
+    elm.hasOwnProperty = EPE.hasOwnProperty;
+    return elm;
   };
 
 // This assignment *must* come after the EPE.createElement declaration
